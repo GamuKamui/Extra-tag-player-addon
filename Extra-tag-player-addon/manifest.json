@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "@masterkamui4649",
+        "name": "Extra-tag-player-addon",
+        "uuid": "e8189403-8a50-4b5d-a35e-bf73adf10778",
+        "version": [0, 0, 2]
+    },
+    "modules": [
+        {
+            "description": "@masterkamui4649",
+            "type": "data",
+            "uuid": "599370b4-2112-496a-977f-f256c8acde6f",
+            "version": [0, 0, 2]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "09b81133-534a-4cdf-a921-5fa4f853a017",
+            "version": [0, 0, 2]
+        }
+    ]
+}

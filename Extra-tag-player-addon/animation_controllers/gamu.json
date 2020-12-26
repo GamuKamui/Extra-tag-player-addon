@@ -1,0 +1,162 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gamu": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"anvil": "variable.attack_time && query.get_equipped_item_name =='anvil'"}
+          ]
+        },
+        "anvil": {
+          "on_entry": [
+			"/playsound bubble.up @a"
+          ],
+          "transitions": [
+            { "default": "!variable.attack_time" }
+          ]
+        }
+      }
+    },
+    "controller.animation.sneaking": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"sneaking": "query.is_sneaking"}
+          ]
+        },
+        "sneaking": {
+          "on_entry": [
+			"/tag @s add sneaking"
+          ],
+		  "on_exit": [
+			"/tag @s remove sneaking"
+		  ],
+          "transitions": [
+            { "default": "!query.is_sneaking" }
+          ]
+        }
+      }
+    },
+    "controller.animation.sprinting": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"sprinting": "query.is_sprinting"}
+          ]
+        },
+        "sprinting": {
+          "on_entry": [
+			"/tag @s add sprinting"
+          ],
+		  "on_exit": [
+			"/tag @s remove sprinting"
+		  ],
+          "transitions": [
+            { "default": "!query.is_sprinting" }
+          ]
+        }
+      }
+    },
+    "controller.animation.swimming": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"swimming": "query.is_swimming"}
+          ]
+        },
+        "swimming": {
+          "on_entry": [
+			"/tag @s add swimming"
+          ],
+		  "on_exit": [
+			"/tag @s remove swimming"
+		  ],
+          "transitions": [
+            { "default": "!query.is_swimming" }
+          ]
+        }
+      }
+    },
+    "controller.animation.jumping": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"jumping": "query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "on_entry": [
+			"/tag @s add jumping"
+          ],
+		  "on_exit": [
+			"/tag @s remove jumping"
+		  ],
+          "transitions": [
+            { "default": "!query.is_jumping" }
+          ]
+        }
+      }
+    },
+    "controller.animation.moving": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"moving": "query.is_moving"}
+          ]
+        },
+        "moving": {
+          "on_entry": [
+			"/tag @s add moving"
+          ],
+		  "on_exit": [
+			"/tag @s remove moving"
+		  ],
+          "transitions": [
+            { "default": "!query.is_moving" }
+          ]
+        }
+      }
+    },
+    "controller.animation.last_hit_by_player": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"last_hit_by_player": "query.last_hit_by_player"}
+          ]
+        },
+        "last_hit_by_player": {
+          "on_entry": [
+			"/tag @s add last_hit_by_player"
+          ],
+		  "on_exit": [
+			"/tag @s remove last_hit_by_player"
+		  ],
+          "transitions": [
+            { "default": "!query.last_hit_by_player" }
+          ]
+        }
+      }
+    },
+    "controller.animation.max_health": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"max_health": "0 == query.max_health - query.health"}
+          ]
+        },
+        "max_health": {
+          "on_entry": [
+			"/tag @s add max_health"
+          ],
+		  "on_exit": [
+			"/tag @s remove max_health"
+		  ],
+          "transitions": [
+            { "default": "0 != query.max_health - query.health" }
+          ]
+        }
+      }
+    }
+  }
+}
