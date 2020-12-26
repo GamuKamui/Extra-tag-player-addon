@@ -36,3 +36,6 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 ※1 `last_hit_by_player`最後に攻撃してきた相手がプレイヤーだった場合、ずっとtagがついたままになるので注意
 
 重大ミスやリクエストなどtwitterのDMにて　https://twitter.com/masterkamui4649
+
+## ⚠二次配布は配布ワールドに組み込む以外では禁止です。
+### 配布ワールドに組み込む場合は http://world-minecraft.com/addon/extra-tag-player-addon かgithubのコメント欄、twitterのDMにてメッセージを一言（使わせていただきます等よろしくおねがいします）
