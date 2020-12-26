@@ -34,3 +34,5 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 `max_health`          体力が最大のときに付くtag  
   
 ※1 `last_hit_by_player`最後に攻撃してきた相手がプレイヤーだった場合、ずっとtagがついたままになるので注意
+
+重大ミスやリクエストなどtwitterのDMにて　https://twitter.com/masterkamui4649
