@@ -22,6 +22,11 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 `water`               水に触れると4ダメージ（ハート２つ分のダメージ）を喰らいます。雨でも有効です。  
 `invincible`          あらゆる攻撃やダメージを完全に無効化します。（Killコマンドは見事に喰らいます）  
 `small`               体が約1メートルほどに小さくなります。  
+##### ↓v0.002からの機能  
+`verysmall` smallよりももっと小さくなります（ハーフブロックの隙間を通れるほど）  
+`red` `blue` `yellow` `green` 同じタグが付いてる人同士ではフレンドリーファイアしなくなります  
+`burnlight` ゾンビのように日光にあたると燃えます  
+`notburie` ブロックの中に埋まってでの窒息ダメージがなくなります  
   
   
 ### ２，特定のアクションをするとtagがつく  
@@ -31,10 +36,20 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 `swimming`            泳ぐと付くtag  
 `jumping`             ジャンプすると付くtag  
 `moving`              動くと付くtag  
-`last_hit_by_player`  プレイヤーからダメージを受けると付くtag※1  
+`last_hit_by_player`  プレイヤーからダメージを受けると付くtag（自動では外れません）  
 `max_health`          体力が最大のときに付くtag  
+##### ↓v0.002からの機能  
+`deathplayer` プレイヤーによって殺された場合に付きます。（自動では外れません）  
+同時にスコアボードにデス数を記録します  
+`/scoreboard objectives add deathplayer dummy deathplayer`  
   
-※1 `last_hit_by_player`最後に攻撃してきた相手がプレイヤーだった場合、ずっとtagがついたままになるので注意
+### ↓v0.002からの機能  
+### tagとは無関係  
+スコアボードに体力を記録できるようになりました。  
+保存場所はオブジェクト名`hp`です。  
+`/scoreboard objectives add hp dummy hp`  
+  
+  
 
 重大ミスやリクエストなどtwitterのDMにて　https://twitter.com/masterkamui4649
 
