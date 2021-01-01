@@ -51,8 +51,8 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 `/scoreboard objectives add deathplayer dummy deathplayer`  
   
 ##### ↓v0.003からの機能  
-`death` 死亡したときに付きます  
-`damage` 被ダメージしたときに付きます  
+`death` 死亡したときに付きます（自動では外れません）  
+`damage` 被ダメージしたときに付きます（自動では外れません）  
 `helmet`何でもいいのでヘルメットをかぶったときに付きます  
 `chestplate`何でもいいのでチェストプレートを付けた時に付きます  
 `leggings`何でもいいのでレギンスを履いた時に付きます  
