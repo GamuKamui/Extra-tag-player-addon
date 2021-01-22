@@ -38,3 +38,8 @@
 反復 /execute @a[tag=max_health,tag=attack,tag=sword] ~~~ /summon creeper ^^^6 minecraft:start_exploding  
 チェーン /tag @a[tag=attack] remove attack  
 ```  
+  
+7. スニークすると防具たての変なポーズになるコマンド  
+```
+反復 /playanimation @a[tag=sneaking] animation.armor_stand.cancan_b_pose a 1  
+```  
