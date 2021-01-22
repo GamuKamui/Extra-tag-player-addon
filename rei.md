@@ -30,7 +30,7 @@
 5. ハニーボトルを飲もうとすると爆発するコマンド  
 ```
 反復 /execute @a[tag=using,scores={haveitem=582}] ~~~ summon ender_crystal ~~~ minecraft:crystal_explode  
-チェーン /tag @a[tag=!helmet] add helmet  
+チェーン /tag @a[tag=!using] add using  
 ```  
   
 6. 体力が満タンのときに剣で攻撃すると目の前に爆発寸前のクリーパーを召喚するコマンド  
