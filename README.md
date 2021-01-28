@@ -2,7 +2,7 @@
 tagコマンドによりプレイヤーでいろんなことができるようになるアドオンです。  
 ・・・とかいいつつtagを全く使わない要素も追加する予定です
   
-## ダウンロードは[ここ](https://github.com/GamuKamui/Extra-tag-player-addon/releases)の.mcaddonをくりっく！
+## ダウンロード [最新版v0.007](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0%2C007/Extra-tag-player-addon-v0.007.mcaddon)
 
   
 ## ※ゲーム内でもtag一覧を見れるようになりました。`/function taghelp`を実行してください
