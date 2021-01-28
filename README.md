@@ -106,10 +106,10 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - ↓v0.006からの機能    
         - 視点の方角をスコアボードに保存できるようになりました  
           保存場所はオブジェクト名`rx`です。  
-          `/scoreboard objectives add haveitem dummy haveitem`  
+          `/scoreboard objectives add rx dummy rx`  
         - 視点の高さをスコアボードに保存できるようになりました  
           保存場所はオブジェクト名`ry`です。  
-          `/scoreboard objectives add haveitem dummy haveitem`    
+          `/scoreboard objectives add ry dummy ry`    
   
   
 ### 修正点  
