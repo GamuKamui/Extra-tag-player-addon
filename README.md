@@ -130,7 +130,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
   
   
 
-重大ミスやリクエストなどtwitterのDMにて　https://twitter.com/masterkamui4649
+重大ミスやリクエスト、質問などtwitterのDMにて　https://twitter.com/masterkamui4649
 
 ## ⚠二次配布は配布ワールドに組み込む以外では禁止です。
 ### 配布ワールドに組み込む場合は http://world-minecraft.com/addon/extra-tag-player-addon かgithubのコメント欄、twitterのDMにてメッセージを一言（使わせていただきます等よろしくおねがいします）
