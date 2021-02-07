@@ -1,0 +1,3308 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "system",
+		  "sneaking",
+		  "sprinting",
+		  "swimming",
+		  "jumping",
+		  "moving",
+		  "last_hit_by_player",
+		  "max_health",
+		  "hp",
+		  "deathplayer",
+		  "death",
+		  "helmet",
+		  "chestplate",
+		  "leggings",
+		  "boots",
+		  "damage",
+		  "sword",
+		  "attack",
+		  "using",
+		  "onfire",
+		  "item",
+		  "gliding",
+		  "killplayer",
+		  "pickaxe",
+		  "axe",
+		  "shovel",
+		  "hoe",
+		  "loop"
+        ]
+      },
+      "animations": {
+        "system": "controller.animation.gamu",
+		"sneaking": "controller.animation.sneaking",
+		"sprinting": "controller.animation.sprinting",
+		"swimming": "controller.animation.swimming",
+		"jumping": "controller.animation.jumping",
+		"moving": "controller.animation.moving",
+		"last_hit_by_player": "controller.animation.last_hit_by_player",
+		"max_health": "controller.animation.max_health",
+		"hp": "controller.animation.hp",
+		"deathplayer": "controller.animation.deathplayer",
+		"death": "controller.animation.death",
+		"helmet": "controller.animation.helmet",
+		"chestplate": "controller.animation.chestplate",
+		"leggings": "controller.animation.leggings",
+		"boots": "controller.animation.boots",
+		"damage": "controller.animation.damage",
+		"sword": "controller.animation.sword",
+		"attack": "controller.animation.attack",
+		"using": "controller.animation.using",
+		"onfire": "controller.animation.onfire",
+		"item": "controller.animation.item",
+		"gliding": "controller.animation.gliding",
+		"killplayer": "controller.animation.killplayer",
+		"pickaxe": "controller.animation.pickaxe",
+		"axe": "controller.animation.axe",
+		"shovel": "controller.animation.shovel",
+		"hoe": "controller.animation.hoe",
+		"loop": "controller.animation.loop"
+      }
+    },
+
+    "component_groups": {
+	"nonametag":{
+	      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      }
+	},
+	"nametag":{
+	      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      }
+	},
+	"waterdeath":{
+	"minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_water_or_rain", "subject": "self", "operator": "==", "value": true },
+            "cause": "drowning",
+            "damage_per_tick": 4
+          }
+        ]
+      }
+	},
+	
+	"invincible":{
+	  "minecraft:damage_sensor": {
+    "triggers": {
+        "cause": "all",
+        "deals_damage": false
+		}
+	}
+	},
+	
+	"small":{
+	  	"minecraft:scale": {
+          "value": 0.5
+        }
+	},	
+
+	"verysmall":{
+	  	"minecraft:scale": {
+          "value": 0.25
+        }
+	},		
+
+	"team":{
+	      "minecraft:attack": {
+        "damage": 1
+      }
+	},		
+
+	"burnlight":{
+		"minecraft:burns_in_daylight":{}
+	},
+	
+
+      "damage": {
+        "minecraft:mark_variant": {"value": 1},
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "nodamage",
+            "target": "self"
+          }
+        }
+      },
+      "nodamage": {
+        "minecraft:mark_variant": {"value": 0},
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "removeno",
+            "target": "self"
+          }
+        }
+      },
+	  
+//	"notburie":{
+ //     "minecraft:breathable": {
+//	  "breathesSolids": true,
+//        "total_supply": 15,
+//        "suffocate_time": -1,
+//        "inhale_time": 3.75,
+//        "generates_bubbles": false
+//      }
+//	},
+//	"nonotburie":{
+//			"minecraft:breathable": {
+//				"total_supply": 15,
+//				"suffocate_time": -1,
+//				"inhale_time": 3.75,
+//				"generates_bubbles": false
+//			}
+//	},
+	"big":{
+	  	"minecraft:scale": {
+          "value": 1.5
+        }
+	},	
+
+	"verybig":{
+	  	"minecraft:scale": {
+          "value": 2
+        }
+	},		
+
+	"giveitem":{
+	        "minecraft:spawn_entity": {
+        "entities": [
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "underwater_torch", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "farmland", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "hard_glass", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "hard_glass_pane", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "cocoa", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "info_update", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "info_update2", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "movingblock", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "frosted_ice", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "wall_banner", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "standing_banner", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "lit_redstone_lamp", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "lit_redstone_ore", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "lit_furnace", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "unlit_redstone_torch", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "tripwire", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "reserved6", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "powered_repeater", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "powered_comparator", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "standing_sign", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "wall_sign", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "unpowered_repeater", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "unpowered_comparator", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "pistonarmcollision", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "daylight_detector_inverted", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "bamboo_sapling", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "glowingobsidian", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "invisiblebedrock", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "end_portal", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "end_gateway", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "fire", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "portal", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "water", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "flowing_water", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "lava", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "flowing_lava", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "bubble_column", "spawn_event": "nogiveitem"},
+		{"min_wait_time": 1, "max_wait_time": 1, "single_use": true, "spawn_item": "netherreactor", "spawn_event": "nogiveitem"}
+		]
+       }
+	},
+
+	"spectator":{
+	"minecraft:can_fly": {}
+	},	
+
+      "killplayer": {
+        "minecraft:variant": {"value": 1},
+        "minecraft:timer": {
+          "time": 0.001,
+          "looping": false,
+          "time_down_event": {
+            "event": "nokillplayer",
+            "target": "self"
+          }
+        }
+      },
+      "nokillplayer": {
+        "minecraft:variant": {"value": 0},
+        "minecraft:timer": {
+          "time": 0.001,
+          "looping": false,
+          "time_down_event": {
+            "event": "removenokillplayer",
+            "target": "self"
+          }
+        }
+      },
+
+
+      "hp1": {"minecraft:health": {"max": 1}},
+      "hp2": {"minecraft:health": {"max": 2}},
+      "hp3": {"minecraft:health": {"max": 3}},
+      "hp4": {"minecraft:health": {"max": 4}},
+      "hp5": {"minecraft:health": {"max": 5}},
+      "hp6": {"minecraft:health": {"max": 6}},
+      "hp7": {"minecraft:health": {"max": 7}},
+      "hp8": {"minecraft:health": {"max": 8}},
+      "hp9": {"minecraft:health": {"max": 9}},
+      "hp10": {"minecraft:health": {"max": 10}},
+      "hp11": {"minecraft:health": {"max": 11}},
+      "hp12": {"minecraft:health": {"max": 12}},
+      "hp13": {"minecraft:health": {"max": 13}},
+      "hp14": {"minecraft:health": {"max": 14}},
+      "hp15": {"minecraft:health": {"max": 15}},
+      "hp16": {"minecraft:health": {"max": 16}},
+      "hp17": {"minecraft:health": {"max": 17}},
+      "hp18": {"minecraft:health": {"max": 18}},
+      "hp19": {"minecraft:health": {"max": 19}},
+      "hp20": {"minecraft:health": {"max": 20}},
+      "hp21": {"minecraft:health": {"max": 21}},
+      "hp22": {"minecraft:health": {"max": 22}},
+      "hp23": {"minecraft:health": {"max": 23}},
+      "hp24": {"minecraft:health": {"max": 24}},
+      "hp25": {"minecraft:health": {"max": 25}},
+      "hp26": {"minecraft:health": {"max": 26}},
+      "hp27": {"minecraft:health": {"max": 27}},
+      "hp28": {"minecraft:health": {"max": 28}},
+      "hp29": {"minecraft:health": {"max": 29}},
+      "hp30": {"minecraft:health": {"max": 30}},
+      "hp31": {"minecraft:health": {"max": 31}},
+      "hp32": {"minecraft:health": {"max": 32}},
+      "hp33": {"minecraft:health": {"max": 33}},
+      "hp34": {"minecraft:health": {"max": 34}},
+      "hp35": {"minecraft:health": {"max": 35}},
+      "hp36": {"minecraft:health": {"max": 36}},
+      "hp37": {"minecraft:health": {"max": 37}},
+      "hp38": {"minecraft:health": {"max": 38}},
+      "hp39": {"minecraft:health": {"max": 39}},
+      "hp40": {"minecraft:health": {"max": 40}},
+      "hp41": {"minecraft:health": {"max": 41}},
+      "hp42": {"minecraft:health": {"max": 42}},
+      "hp43": {"minecraft:health": {"max": 43}},
+      "hp44": {"minecraft:health": {"max": 44}},
+      "hp45": {"minecraft:health": {"max": 45}},
+      "hp46": {"minecraft:health": {"max": 46}},
+      "hp47": {"minecraft:health": {"max": 47}},
+      "hp48": {"minecraft:health": {"max": 48}},
+      "hp49": {"minecraft:health": {"max": 49}},
+      "hp50": {"minecraft:health": {"max": 50}},
+      "hp51": {"minecraft:health": {"max": 51}},
+      "hp52": {"minecraft:health": {"max": 52}},
+      "hp53": {"minecraft:health": {"max": 53}},
+      "hp54": {"minecraft:health": {"max": 54}},
+      "hp55": {"minecraft:health": {"max": 55}},
+      "hp56": {"minecraft:health": {"max": 56}},
+      "hp57": {"minecraft:health": {"max": 57}},
+      "hp58": {"minecraft:health": {"max": 58}},
+      "hp59": {"minecraft:health": {"max": 59}},
+      "hp60": {"minecraft:health": {"max": 60}},
+      "hp61": {"minecraft:health": {"max": 61}},
+      "hp62": {"minecraft:health": {"max": 62}},
+      "hp63": {"minecraft:health": {"max": 63}},
+      "hp64": {"minecraft:health": {"max": 64}},
+      "hp65": {"minecraft:health": {"max": 65}},
+      "hp66": {"minecraft:health": {"max": 66}},
+      "hp67": {"minecraft:health": {"max": 67}},
+      "hp68": {"minecraft:health": {"max": 68}},
+      "hp69": {"minecraft:health": {"max": 69}},
+      "hp70": {"minecraft:health": {"max": 70}},
+      "hp71": {"minecraft:health": {"max": 71}},
+      "hp72": {"minecraft:health": {"max": 72}},
+      "hp73": {"minecraft:health": {"max": 73}},
+      "hp74": {"minecraft:health": {"max": 74}},
+      "hp75": {"minecraft:health": {"max": 75}},
+      "hp76": {"minecraft:health": {"max": 76}},
+      "hp77": {"minecraft:health": {"max": 77}},
+      "hp78": {"minecraft:health": {"max": 78}},
+      "hp79": {"minecraft:health": {"max": 79}},
+      "hp80": {"minecraft:health": {"max": 80}},
+      "hp81": {"minecraft:health": {"max": 81}},
+      "hp82": {"minecraft:health": {"max": 82}},
+      "hp83": {"minecraft:health": {"max": 83}},
+      "hp84": {"minecraft:health": {"max": 84}},
+      "hp85": {"minecraft:health": {"max": 85}},
+      "hp86": {"minecraft:health": {"max": 86}},
+      "hp87": {"minecraft:health": {"max": 87}},
+      "hp88": {"minecraft:health": {"max": 88}},
+      "hp89": {"minecraft:health": {"max": 89}},
+      "hp90": {"minecraft:health": {"max": 90}},
+      "hp91": {"minecraft:health": {"max": 91}},
+      "hp92": {"minecraft:health": {"max": 92}},
+      "hp93": {"minecraft:health": {"max": 93}},
+      "hp94": {"minecraft:health": {"max": 94}},
+      "hp95": {"minecraft:health": {"max": 95}},
+      "hp96": {"minecraft:health": {"max": 96}},
+      "hp97": {"minecraft:health": {"max": 97}},
+      "hp98": {"minecraft:health": {"max": 98}},
+      "hp99": {"minecraft:health": {"max": 99}},
+      "hp100": {"minecraft:health": {"max": 100}},
+      "hp101": {"minecraft:health": {"max": 101}},
+      "hp102": {"minecraft:health": {"max": 102}},
+      "hp103": {"minecraft:health": {"max": 103}},
+      "hp104": {"minecraft:health": {"max": 104}},
+      "hp105": {"minecraft:health": {"max": 105}},
+      "hp106": {"minecraft:health": {"max": 106}},
+      "hp107": {"minecraft:health": {"max": 107}},
+      "hp108": {"minecraft:health": {"max": 108}},
+      "hp109": {"minecraft:health": {"max": 109}},
+      "hp110": {"minecraft:health": {"max": 110}},
+      "hp111": {"minecraft:health": {"max": 111}},
+      "hp112": {"minecraft:health": {"max": 112}},
+      "hp113": {"minecraft:health": {"max": 113}},
+      "hp114": {"minecraft:health": {"max": 114}},
+      "hp115": {"minecraft:health": {"max": 115}},
+      "hp116": {"minecraft:health": {"max": 116}},
+      "hp117": {"minecraft:health": {"max": 117}},
+      "hp118": {"minecraft:health": {"max": 118}},
+      "hp119": {"minecraft:health": {"max": 119}},
+      "hp120": {"minecraft:health": {"max": 120}},
+      "hp121": {"minecraft:health": {"max": 121}},
+      "hp122": {"minecraft:health": {"max": 122}},
+      "hp123": {"minecraft:health": {"max": 123}},
+      "hp124": {"minecraft:health": {"max": 124}},
+      "hp125": {"minecraft:health": {"max": 125}},
+      "hp126": {"minecraft:health": {"max": 126}},
+      "hp127": {"minecraft:health": {"max": 127}},
+      "hp128": {"minecraft:health": {"max": 128}},
+      "hp129": {"minecraft:health": {"max": 129}},
+      "hp130": {"minecraft:health": {"max": 130}},
+      "hp131": {"minecraft:health": {"max": 131}},
+      "hp132": {"minecraft:health": {"max": 132}},
+      "hp133": {"minecraft:health": {"max": 133}},
+      "hp134": {"minecraft:health": {"max": 134}},
+      "hp135": {"minecraft:health": {"max": 135}},
+      "hp136": {"minecraft:health": {"max": 136}},
+      "hp137": {"minecraft:health": {"max": 137}},
+      "hp138": {"minecraft:health": {"max": 138}},
+      "hp139": {"minecraft:health": {"max": 139}},
+      "hp140": {"minecraft:health": {"max": 140}},
+      "hp141": {"minecraft:health": {"max": 141}},
+      "hp142": {"minecraft:health": {"max": 142}},
+      "hp143": {"minecraft:health": {"max": 143}},
+      "hp144": {"minecraft:health": {"max": 144}},
+      "hp145": {"minecraft:health": {"max": 145}},
+      "hp146": {"minecraft:health": {"max": 146}},
+      "hp147": {"minecraft:health": {"max": 147}},
+      "hp148": {"minecraft:health": {"max": 148}},
+      "hp149": {"minecraft:health": {"max": 149}},
+      "hp150": {"minecraft:health": {"max": 150}},
+
+      "nonotarget": {
+      "minecraft:type_family": {
+        "family": [ "player" ]
+		}
+	  },
+      "notarget": {
+      "minecraft:type_family": {
+		}
+	  },
+	  
+      "damage1": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 1}]}},
+      "damage2": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 2}]}},
+      "damage3": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 3}]}},
+      "damage4": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 4}]}},
+      "damage5": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 5}]}},
+      "damage6": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 6}]}},
+      "damage7": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 7}]}},
+      "damage8": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 8}]}},
+      "damage9": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 9}]}},
+      "damage10": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 10}]}},
+      "damage11": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 11}]}},
+      "damage12": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 12}]}},
+      "damage13": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 13}]}},
+      "damage14": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 14}]}},
+      "damage15": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 15}]}},
+      "damage16": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 16}]}},
+      "damage17": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 17}]}},
+      "damage18": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 18}]}},
+      "damage19": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 19}]}},
+      "damage20": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 20}]}},
+      "damage21": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 21}]}},
+      "damage22": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 22}]}},
+      "damage23": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 23}]}},
+      "damage24": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 24}]}},
+      "damage25": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 25}]}},
+      "damage26": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 26}]}},
+      "damage27": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 27}]}},
+      "damage28": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 28}]}},
+      "damage29": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 29}]}},
+      "damage30": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 30}]}},
+      "damage31": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 31}]}},
+      "damage32": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 32}]}},
+      "damage33": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 33}]}},
+      "damage34": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 34}]}},
+      "damage35": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 35}]}},
+      "damage36": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 36}]}},
+      "damage37": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 37}]}},
+      "damage38": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 38}]}},
+      "damage39": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 39}]}},
+      "damage40": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 40}]}},
+      "damage41": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 41}]}},
+      "damage42": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 42}]}},
+      "damage43": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 43}]}},
+      "damage44": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 44}]}},
+      "damage45": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 45}]}},
+      "damage46": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 46}]}},
+      "damage47": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 47}]}},
+      "damage48": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 48}]}},
+      "damage49": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 49}]}},
+      "damage50": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 50}]}},
+      "damage51": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 51}]}},
+      "damage52": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 52}]}},
+      "damage53": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 53}]}},
+      "damage54": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 54}]}},
+      "damage55": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 55}]}},
+      "damage56": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 56}]}},
+      "damage57": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 57}]}},
+      "damage58": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 58}]}},
+      "damage59": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 59}]}},
+      "damage60": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 60}]}},
+      "damage61": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 61}]}},
+      "damage62": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 62}]}},
+      "damage63": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 63}]}},
+      "damage64": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 64}]}},
+      "damage65": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 65}]}},
+      "damage66": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 66}]}},
+      "damage67": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 67}]}},
+      "damage68": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 68}]}},
+      "damage69": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 69}]}},
+      "damage70": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 70}]}},
+      "damage71": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 71}]}},
+      "damage72": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 72}]}},
+      "damage73": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 73}]}},
+      "damage74": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 74}]}},
+      "damage75": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 75}]}},
+      "damage76": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 76}]}},
+      "damage77": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 77}]}},
+      "damage78": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 78}]}},
+      "damage79": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 79}]}},
+      "damage80": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 80}]}},
+      "damage81": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 81}]}},
+      "damage82": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 82}]}},
+      "damage83": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 83}]}},
+      "damage84": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 84}]}},
+      "damage85": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 85}]}},
+      "damage86": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 86}]}},
+      "damage87": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 87}]}},
+      "damage88": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 88}]}},
+      "damage89": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 89}]}},
+      "damage90": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 90}]}},
+      "damage91": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 91}]}},
+      "damage92": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 92}]}},
+      "damage93": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 93}]}},
+      "damage94": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 94}]}},
+      "damage95": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 95}]}},
+      "damage96": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 96}]}},
+      "damage97": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 97}]}},
+      "damage98": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 98}]}},
+      "damage99": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 99}]}},
+      "damage100": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 100}]}},
+      "damage101": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 101}]}},
+      "damage102": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 102}]}},
+      "damage103": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 103}]}},
+      "damage104": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 104}]}},
+      "damage105": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 105}]}},
+      "damage106": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 106}]}},
+      "damage107": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 107}]}},
+      "damage108": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 108}]}},
+      "damage109": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 109}]}},
+      "damage110": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 110}]}},
+      "damage111": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 111}]}},
+      "damage112": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 112}]}},
+      "damage113": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 113}]}},
+      "damage114": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 114}]}},
+      "damage115": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 115}]}},
+      "damage116": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 116}]}},
+      "damage117": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 117}]}},
+      "damage118": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 118}]}},
+      "damage119": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 119}]}},
+      "damage120": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 120}]}},
+      "damage121": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 121}]}},
+      "damage122": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 122}]}},
+      "damage123": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 123}]}},
+      "damage124": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 124}]}},
+      "damage125": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 125}]}},
+      "damage126": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 126}]}},
+      "damage127": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 127}]}},
+      "damage128": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 128}]}},
+      "damage129": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 129}]}},
+      "damage130": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 130}]}},
+      "damage131": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 131}]}},
+      "damage132": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 132}]}},
+      "damage133": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 133}]}},
+      "damage134": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 134}]}},
+      "damage135": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 135}]}},
+      "damage136": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 136}]}},
+      "damage137": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 137}]}},
+      "damage138": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 138}]}},
+      "damage139": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 139}]}},
+      "damage140": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 140}]}},
+      "damage141": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 141}]}},
+      "damage142": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 142}]}},
+      "damage143": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 143}]}},
+      "damage144": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 144}]}},
+      "damage145": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 145}]}},
+      "damage146": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 146}]}},
+      "damage147": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 147}]}},
+      "damage148": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 148}]}},
+      "damage149": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 149}]}},
+      "damage150": {"minecraft:hurt_on_condition": {"damage_conditions": [{"cause": "none","damage_per_tick": 150}]}},
+
+      "power0": {"minecraft:attack": {"damage": 0}},
+      "power1": {"minecraft:attack": {"damage": 1}},
+      "power2": {"minecraft:attack": {"damage": 2}},
+      "power3": {"minecraft:attack": {"damage": 3}},
+      "power4": {"minecraft:attack": {"damage": 4}},
+      "power5": {"minecraft:attack": {"damage": 5}},
+      "power6": {"minecraft:attack": {"damage": 6}},
+      "power7": {"minecraft:attack": {"damage": 7}},
+      "power8": {"minecraft:attack": {"damage": 8}},
+      "power9": {"minecraft:attack": {"damage": 9}},
+      "power10": {"minecraft:attack": {"damage": 10}},
+      "power11": {"minecraft:attack": {"damage": 11}},
+      "power12": {"minecraft:attack": {"damage": 12}},
+      "power13": {"minecraft:attack": {"damage": 13}},
+      "power14": {"minecraft:attack": {"damage": 14}},
+      "power15": {"minecraft:attack": {"damage": 15}},
+      "power16": {"minecraft:attack": {"damage": 16}},
+      "power17": {"minecraft:attack": {"damage": 17}},
+      "power18": {"minecraft:attack": {"damage": 18}},
+      "power19": {"minecraft:attack": {"damage": 19}},
+      "power20": {"minecraft:attack": {"damage": 20}},
+      "power21": {"minecraft:attack": {"damage": 21}},
+      "power22": {"minecraft:attack": {"damage": 22}},
+      "power23": {"minecraft:attack": {"damage": 23}},
+      "power24": {"minecraft:attack": {"damage": 24}},
+      "power25": {"minecraft:attack": {"damage": 25}},
+      "power26": {"minecraft:attack": {"damage": 26}},
+      "power27": {"minecraft:attack": {"damage": 27}},
+      "power28": {"minecraft:attack": {"damage": 28}},
+      "power29": {"minecraft:attack": {"damage": 29}},
+      "power30": {"minecraft:attack": {"damage": 30}},
+      "power31": {"minecraft:attack": {"damage": 31}},
+      "power32": {"minecraft:attack": {"damage": 32}},
+      "power33": {"minecraft:attack": {"damage": 33}},
+      "power34": {"minecraft:attack": {"damage": 34}},
+      "power35": {"minecraft:attack": {"damage": 35}},
+      "power36": {"minecraft:attack": {"damage": 36}},
+      "power37": {"minecraft:attack": {"damage": 37}},
+      "power38": {"minecraft:attack": {"damage": 38}},
+      "power39": {"minecraft:attack": {"damage": 39}},
+      "power40": {"minecraft:attack": {"damage": 40}},
+      "power41": {"minecraft:attack": {"damage": 41}},
+      "power42": {"minecraft:attack": {"damage": 42}},
+      "power43": {"minecraft:attack": {"damage": 43}},
+      "power44": {"minecraft:attack": {"damage": 44}},
+      "power45": {"minecraft:attack": {"damage": 45}},
+      "power46": {"minecraft:attack": {"damage": 46}},
+      "power47": {"minecraft:attack": {"damage": 47}},
+      "power48": {"minecraft:attack": {"damage": 48}},
+      "power49": {"minecraft:attack": {"damage": 49}},
+      "power50": {"minecraft:attack": {"damage": 50}},
+      "power51": {"minecraft:attack": {"damage": 51}},
+      "power52": {"minecraft:attack": {"damage": 52}},
+      "power53": {"minecraft:attack": {"damage": 53}},
+      "power54": {"minecraft:attack": {"damage": 54}},
+      "power55": {"minecraft:attack": {"damage": 55}},
+      "power56": {"minecraft:attack": {"damage": 56}},
+      "power57": {"minecraft:attack": {"damage": 57}},
+      "power58": {"minecraft:attack": {"damage": 58}},
+      "power59": {"minecraft:attack": {"damage": 59}},
+      "power60": {"minecraft:attack": {"damage": 60}},
+      "power61": {"minecraft:attack": {"damage": 61}},
+      "power62": {"minecraft:attack": {"damage": 62}},
+      "power63": {"minecraft:attack": {"damage": 63}},
+      "power64": {"minecraft:attack": {"damage": 64}},
+      "power65": {"minecraft:attack": {"damage": 65}},
+      "power66": {"minecraft:attack": {"damage": 66}},
+      "power67": {"minecraft:attack": {"damage": 67}},
+      "power68": {"minecraft:attack": {"damage": 68}},
+      "power69": {"minecraft:attack": {"damage": 69}},
+      "power70": {"minecraft:attack": {"damage": 70}},
+      "power71": {"minecraft:attack": {"damage": 71}},
+      "power72": {"minecraft:attack": {"damage": 72}},
+      "power73": {"minecraft:attack": {"damage": 73}},
+      "power74": {"minecraft:attack": {"damage": 74}},
+      "power75": {"minecraft:attack": {"damage": 75}},
+      "power76": {"minecraft:attack": {"damage": 76}},
+      "power77": {"minecraft:attack": {"damage": 77}},
+      "power78": {"minecraft:attack": {"damage": 78}},
+      "power79": {"minecraft:attack": {"damage": 79}},
+      "power80": {"minecraft:attack": {"damage": 80}},
+      "power81": {"minecraft:attack": {"damage": 81}},
+      "power82": {"minecraft:attack": {"damage": 82}},
+      "power83": {"minecraft:attack": {"damage": 83}},
+      "power84": {"minecraft:attack": {"damage": 84}},
+      "power85": {"minecraft:attack": {"damage": 85}},
+      "power86": {"minecraft:attack": {"damage": 86}},
+      "power87": {"minecraft:attack": {"damage": 87}},
+      "power88": {"minecraft:attack": {"damage": 88}},
+      "power89": {"minecraft:attack": {"damage": 89}},
+      "power90": {"minecraft:attack": {"damage": 90}},
+      "power91": {"minecraft:attack": {"damage": 91}},
+      "power92": {"minecraft:attack": {"damage": 92}},
+      "power93": {"minecraft:attack": {"damage": 93}},
+      "power94": {"minecraft:attack": {"damage": 94}},
+      "power95": {"minecraft:attack": {"damage": 95}},
+      "power96": {"minecraft:attack": {"damage": 96}},
+      "power97": {"minecraft:attack": {"damage": 97}},
+      "power98": {"minecraft:attack": {"damage": 98}},
+      "power99": {"minecraft:attack": {"damage": 99}},
+      "power100": {"minecraft:attack": {"damage": 100}},
+      "power101": {"minecraft:attack": {"damage": 101}},
+      "power102": {"minecraft:attack": {"damage": 102}},
+      "power103": {"minecraft:attack": {"damage": 103}},
+      "power104": {"minecraft:attack": {"damage": 104}},
+      "power105": {"minecraft:attack": {"damage": 105}},
+      "power106": {"minecraft:attack": {"damage": 106}},
+      "power107": {"minecraft:attack": {"damage": 107}},
+      "power108": {"minecraft:attack": {"damage": 108}},
+      "power109": {"minecraft:attack": {"damage": 109}},
+      "power110": {"minecraft:attack": {"damage": 110}},
+      "power111": {"minecraft:attack": {"damage": 111}},
+      "power112": {"minecraft:attack": {"damage": 112}},
+      "power113": {"minecraft:attack": {"damage": 113}},
+      "power114": {"minecraft:attack": {"damage": 114}},
+      "power115": {"minecraft:attack": {"damage": 115}},
+      "power116": {"minecraft:attack": {"damage": 116}},
+      "power117": {"minecraft:attack": {"damage": 117}},
+      "power118": {"minecraft:attack": {"damage": 118}},
+      "power119": {"minecraft:attack": {"damage": 119}},
+      "power120": {"minecraft:attack": {"damage": 120}},
+      "power121": {"minecraft:attack": {"damage": 121}},
+      "power122": {"minecraft:attack": {"damage": 122}},
+      "power123": {"minecraft:attack": {"damage": 123}},
+      "power124": {"minecraft:attack": {"damage": 124}},
+      "power125": {"minecraft:attack": {"damage": 125}},
+      "power126": {"minecraft:attack": {"damage": 126}},
+      "power127": {"minecraft:attack": {"damage": 127}},
+      "power128": {"minecraft:attack": {"damage": 128}},
+      "power129": {"minecraft:attack": {"damage": 129}},
+      "power130": {"minecraft:attack": {"damage": 130}},
+      "power131": {"minecraft:attack": {"damage": 131}},
+      "power132": {"minecraft:attack": {"damage": 132}},
+      "power133": {"minecraft:attack": {"damage": 133}},
+      "power134": {"minecraft:attack": {"damage": 134}},
+      "power135": {"minecraft:attack": {"damage": 135}},
+      "power136": {"minecraft:attack": {"damage": 136}},
+      "power137": {"minecraft:attack": {"damage": 137}},
+      "power138": {"minecraft:attack": {"damage": 138}},
+      "power139": {"minecraft:attack": {"damage": 139}},
+      "power140": {"minecraft:attack": {"damage": 140}},
+      "power141": {"minecraft:attack": {"damage": 141}},
+      "power142": {"minecraft:attack": {"damage": 142}},
+      "power143": {"minecraft:attack": {"damage": 143}},
+      "power144": {"minecraft:attack": {"damage": 144}},
+      "power145": {"minecraft:attack": {"damage": 145}},
+      "power146": {"minecraft:attack": {"damage": 146}},
+      "power147": {"minecraft:attack": {"damage": 147}},
+      "power148": {"minecraft:attack": {"damage": 148}},
+      "power149": {"minecraft:attack": {"damage": 149}},
+      "power150": {"minecraft:attack": {"damage": 150}},
+
+	  
+	  
+	  
+      "notdamage": {
+},
+
+
+	  "damagetimer":{
+       "minecraft:damage_sensor": {
+        "triggers": [
+				{
+          "on_damage": {
+            "filters": {		
+			"all_of": [
+			{ "test": "has_tag", "subject": "self", "value": "red" },
+			{ "test": "has_tag", "subject": "other", "value": "red" }
+			]
+          }
+		  },
+          "deals_damage": false
+        },
+				{
+          "on_damage": {
+            "filters": {		
+			"all_of": [
+			{ "test": "has_tag", "subject": "self", "value": "blue" },
+			{ "test": "has_tag", "subject": "other", "value": "blue" }
+			]
+          }
+		  },
+          "deals_damage": false
+        },
+				{
+          "on_damage": {
+            "filters": {		
+			"all_of": [
+			{ "test": "has_tag", "subject": "self", "value": "yellow" },
+			{ "test": "has_tag", "subject": "other", "value": "yellow" }
+			]
+          }
+		  },
+          "deals_damage": false
+        },
+				{
+          "on_damage": {
+            "filters": {		
+			"all_of": [
+			{ "test": "has_tag", "subject": "self", "value": "green" },
+			{ "test": "has_tag", "subject": "other", "value": "green" }
+			]
+          }
+		  },
+          "deals_damage": false
+        },
+       {
+         "on_damage": {
+           "event": "damage",
+           "target": "self"
+         }
+       },
+       {
+         "on_damage": {
+			"filters":{ "test": "has_damage", "subject": "self", "value": "fatal" },
+           "event": "killplayer",
+           "target": "other"
+         }
+       }
+		]
+      }
+
+	  },
+	
+
+	
+	
+      "minecraft:add_bad_omen": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "effect": "bad_omen",
+              "duration": 6000,
+              "display_on_screen_animation": true
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [ 0.0, 0.0 ],
+          "looping": false,
+          "time_down_event": {
+            "event": "minecraft:clear_add_bad_omen",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:clear_bad_omen_spell_effect": {
+        "minecraft:spell_effects": {
+        }
+      },
+      "minecraft:raid_trigger": {
+        "minecraft:raid_trigger": {
+          "triggered_event": {
+            "event": "minecraft:remove_raid_trigger",
+            "target": "self"
+          }
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": "bad_omen"
+        }
+      }
+    },
+
+    "components": {
+	  	"minecraft:scale": {
+          "value": 1
+        },
+
+      "minecraft:experience_reward": {
+        "on_death": "Math.Min(query.player_level * 7, 100)"
+      },
+      "minecraft:type_family": {
+        "family": [ "player" ]
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:movement": {
+        "value": 0.1
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:player.saturation": {
+        "value": 20
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 4
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": -1,
+				"inhale_time": 3.75,
+				"generates_bubbles": false
+			},
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": [
+          "parrot_tame"
+        ],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [ 0.4, -0.2, -0.1 ],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [ -0.4, -0.2, -0.1 ],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:scaffolding_climber": {},
+  
+	  
+      "minecraft:environment_sensor": {
+        "triggers": [
+		{
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_mob_effect",
+                "subject": "self",
+                "value": "bad_omen"
+              },
+              {
+                "test": "is_in_village",
+                "subject": "self",
+                "value": true
+              }
+            ]
+          },
+          "event": "minecraft:trigger_raid"
+        },
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "nonametag"
+						},
+						"event": "nonametag"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "nonametag"
+						},
+						"event": "nametag"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "water"
+						},
+						"event": "water"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "water"
+						},
+						"event": "nowater"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "invincible"
+						},
+						"event": "invincible"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "invincible"
+						},
+						"event": "noinvincible"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "small"
+						},
+						"event": "small"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "verysmall"
+						},
+						"event": "verysmall"
+		},
+			{
+						"filters": {
+						"any_of": [
+							{"test": "has_tag", "subject": "self", "value": "red"},
+							{"test": "has_tag", "subject": "self", "value": "blue"},
+							{"test": "has_tag", "subject": "self", "value": "yellow"},
+							{"test": "has_tag", "subject": "self", "value": "green"}
+						]
+				},
+						"event": "team"
+			},
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "red"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "blue"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "yellow"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "green"}
+						]
+					},
+						"event": "noteam"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "burnlight"
+						},
+						"event": "burnlight"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "burnlight"
+						},
+						"event": "noburnlight"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "notburie"
+						},
+						"event": "notburie"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "notburie"
+						},
+						"event": "nonotburie"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"operator" : "not",
+							"value": "damageeeeeeeeeeeeeeeeeeawdawafafaffafaf"
+						},
+						"event": "damagetimer"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "big"
+						},
+						"event": "big"
+		},
+				{
+						"filters": {
+							"test": "has_tag",
+							"subject": "self",
+							"value": "verybig"
+						},
+						"event": "verybig"
+		},
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "small"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "verysmall"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "big"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "verybig"}
+						]
+						},
+						"event": "nosize"
+		},
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "value": "giveitem"},
+							{"test": "is_sneaking"}
+						]
+						},
+						"event": "giveitem"
+		},
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "value": "spectator"},
+							{ "test": "has_ability", "subject": "self", "operator": "not", "value": "flying" }
+							]
+							},
+						"event": "spectator"
+		},
+				{
+						"filters": {"test": "has_tag", "subject": "self", "operator" : "not", "value": "spectator"},
+						"event": "nospectator"
+		},
+//				{
+//						"filters": { "test": "has_damage", "subject": "self", "value": "fatal" },
+//						"event": "killplayer"
+//		}
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp1"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp2"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp3"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp4"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp5"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp6"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp7"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp8"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp9"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp10"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp11"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp12"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp13"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp14"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp15"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp16"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp17"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp18"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp19"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp20"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp21"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp22"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp23"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp24"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp25"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp26"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp27"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp28"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp29"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp30"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp31"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp32"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp33"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp34"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp35"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp36"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp37"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp38"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp39"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp40"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp41"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp42"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp43"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp44"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp45"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp46"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp47"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp48"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp49"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp50"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp51"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp52"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp53"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp54"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp55"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp56"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp57"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp58"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp59"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp60"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp61"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp62"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp63"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp64"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp65"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp66"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp67"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp68"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp69"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp70"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp71"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp72"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp73"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp74"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp75"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp76"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp77"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp78"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp79"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp80"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp81"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp82"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp83"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp84"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp85"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp86"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp87"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp88"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp89"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp90"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp91"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp92"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp93"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp94"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp95"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp96"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp97"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp98"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp99"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp100"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp101"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp102"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp103"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp104"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp105"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp106"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp107"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp108"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp109"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp110"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp111"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp112"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp113"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp114"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp115"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp116"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp117"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp118"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp119"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp120"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp121"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp122"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp123"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp124"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp125"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp126"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp127"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp128"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp129"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp130"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp131"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp132"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp133"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp134"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp135"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp136"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp137"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp138"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp139"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp140"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp141"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp142"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp143"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp144"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp145"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp146"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp147"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp148"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp149"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "hp150"}
+
+						]
+					},
+						"event": "nohp"
+			},
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp1"}, "event": "hp1" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp2"}, "event": "hp2" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp3"}, "event": "hp3" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp4"}, "event": "hp4" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp5"}, "event": "hp5" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp6"}, "event": "hp6" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp7"}, "event": "hp7" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp8"}, "event": "hp8" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp9"}, "event": "hp9" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp10"}, "event": "hp10" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp11"}, "event": "hp11" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp12"}, "event": "hp12" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp13"}, "event": "hp13" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp14"}, "event": "hp14" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp15"}, "event": "hp15" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp16"}, "event": "hp16" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp17"}, "event": "hp17" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp18"}, "event": "hp18" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp19"}, "event": "hp19" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp20"}, "event": "hp20" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp21"}, "event": "hp21" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp22"}, "event": "hp22" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp23"}, "event": "hp23" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp24"}, "event": "hp24" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp25"}, "event": "hp25" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp26"}, "event": "hp26" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp27"}, "event": "hp27" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp28"}, "event": "hp28" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp29"}, "event": "hp29" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp30"}, "event": "hp30" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp31"}, "event": "hp31" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp32"}, "event": "hp32" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp33"}, "event": "hp33" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp34"}, "event": "hp34" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp35"}, "event": "hp35" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp36"}, "event": "hp36" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp37"}, "event": "hp37" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp38"}, "event": "hp38" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp39"}, "event": "hp39" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp40"}, "event": "hp40" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp41"}, "event": "hp41" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp42"}, "event": "hp42" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp43"}, "event": "hp43" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp44"}, "event": "hp44" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp45"}, "event": "hp45" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp46"}, "event": "hp46" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp47"}, "event": "hp47" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp48"}, "event": "hp48" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp49"}, "event": "hp49" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp50"}, "event": "hp50" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp51"}, "event": "hp51" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp52"}, "event": "hp52" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp53"}, "event": "hp53" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp54"}, "event": "hp54" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp55"}, "event": "hp55" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp56"}, "event": "hp56" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp57"}, "event": "hp57" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp58"}, "event": "hp58" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp59"}, "event": "hp59" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp60"}, "event": "hp60" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp61"}, "event": "hp61" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp62"}, "event": "hp62" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp63"}, "event": "hp63" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp64"}, "event": "hp64" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp65"}, "event": "hp65" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp66"}, "event": "hp66" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp67"}, "event": "hp67" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp68"}, "event": "hp68" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp69"}, "event": "hp69" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp70"}, "event": "hp70" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp71"}, "event": "hp71" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp72"}, "event": "hp72" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp73"}, "event": "hp73" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp74"}, "event": "hp74" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp75"}, "event": "hp75" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp76"}, "event": "hp76" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp77"}, "event": "hp77" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp78"}, "event": "hp78" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp79"}, "event": "hp79" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp80"}, "event": "hp80" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp81"}, "event": "hp81" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp82"}, "event": "hp82" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp83"}, "event": "hp83" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp84"}, "event": "hp84" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp85"}, "event": "hp85" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp86"}, "event": "hp86" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp87"}, "event": "hp87" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp88"}, "event": "hp88" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp89"}, "event": "hp89" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp90"}, "event": "hp90" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp91"}, "event": "hp91" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp92"}, "event": "hp92" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp93"}, "event": "hp93" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp94"}, "event": "hp94" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp95"}, "event": "hp95" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp96"}, "event": "hp96" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp97"}, "event": "hp97" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp98"}, "event": "hp98" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp99"}, "event": "hp99" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp100"}, "event": "hp100" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp101"}, "event": "hp101" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp102"}, "event": "hp102" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp103"}, "event": "hp103" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp104"}, "event": "hp104" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp105"}, "event": "hp105" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp106"}, "event": "hp106" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp107"}, "event": "hp107" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp108"}, "event": "hp108" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp109"}, "event": "hp109" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp110"}, "event": "hp110" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp111"}, "event": "hp111" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp112"}, "event": "hp112" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp113"}, "event": "hp113" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp114"}, "event": "hp114" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp115"}, "event": "hp115" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp116"}, "event": "hp116" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp117"}, "event": "hp117" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp118"}, "event": "hp118" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp119"}, "event": "hp119" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp120"}, "event": "hp120" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp121"}, "event": "hp121" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp122"}, "event": "hp122" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp123"}, "event": "hp123" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp124"}, "event": "hp124" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp125"}, "event": "hp125" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp126"}, "event": "hp126" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp127"}, "event": "hp127" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp128"}, "event": "hp128" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp129"}, "event": "hp129" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp130"}, "event": "hp130" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp131"}, "event": "hp131" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp132"}, "event": "hp132" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp133"}, "event": "hp133" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp134"}, "event": "hp134" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp135"}, "event": "hp135" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp136"}, "event": "hp136" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp137"}, "event": "hp137" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp138"}, "event": "hp138" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp139"}, "event": "hp139" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp140"}, "event": "hp140" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp141"}, "event": "hp141" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp142"}, "event": "hp142" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp143"}, "event": "hp143" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp144"}, "event": "hp144" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp145"}, "event": "hp145" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp146"}, "event": "hp146" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp147"}, "event": "hp147" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp148"}, "event": "hp148" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp149"}, "event": "hp149" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "hp150"}, "event": "hp150" },
+
+				
+				
+				{"filters": {"test": "has_tag", "subject": "self", "value": "notarget"}, "event": "notarget" },
+				{"filters": {"test": "has_tag", "subject": "self", "operator": "not", "value": "notarget"}, "event": "nonotarget" },
+				
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage1"}, "event": "damage1" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage2"}, "event": "damage2" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage3"}, "event": "damage3" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage4"}, "event": "damage4" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage5"}, "event": "damage5" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage6"}, "event": "damage6" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage7"}, "event": "damage7" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage8"}, "event": "damage8" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage9"}, "event": "damage9" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage10"}, "event": "damage10" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage11"}, "event": "damage11" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage12"}, "event": "damage12" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage13"}, "event": "damage13" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage14"}, "event": "damage14" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage15"}, "event": "damage15" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage16"}, "event": "damage16" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage17"}, "event": "damage17" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage18"}, "event": "damage18" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage19"}, "event": "damage19" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage20"}, "event": "damage20" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage21"}, "event": "damage21" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage22"}, "event": "damage22" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage23"}, "event": "damage23" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage24"}, "event": "damage24" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage25"}, "event": "damage25" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage26"}, "event": "damage26" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage27"}, "event": "damage27" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage28"}, "event": "damage28" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage29"}, "event": "damage29" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage30"}, "event": "damage30" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage31"}, "event": "damage31" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage32"}, "event": "damage32" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage33"}, "event": "damage33" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage34"}, "event": "damage34" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage35"}, "event": "damage35" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage36"}, "event": "damage36" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage37"}, "event": "damage37" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage38"}, "event": "damage38" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage39"}, "event": "damage39" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage40"}, "event": "damage40" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage41"}, "event": "damage41" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage42"}, "event": "damage42" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage43"}, "event": "damage43" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage44"}, "event": "damage44" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage45"}, "event": "damage45" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage46"}, "event": "damage46" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage47"}, "event": "damage47" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage48"}, "event": "damage48" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage49"}, "event": "damage49" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage50"}, "event": "damage50" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage51"}, "event": "damage51" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage52"}, "event": "damage52" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage53"}, "event": "damage53" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage54"}, "event": "damage54" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage55"}, "event": "damage55" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage56"}, "event": "damage56" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage57"}, "event": "damage57" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage58"}, "event": "damage58" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage59"}, "event": "damage59" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage60"}, "event": "damage60" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage61"}, "event": "damage61" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage62"}, "event": "damage62" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage63"}, "event": "damage63" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage64"}, "event": "damage64" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage65"}, "event": "damage65" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage66"}, "event": "damage66" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage67"}, "event": "damage67" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage68"}, "event": "damage68" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage69"}, "event": "damage69" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage70"}, "event": "damage70" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage71"}, "event": "damage71" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage72"}, "event": "damage72" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage73"}, "event": "damage73" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage74"}, "event": "damage74" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage75"}, "event": "damage75" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage76"}, "event": "damage76" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage77"}, "event": "damage77" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage78"}, "event": "damage78" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage79"}, "event": "damage79" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage80"}, "event": "damage80" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage81"}, "event": "damage81" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage82"}, "event": "damage82" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage83"}, "event": "damage83" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage84"}, "event": "damage84" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage85"}, "event": "damage85" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage86"}, "event": "damage86" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage87"}, "event": "damage87" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage88"}, "event": "damage88" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage89"}, "event": "damage89" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage90"}, "event": "damage90" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage91"}, "event": "damage91" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage92"}, "event": "damage92" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage93"}, "event": "damage93" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage94"}, "event": "damage94" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage95"}, "event": "damage95" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage96"}, "event": "damage96" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage97"}, "event": "damage97" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage98"}, "event": "damage98" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage99"}, "event": "damage99" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage100"}, "event": "damage100" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage101"}, "event": "damage101" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage102"}, "event": "damage102" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage103"}, "event": "damage103" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage104"}, "event": "damage104" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage105"}, "event": "damage105" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage106"}, "event": "damage106" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage107"}, "event": "damage107" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage108"}, "event": "damage108" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage109"}, "event": "damage109" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage110"}, "event": "damage110" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage111"}, "event": "damage111" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage112"}, "event": "damage112" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage113"}, "event": "damage113" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage114"}, "event": "damage114" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage115"}, "event": "damage115" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage116"}, "event": "damage116" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage117"}, "event": "damage117" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage118"}, "event": "damage118" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage119"}, "event": "damage119" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage120"}, "event": "damage120" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage121"}, "event": "damage121" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage122"}, "event": "damage122" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage123"}, "event": "damage123" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage124"}, "event": "damage124" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage125"}, "event": "damage125" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage126"}, "event": "damage126" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage127"}, "event": "damage127" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage128"}, "event": "damage128" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage129"}, "event": "damage129" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage130"}, "event": "damage130" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage131"}, "event": "damage131" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage132"}, "event": "damage132" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage133"}, "event": "damage133" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage134"}, "event": "damage134" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage135"}, "event": "damage135" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage136"}, "event": "damage136" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage137"}, "event": "damage137" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage138"}, "event": "damage138" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage139"}, "event": "damage139" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage140"}, "event": "damage140" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage141"}, "event": "damage141" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage142"}, "event": "damage142" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage143"}, "event": "damage143" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage144"}, "event": "damage144" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage145"}, "event": "damage145" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage146"}, "event": "damage146" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage147"}, "event": "damage147" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage148"}, "event": "damage148" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage149"}, "event": "damage149" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "damage150"}, "event": "damage150" },
+
+				
+				
+			{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage1"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage2"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage3"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage4"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage5"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage6"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage7"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage8"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage9"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage10"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage11"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage12"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage13"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage14"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage15"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage16"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage17"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage18"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage19"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage20"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage21"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage22"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage23"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage24"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage25"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage26"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage27"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage28"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage29"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage30"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage31"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage32"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage33"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage34"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage35"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage36"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage37"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage38"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage39"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage40"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage41"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage42"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage43"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage44"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage45"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage46"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage47"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage48"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage49"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage50"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage51"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage52"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage53"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage54"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage55"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage56"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage57"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage58"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage59"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage60"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage61"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage62"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage63"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage64"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage65"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage66"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage67"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage68"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage69"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage70"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage71"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage72"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage73"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage74"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage75"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage76"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage77"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage78"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage79"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage80"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage81"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage82"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage83"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage84"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage85"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage86"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage87"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage88"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage89"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage90"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage91"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage92"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage93"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage94"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage95"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage96"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage97"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage98"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage99"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage100"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage101"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage102"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage103"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage104"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage105"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage106"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage107"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage108"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage109"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage110"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage111"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage112"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage113"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage114"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage115"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage116"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage117"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage118"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage119"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage120"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage121"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage122"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage123"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage124"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage125"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage126"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage127"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage128"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage129"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage130"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage131"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage132"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage133"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage134"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage135"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage136"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage137"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage138"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage139"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage140"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage141"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage142"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage143"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage144"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage145"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage146"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage147"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage148"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage149"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "damage150"}
+
+						]
+					},
+						"event": "notdamage"
+			},
+				{
+						"filters": {
+						"all_of": [
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power0"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power1"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power2"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power3"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power4"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power5"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power6"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power7"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power8"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power9"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power10"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power11"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power12"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power13"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power14"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power15"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power16"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power17"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power18"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power19"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power20"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power21"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power22"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power23"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power24"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power25"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power26"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power27"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power28"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power29"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power30"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power31"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power32"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power33"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power34"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power35"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power36"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power37"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power38"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power39"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power40"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power41"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power42"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power43"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power44"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power45"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power46"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power47"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power48"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power49"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power50"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power51"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power52"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power53"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power54"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power55"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power56"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power57"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power58"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power59"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power60"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power61"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power62"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power63"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power64"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power65"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power66"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power67"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power68"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power69"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power70"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power71"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power72"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power73"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power74"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power75"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power76"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power77"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power78"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power79"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power80"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power81"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power82"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power83"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power84"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power85"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power86"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power87"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power88"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power89"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power90"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power91"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power92"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power93"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power94"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power95"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power96"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power97"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power98"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power99"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power100"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power101"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power102"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power103"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power104"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power105"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power106"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power107"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power108"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power109"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power110"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power111"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power112"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power113"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power114"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power115"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power116"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power117"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power118"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power119"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power120"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power121"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power122"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power123"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power124"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power125"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power126"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power127"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power128"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power129"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power130"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power131"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power132"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power133"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power134"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power135"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power136"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power137"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power138"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power139"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power140"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power141"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power142"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power143"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power144"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power145"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power146"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power147"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power148"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power149"},
+							{"test": "has_tag", "subject": "self", "operator" : "not", "value": "power150"}
+
+						]
+					},
+						"event": "nopower"
+			},
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power0"}, "event": "power0" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power1"}, "event": "power1" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power2"}, "event": "power2" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power3"}, "event": "power3" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power4"}, "event": "power4" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power5"}, "event": "power5" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power6"}, "event": "power6" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power7"}, "event": "power7" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power8"}, "event": "power8" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power9"}, "event": "power9" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power10"}, "event": "power10" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power11"}, "event": "power11" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power12"}, "event": "power12" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power13"}, "event": "power13" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power14"}, "event": "power14" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power15"}, "event": "power15" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power16"}, "event": "power16" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power17"}, "event": "power17" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power18"}, "event": "power18" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power19"}, "event": "power19" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power20"}, "event": "power20" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power21"}, "event": "power21" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power22"}, "event": "power22" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power23"}, "event": "power23" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power24"}, "event": "power24" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power25"}, "event": "power25" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power26"}, "event": "power26" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power27"}, "event": "power27" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power28"}, "event": "power28" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power29"}, "event": "power29" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power30"}, "event": "power30" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power31"}, "event": "power31" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power32"}, "event": "power32" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power33"}, "event": "power33" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power34"}, "event": "power34" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power35"}, "event": "power35" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power36"}, "event": "power36" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power37"}, "event": "power37" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power38"}, "event": "power38" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power39"}, "event": "power39" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power40"}, "event": "power40" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power41"}, "event": "power41" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power42"}, "event": "power42" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power43"}, "event": "power43" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power44"}, "event": "power44" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power45"}, "event": "power45" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power46"}, "event": "power46" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power47"}, "event": "power47" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power48"}, "event": "power48" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power49"}, "event": "power49" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power50"}, "event": "power50" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power51"}, "event": "power51" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power52"}, "event": "power52" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power53"}, "event": "power53" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power54"}, "event": "power54" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power55"}, "event": "power55" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power56"}, "event": "power56" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power57"}, "event": "power57" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power58"}, "event": "power58" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power59"}, "event": "power59" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power60"}, "event": "power60" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power61"}, "event": "power61" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power62"}, "event": "power62" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power63"}, "event": "power63" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power64"}, "event": "power64" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power65"}, "event": "power65" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power66"}, "event": "power66" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power67"}, "event": "power67" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power68"}, "event": "power68" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power69"}, "event": "power69" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power70"}, "event": "power70" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power71"}, "event": "power71" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power72"}, "event": "power72" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power73"}, "event": "power73" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power74"}, "event": "power74" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power75"}, "event": "power75" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power76"}, "event": "power76" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power77"}, "event": "power77" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power78"}, "event": "power78" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power79"}, "event": "power79" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power80"}, "event": "power80" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power81"}, "event": "power81" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power82"}, "event": "power82" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power83"}, "event": "power83" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power84"}, "event": "power84" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power85"}, "event": "power85" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power86"}, "event": "power86" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power87"}, "event": "power87" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power88"}, "event": "power88" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power89"}, "event": "power89" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power90"}, "event": "power90" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power91"}, "event": "power91" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power92"}, "event": "power92" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power93"}, "event": "power93" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power94"}, "event": "power94" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power95"}, "event": "power95" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power96"}, "event": "power96" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power97"}, "event": "power97" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power98"}, "event": "power98" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power99"}, "event": "power99" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power100"}, "event": "power100" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power101"}, "event": "power101" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power102"}, "event": "power102" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power103"}, "event": "power103" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power104"}, "event": "power104" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power105"}, "event": "power105" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power106"}, "event": "power106" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power107"}, "event": "power107" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power108"}, "event": "power108" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power109"}, "event": "power109" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power110"}, "event": "power110" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power111"}, "event": "power111" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power112"}, "event": "power112" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power113"}, "event": "power113" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power114"}, "event": "power114" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power115"}, "event": "power115" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power116"}, "event": "power116" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power117"}, "event": "power117" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power118"}, "event": "power118" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power119"}, "event": "power119" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power120"}, "event": "power120" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power121"}, "event": "power121" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power122"}, "event": "power122" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power123"}, "event": "power123" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power124"}, "event": "power124" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power125"}, "event": "power125" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power126"}, "event": "power126" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power127"}, "event": "power127" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power128"}, "event": "power128" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power129"}, "event": "power129" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power130"}, "event": "power130" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power131"}, "event": "power131" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power132"}, "event": "power132" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power133"}, "event": "power133" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power134"}, "event": "power134" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power135"}, "event": "power135" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power136"}, "event": "power136" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power137"}, "event": "power137" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power138"}, "event": "power138" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power139"}, "event": "power139" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power140"}, "event": "power140" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power141"}, "event": "power141" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power142"}, "event": "power142" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power143"}, "event": "power143" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power144"}, "event": "power144" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power145"}, "event": "power145" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power146"}, "event": "power146" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power147"}, "event": "power147" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power148"}, "event": "power148" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power149"}, "event": "power149" },
+				{"filters": {"test": "has_tag", "subject": "self", "value": "power150"}, "event": "power150" }
+				
+				
+				
+				
+				
+				
+				
+				
+		]
+      }
+    },
+
+    "events": {
+					"nonametag": {
+				"add": {
+					"component_groups": [
+						"nonametag"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"nametag"
+					]
+				}
+			},
+				"nametag": {
+				"add": {
+					"component_groups": [
+						"nametag"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"nonametag"
+					]
+				}
+			},
+				"water": {
+				"add": {
+					"component_groups": [
+						"waterdeath"
+					]
+				}
+			},
+				"nowater": {
+				"remove": {
+					"component_groups": [
+						"waterdeath"
+					]
+				}
+			},			
+				"invincible": {
+				"add": {
+					"component_groups": [
+						"invincible"
+					]
+				}
+			},
+				"noinvincible": {
+				"remove": {
+					"component_groups": [
+						"invincible"
+					]
+				}
+			},				
+				"small": {
+				"add": {
+					"component_groups": [
+						"small"
+					]
+				}
+			},
+	
+				"verysmall": {
+				"add": {
+					"component_groups": [
+						"verysmall"
+					]
+				}
+			},			
+				"team": {
+				"add": {
+					"component_groups": [
+						"team"
+					]
+				}
+			},
+				"noteam": {
+				"remove": {
+					"component_groups": [
+						"team"
+					]
+				}
+			},			
+				"burnlight": {
+				"add": {
+					"component_groups": [
+						"burnlight"
+					]
+				}
+			},
+				"noburnlight": {
+				"remove": {
+					"component_groups": [
+						"burnlight"
+					]
+				}
+			},				
+				"notburie": {
+				"add": {
+					"component_groups": [
+						"notburie"
+					]
+				}
+			},
+				"nonotburie": {
+				"add": {
+					"component_groups": [
+						"nonotburie"
+					]
+				}
+			},
+				"damage": {
+				"add": {
+					"component_groups": [
+						"damage"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"nodamage"
+					]
+				}
+			},
+				"nodamage": {
+				"add": {
+					"component_groups": [
+						"nodamage"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"damage"
+					]
+				}
+			},	
+							
+				"removeno": {
+				"remove": {
+					"component_groups": [
+						"damage",
+						"nodamage"
+					]
+				}
+			},					
+			
+				"big": {
+				"add": {
+					"component_groups": [
+						"big"
+					]
+				}
+			},		
+				"verybig": {
+				"add": {
+					"component_groups": [
+						"verybig"
+					]
+				}
+			},
+				"nosize": {
+				"remove": {
+					"component_groups": [
+						"small",
+						"verysmall",
+						"big",
+						"verybig"
+					]
+				}
+			},			
+
+				"giveitem": {
+				"add": {
+					"component_groups": [
+						"giveitem"
+					]
+				}
+			},		
+
+				"nogiveitem": {
+				"remove": {
+					"component_groups": [
+						"giveitem"
+					]
+				}
+			},		
+			
+				"spectator": {
+				"add": {
+					"component_groups": [
+						"spectator"
+					]
+				}
+			},		
+
+				"nospectator": {
+				"remove": {
+					"component_groups": [
+						"spectator"
+					]
+				}
+			},	
+//				"killplayer": {
+//				"add": {
+//					"component_groups": [
+//						"killplayer"
+//					]
+//				},
+//				"remove": {
+//					"component_groups": [
+//						"nokillplayer"
+//					]
+//				}
+//			},
+//				"nokillplayer": {
+//				"add": {
+//					"component_groups": [
+//						"nokillplayer"
+//					]
+//				},
+//				"remove": {
+//					"component_groups": [
+//						"killplayer"
+//					]
+//				}
+//			},	
+//							
+//				"removenokillplayer": {
+//				"remove": {
+//					"component_groups": [
+//						"killplayer",
+//						"nokillplayer"
+//					]
+//				}
+//			},	
+
+				"hp1": {"add": {"component_groups": ["hp1"]}},
+				"hp2": {"add": {"component_groups": ["hp2"]}},
+				"hp3": {"add": {"component_groups": ["hp3"]}},
+				"hp4": {"add": {"component_groups": ["hp4"]}},
+				"hp5": {"add": {"component_groups": ["hp5"]}},
+				"hp6": {"add": {"component_groups": ["hp6"]}},
+				"hp7": {"add": {"component_groups": ["hp7"]}},
+				"hp8": {"add": {"component_groups": ["hp8"]}},
+				"hp9": {"add": {"component_groups": ["hp9"]}},
+				"hp10": {"add": {"component_groups": ["hp10"]}},
+				"hp11": {"add": {"component_groups": ["hp11"]}},
+				"hp12": {"add": {"component_groups": ["hp12"]}},
+				"hp13": {"add": {"component_groups": ["hp13"]}},
+				"hp14": {"add": {"component_groups": ["hp14"]}},
+				"hp15": {"add": {"component_groups": ["hp15"]}},
+				"hp16": {"add": {"component_groups": ["hp16"]}},
+				"hp17": {"add": {"component_groups": ["hp17"]}},
+				"hp18": {"add": {"component_groups": ["hp18"]}},
+				"hp19": {"add": {"component_groups": ["hp19"]}},
+				"hp20": {"add": {"component_groups": ["hp20"]}},
+				"hp21": {"add": {"component_groups": ["hp21"]}},
+				"hp22": {"add": {"component_groups": ["hp22"]}},
+				"hp23": {"add": {"component_groups": ["hp23"]}},
+				"hp24": {"add": {"component_groups": ["hp24"]}},
+				"hp25": {"add": {"component_groups": ["hp25"]}},
+				"hp26": {"add": {"component_groups": ["hp26"]}},
+				"hp27": {"add": {"component_groups": ["hp27"]}},
+				"hp28": {"add": {"component_groups": ["hp28"]}},
+				"hp29": {"add": {"component_groups": ["hp29"]}},
+				"hp30": {"add": {"component_groups": ["hp30"]}},
+				"hp31": {"add": {"component_groups": ["hp31"]}},
+				"hp32": {"add": {"component_groups": ["hp32"]}},
+				"hp33": {"add": {"component_groups": ["hp33"]}},
+				"hp34": {"add": {"component_groups": ["hp34"]}},
+				"hp35": {"add": {"component_groups": ["hp35"]}},
+				"hp36": {"add": {"component_groups": ["hp36"]}},
+				"hp37": {"add": {"component_groups": ["hp37"]}},
+				"hp38": {"add": {"component_groups": ["hp38"]}},
+				"hp39": {"add": {"component_groups": ["hp39"]}},
+				"hp40": {"add": {"component_groups": ["hp40"]}},
+				"hp41": {"add": {"component_groups": ["hp41"]}},
+				"hp42": {"add": {"component_groups": ["hp42"]}},
+				"hp43": {"add": {"component_groups": ["hp43"]}},
+				"hp44": {"add": {"component_groups": ["hp44"]}},
+				"hp45": {"add": {"component_groups": ["hp45"]}},
+				"hp46": {"add": {"component_groups": ["hp46"]}},
+				"hp47": {"add": {"component_groups": ["hp47"]}},
+				"hp48": {"add": {"component_groups": ["hp48"]}},
+				"hp49": {"add": {"component_groups": ["hp49"]}},
+				"hp50": {"add": {"component_groups": ["hp50"]}},
+				"hp51": {"add": {"component_groups": ["hp51"]}},
+				"hp52": {"add": {"component_groups": ["hp52"]}},
+				"hp53": {"add": {"component_groups": ["hp53"]}},
+				"hp54": {"add": {"component_groups": ["hp54"]}},
+				"hp55": {"add": {"component_groups": ["hp55"]}},
+				"hp56": {"add": {"component_groups": ["hp56"]}},
+				"hp57": {"add": {"component_groups": ["hp57"]}},
+				"hp58": {"add": {"component_groups": ["hp58"]}},
+				"hp59": {"add": {"component_groups": ["hp59"]}},
+				"hp60": {"add": {"component_groups": ["hp60"]}},
+				"hp61": {"add": {"component_groups": ["hp61"]}},
+				"hp62": {"add": {"component_groups": ["hp62"]}},
+				"hp63": {"add": {"component_groups": ["hp63"]}},
+				"hp64": {"add": {"component_groups": ["hp64"]}},
+				"hp65": {"add": {"component_groups": ["hp65"]}},
+				"hp66": {"add": {"component_groups": ["hp66"]}},
+				"hp67": {"add": {"component_groups": ["hp67"]}},
+				"hp68": {"add": {"component_groups": ["hp68"]}},
+				"hp69": {"add": {"component_groups": ["hp69"]}},
+				"hp70": {"add": {"component_groups": ["hp70"]}},
+				"hp71": {"add": {"component_groups": ["hp71"]}},
+				"hp72": {"add": {"component_groups": ["hp72"]}},
+				"hp73": {"add": {"component_groups": ["hp73"]}},
+				"hp74": {"add": {"component_groups": ["hp74"]}},
+				"hp75": {"add": {"component_groups": ["hp75"]}},
+				"hp76": {"add": {"component_groups": ["hp76"]}},
+				"hp77": {"add": {"component_groups": ["hp77"]}},
+				"hp78": {"add": {"component_groups": ["hp78"]}},
+				"hp79": {"add": {"component_groups": ["hp79"]}},
+				"hp80": {"add": {"component_groups": ["hp80"]}},
+				"hp81": {"add": {"component_groups": ["hp81"]}},
+				"hp82": {"add": {"component_groups": ["hp82"]}},
+				"hp83": {"add": {"component_groups": ["hp83"]}},
+				"hp84": {"add": {"component_groups": ["hp84"]}},
+				"hp85": {"add": {"component_groups": ["hp85"]}},
+				"hp86": {"add": {"component_groups": ["hp86"]}},
+				"hp87": {"add": {"component_groups": ["hp87"]}},
+				"hp88": {"add": {"component_groups": ["hp88"]}},
+				"hp89": {"add": {"component_groups": ["hp89"]}},
+				"hp90": {"add": {"component_groups": ["hp90"]}},
+				"hp91": {"add": {"component_groups": ["hp91"]}},
+				"hp92": {"add": {"component_groups": ["hp92"]}},
+				"hp93": {"add": {"component_groups": ["hp93"]}},
+				"hp94": {"add": {"component_groups": ["hp94"]}},
+				"hp95": {"add": {"component_groups": ["hp95"]}},
+				"hp96": {"add": {"component_groups": ["hp96"]}},
+				"hp97": {"add": {"component_groups": ["hp97"]}},
+				"hp98": {"add": {"component_groups": ["hp98"]}},
+				"hp99": {"add": {"component_groups": ["hp99"]}},
+				"hp100": {"add": {"component_groups": ["hp100"]}},
+				"hp101": {"add": {"component_groups": ["hp101"]}},
+				"hp102": {"add": {"component_groups": ["hp102"]}},
+				"hp103": {"add": {"component_groups": ["hp103"]}},
+				"hp104": {"add": {"component_groups": ["hp104"]}},
+				"hp105": {"add": {"component_groups": ["hp105"]}},
+				"hp106": {"add": {"component_groups": ["hp106"]}},
+				"hp107": {"add": {"component_groups": ["hp107"]}},
+				"hp108": {"add": {"component_groups": ["hp108"]}},
+				"hp109": {"add": {"component_groups": ["hp109"]}},
+				"hp110": {"add": {"component_groups": ["hp110"]}},
+				"hp111": {"add": {"component_groups": ["hp111"]}},
+				"hp112": {"add": {"component_groups": ["hp112"]}},
+				"hp113": {"add": {"component_groups": ["hp113"]}},
+				"hp114": {"add": {"component_groups": ["hp114"]}},
+				"hp115": {"add": {"component_groups": ["hp115"]}},
+				"hp116": {"add": {"component_groups": ["hp116"]}},
+				"hp117": {"add": {"component_groups": ["hp117"]}},
+				"hp118": {"add": {"component_groups": ["hp118"]}},
+				"hp119": {"add": {"component_groups": ["hp119"]}},
+				"hp120": {"add": {"component_groups": ["hp120"]}},
+				"hp121": {"add": {"component_groups": ["hp121"]}},
+				"hp122": {"add": {"component_groups": ["hp122"]}},
+				"hp123": {"add": {"component_groups": ["hp123"]}},
+				"hp124": {"add": {"component_groups": ["hp124"]}},
+				"hp125": {"add": {"component_groups": ["hp125"]}},
+				"hp126": {"add": {"component_groups": ["hp126"]}},
+				"hp127": {"add": {"component_groups": ["hp127"]}},
+				"hp128": {"add": {"component_groups": ["hp128"]}},
+				"hp129": {"add": {"component_groups": ["hp129"]}},
+				"hp130": {"add": {"component_groups": ["hp130"]}},
+				"hp131": {"add": {"component_groups": ["hp131"]}},
+				"hp132": {"add": {"component_groups": ["hp132"]}},
+				"hp133": {"add": {"component_groups": ["hp133"]}},
+				"hp134": {"add": {"component_groups": ["hp134"]}},
+				"hp135": {"add": {"component_groups": ["hp135"]}},
+				"hp136": {"add": {"component_groups": ["hp136"]}},
+				"hp137": {"add": {"component_groups": ["hp137"]}},
+				"hp138": {"add": {"component_groups": ["hp138"]}},
+				"hp139": {"add": {"component_groups": ["hp139"]}},
+				"hp140": {"add": {"component_groups": ["hp140"]}},
+				"hp141": {"add": {"component_groups": ["hp141"]}},
+				"hp142": {"add": {"component_groups": ["hp142"]}},
+				"hp143": {"add": {"component_groups": ["hp143"]}},
+				"hp144": {"add": {"component_groups": ["hp144"]}},
+				"hp145": {"add": {"component_groups": ["hp145"]}},
+				"hp146": {"add": {"component_groups": ["hp146"]}},
+				"hp147": {"add": {"component_groups": ["hp147"]}},
+				"hp148": {"add": {"component_groups": ["hp148"]}},
+				"hp149": {"add": {"component_groups": ["hp149"]}},
+				"hp150": {"add": {"component_groups": ["hp150"]}},
+
+				"nohp": {
+				"remove": {
+					"component_groups": [
+						"hp1",
+						"hp2",
+						"hp3",
+						"hp4",
+						"hp5",
+						"hp6",
+						"hp7",
+						"hp8",
+						"hp9",
+						"hp10",
+						"hp11",
+						"hp12",
+						"hp13",
+						"hp14",
+						"hp15",
+						"hp16",
+						"hp17",
+						"hp18",
+						"hp19",
+						"hp20",
+						"hp21",
+						"hp22",
+						"hp23",
+						"hp24",
+						"hp25",
+						"hp26",
+						"hp27",
+						"hp28",
+						"hp29",
+						"hp30",
+						"hp31",
+						"hp32",
+						"hp33",
+						"hp34",
+						"hp35",
+						"hp36",
+						"hp37",
+						"hp38",
+						"hp39",
+						"hp40",
+						"hp41",
+						"hp42",
+						"hp43",
+						"hp44",
+						"hp45",
+						"hp46",
+						"hp47",
+						"hp48",
+						"hp49",
+						"hp50",
+						"hp51",
+						"hp52",
+						"hp53",
+						"hp54",
+						"hp55",
+						"hp56",
+						"hp57",
+						"hp58",
+						"hp59",
+						"hp60",
+						"hp61",
+						"hp62",
+						"hp63",
+						"hp64",
+						"hp65",
+						"hp66",
+						"hp67",
+						"hp68",
+						"hp69",
+						"hp70",
+						"hp71",
+						"hp72",
+						"hp73",
+						"hp74",
+						"hp75",
+						"hp76",
+						"hp77",
+						"hp78",
+						"hp79",
+						"hp80",
+						"hp81",
+						"hp82",
+						"hp83",
+						"hp84",
+						"hp85",
+						"hp86",
+						"hp87",
+						"hp88",
+						"hp89",
+						"hp90",
+						"hp91",
+						"hp92",
+						"hp93",
+						"hp94",
+						"hp95",
+						"hp96",
+						"hp97",
+						"hp98",
+						"hp99",
+						"hp100",
+						"hp101",
+						"hp102",
+						"hp103",
+						"hp104",
+						"hp105",
+						"hp106",
+						"hp107",
+						"hp108",
+						"hp109",
+						"hp110",
+						"hp111",
+						"hp112",
+						"hp113",
+						"hp114",
+						"hp115",
+						"hp116",
+						"hp117",
+						"hp118",
+						"hp119",
+						"hp120",
+						"hp121",
+						"hp122",
+						"hp123",
+						"hp124",
+						"hp125",
+						"hp126",
+						"hp127",
+						"hp128",
+						"hp129",
+						"hp130",
+						"hp131",
+						"hp132",
+						"hp133",
+						"hp134",
+						"hp135",
+						"hp136",
+						"hp137",
+						"hp138",
+						"hp139",
+						"hp140",
+						"hp141",
+						"hp142",
+						"hp143",
+						"hp144",
+						"hp145",
+						"hp146",
+						"hp147",
+						"hp148",
+						"hp149",
+						"hp150"
+					]
+				}
+			},				
+				"notarget": {
+				"add": {
+					"component_groups": [
+						"notarget"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"nonotarget"
+					]
+				}
+			},
+				"nonotarget": {
+				"add": {
+					"component_groups": [
+						"nonotarget"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"notarget"
+					]
+				}
+			},
+
+
+				"damage1": {"add": {"component_groups": ["damage1"]}},
+				"damage2": {"add": {"component_groups": ["damage2"]}},
+				"damage3": {"add": {"component_groups": ["damage3"]}},
+				"damage4": {"add": {"component_groups": ["damage4"]}},
+				"damage5": {"add": {"component_groups": ["damage5"]}},
+				"damage6": {"add": {"component_groups": ["damage6"]}},
+				"damage7": {"add": {"component_groups": ["damage7"]}},
+				"damage8": {"add": {"component_groups": ["damage8"]}},
+				"damage9": {"add": {"component_groups": ["damage9"]}},
+				"damage10": {"add": {"component_groups": ["damage10"]}},
+				"damage11": {"add": {"component_groups": ["damage11"]}},
+				"damage12": {"add": {"component_groups": ["damage12"]}},
+				"damage13": {"add": {"component_groups": ["damage13"]}},
+				"damage14": {"add": {"component_groups": ["damage14"]}},
+				"damage15": {"add": {"component_groups": ["damage15"]}},
+				"damage16": {"add": {"component_groups": ["damage16"]}},
+				"damage17": {"add": {"component_groups": ["damage17"]}},
+				"damage18": {"add": {"component_groups": ["damage18"]}},
+				"damage19": {"add": {"component_groups": ["damage19"]}},
+				"damage20": {"add": {"component_groups": ["damage20"]}},
+
+				"damage21": {"add": {"component_groups": ["damage21"]}},
+				"damage22": {"add": {"component_groups": ["damage22"]}},
+				"damage23": {"add": {"component_groups": ["damage23"]}},
+				"damage24": {"add": {"component_groups": ["damage24"]}},
+				"damage25": {"add": {"component_groups": ["damage25"]}},
+				"damage26": {"add": {"component_groups": ["damage26"]}},
+				"damage27": {"add": {"component_groups": ["damage27"]}},
+				"damage28": {"add": {"component_groups": ["damage28"]}},
+				"damage29": {"add": {"component_groups": ["damage29"]}},
+				"damage30": {"add": {"component_groups": ["damage30"]}},
+				"damage31": {"add": {"component_groups": ["damage31"]}},
+				"damage32": {"add": {"component_groups": ["damage32"]}},
+				"damage33": {"add": {"component_groups": ["damage33"]}},
+				"damage34": {"add": {"component_groups": ["damage34"]}},
+				"damage35": {"add": {"component_groups": ["damage35"]}},
+				"damage36": {"add": {"component_groups": ["damage36"]}},
+				"damage37": {"add": {"component_groups": ["damage37"]}},
+				"damage38": {"add": {"component_groups": ["damage38"]}},
+				"damage39": {"add": {"component_groups": ["damage39"]}},
+				"damage40": {"add": {"component_groups": ["damage40"]}},
+				"damage41": {"add": {"component_groups": ["damage41"]}},
+				"damage42": {"add": {"component_groups": ["damage42"]}},
+				"damage43": {"add": {"component_groups": ["damage43"]}},
+				"damage44": {"add": {"component_groups": ["damage44"]}},
+				"damage45": {"add": {"component_groups": ["damage45"]}},
+				"damage46": {"add": {"component_groups": ["damage46"]}},
+				"damage47": {"add": {"component_groups": ["damage47"]}},
+				"damage48": {"add": {"component_groups": ["damage48"]}},
+				"damage49": {"add": {"component_groups": ["damage49"]}},
+				"damage50": {"add": {"component_groups": ["damage50"]}},
+				"damage51": {"add": {"component_groups": ["damage51"]}},
+				"damage52": {"add": {"component_groups": ["damage52"]}},
+				"damage53": {"add": {"component_groups": ["damage53"]}},
+				"damage54": {"add": {"component_groups": ["damage54"]}},
+				"damage55": {"add": {"component_groups": ["damage55"]}},
+				"damage56": {"add": {"component_groups": ["damage56"]}},
+				"damage57": {"add": {"component_groups": ["damage57"]}},
+				"damage58": {"add": {"component_groups": ["damage58"]}},
+				"damage59": {"add": {"component_groups": ["damage59"]}},
+				"damage60": {"add": {"component_groups": ["damage60"]}},
+				"damage61": {"add": {"component_groups": ["damage61"]}},
+				"damage62": {"add": {"component_groups": ["damage62"]}},
+				"damage63": {"add": {"component_groups": ["damage63"]}},
+				"damage64": {"add": {"component_groups": ["damage64"]}},
+				"damage65": {"add": {"component_groups": ["damage65"]}},
+				"damage66": {"add": {"component_groups": ["damage66"]}},
+				"damage67": {"add": {"component_groups": ["damage67"]}},
+				"damage68": {"add": {"component_groups": ["damage68"]}},
+				"damage69": {"add": {"component_groups": ["damage69"]}},
+				"damage70": {"add": {"component_groups": ["damage70"]}},
+				"damage71": {"add": {"component_groups": ["damage71"]}},
+				"damage72": {"add": {"component_groups": ["damage72"]}},
+				"damage73": {"add": {"component_groups": ["damage73"]}},
+				"damage74": {"add": {"component_groups": ["damage74"]}},
+				"damage75": {"add": {"component_groups": ["damage75"]}},
+				"damage76": {"add": {"component_groups": ["damage76"]}},
+				"damage77": {"add": {"component_groups": ["damage77"]}},
+				"damage78": {"add": {"component_groups": ["damage78"]}},
+				"damage79": {"add": {"component_groups": ["damage79"]}},
+				"damage80": {"add": {"component_groups": ["damage80"]}},
+				"damage81": {"add": {"component_groups": ["damage81"]}},
+				"damage82": {"add": {"component_groups": ["damage82"]}},
+				"damage83": {"add": {"component_groups": ["damage83"]}},
+				"damage84": {"add": {"component_groups": ["damage84"]}},
+				"damage85": {"add": {"component_groups": ["damage85"]}},
+				"damage86": {"add": {"component_groups": ["damage86"]}},
+				"damage87": {"add": {"component_groups": ["damage87"]}},
+				"damage88": {"add": {"component_groups": ["damage88"]}},
+				"damage89": {"add": {"component_groups": ["damage89"]}},
+				"damage90": {"add": {"component_groups": ["damage90"]}},
+				"damage91": {"add": {"component_groups": ["damage91"]}},
+				"damage92": {"add": {"component_groups": ["damage92"]}},
+				"damage93": {"add": {"component_groups": ["damage93"]}},
+				"damage94": {"add": {"component_groups": ["damage94"]}},
+				"damage95": {"add": {"component_groups": ["damage95"]}},
+				"damage96": {"add": {"component_groups": ["damage96"]}},
+				"damage97": {"add": {"component_groups": ["damage97"]}},
+				"damage98": {"add": {"component_groups": ["damage98"]}},
+				"damage99": {"add": {"component_groups": ["damage99"]}},
+				"damage100": {"add": {"component_groups": ["damage100"]}},
+				"damage101": {"add": {"component_groups": ["damage101"]}},
+				"damage102": {"add": {"component_groups": ["damage102"]}},
+				"damage103": {"add": {"component_groups": ["damage103"]}},
+				"damage104": {"add": {"component_groups": ["damage104"]}},
+				"damage105": {"add": {"component_groups": ["damage105"]}},
+				"damage106": {"add": {"component_groups": ["damage106"]}},
+				"damage107": {"add": {"component_groups": ["damage107"]}},
+				"damage108": {"add": {"component_groups": ["damage108"]}},
+				"damage109": {"add": {"component_groups": ["damage109"]}},
+				"damage110": {"add": {"component_groups": ["damage110"]}},
+				"damage111": {"add": {"component_groups": ["damage111"]}},
+				"damage112": {"add": {"component_groups": ["damage112"]}},
+				"damage113": {"add": {"component_groups": ["damage113"]}},
+				"damage114": {"add": {"component_groups": ["damage114"]}},
+				"damage115": {"add": {"component_groups": ["damage115"]}},
+				"damage116": {"add": {"component_groups": ["damage116"]}},
+				"damage117": {"add": {"component_groups": ["damage117"]}},
+				"damage118": {"add": {"component_groups": ["damage118"]}},
+				"damage119": {"add": {"component_groups": ["damage119"]}},
+				"damage120": {"add": {"component_groups": ["damage120"]}},
+				"damage121": {"add": {"component_groups": ["damage121"]}},
+				"damage122": {"add": {"component_groups": ["damage122"]}},
+				"damage123": {"add": {"component_groups": ["damage123"]}},
+				"damage124": {"add": {"component_groups": ["damage124"]}},
+				"damage125": {"add": {"component_groups": ["damage125"]}},
+				"damage126": {"add": {"component_groups": ["damage126"]}},
+				"damage127": {"add": {"component_groups": ["damage127"]}},
+				"damage128": {"add": {"component_groups": ["damage128"]}},
+				"damage129": {"add": {"component_groups": ["damage129"]}},
+				"damage130": {"add": {"component_groups": ["damage130"]}},
+				"damage131": {"add": {"component_groups": ["damage131"]}},
+				"damage132": {"add": {"component_groups": ["damage132"]}},
+				"damage133": {"add": {"component_groups": ["damage133"]}},
+				"damage134": {"add": {"component_groups": ["damage134"]}},
+				"damage135": {"add": {"component_groups": ["damage135"]}},
+				"damage136": {"add": {"component_groups": ["damage136"]}},
+				"damage137": {"add": {"component_groups": ["damage137"]}},
+				"damage138": {"add": {"component_groups": ["damage138"]}},
+				"damage139": {"add": {"component_groups": ["damage139"]}},
+				"damage140": {"add": {"component_groups": ["damage140"]}},
+				"damage141": {"add": {"component_groups": ["damage141"]}},
+				"damage142": {"add": {"component_groups": ["damage142"]}},
+				"damage143": {"add": {"component_groups": ["damage143"]}},
+				"damage144": {"add": {"component_groups": ["damage144"]}},
+				"damage145": {"add": {"component_groups": ["damage145"]}},
+				"damage146": {"add": {"component_groups": ["damage146"]}},
+				"damage147": {"add": {"component_groups": ["damage147"]}},
+				"damage148": {"add": {"component_groups": ["damage148"]}},
+				"damage149": {"add": {"component_groups": ["damage149"]}},
+				"damage150": {"add": {"component_groups": ["damage150"]}},
+				
+				"notdamage": {
+				"remove": {
+					"component_groups": [
+						"damage1",
+						"damage2",
+						"damage3",
+						"damage4",
+						"damage5",
+						"damage6",
+						"damage7",
+						"damage8",
+						"damage9",
+						"damage10",
+						"damage11",
+						"damage12",
+						"damage13",
+						"damage14",
+						"damage15",
+						"damage16",
+						"damage17",
+						"damage18",
+						"damage19",
+						"damage20",
+						"damage21",
+						"damage22",
+						"damage23",
+						"damage24",
+						"damage25",
+						"damage26",
+						"damage27",
+						"damage28",
+						"damage29",
+						"damage30",
+						"damage31",
+						"damage32",
+						"damage33",
+						"damage34",
+						"damage35",
+						"damage36",
+						"damage37",
+						"damage38",
+						"damage39",
+						"damage40",
+						"damage41",
+						"damage42",
+						"damage43",
+						"damage44",
+						"damage45",
+						"damage46",
+						"damage47",
+						"damage48",
+						"damage49",
+						"damage50",
+						"damage51",
+						"damage52",
+						"damage53",
+						"damage54",
+						"damage55",
+						"damage56",
+						"damage57",
+						"damage58",
+						"damage59",
+						"damage60",
+						"damage61",
+						"damage62",
+						"damage63",
+						"damage64",
+						"damage65",
+						"damage66",
+						"damage67",
+						"damage68",
+						"damage69",
+						"damage70",
+						"damage71",
+						"damage72",
+						"damage73",
+						"damage74",
+						"damage75",
+						"damage76",
+						"damage77",
+						"damage78",
+						"damage79",
+						"damage80",
+						"damage81",
+						"damage82",
+						"damage83",
+						"damage84",
+						"damage85",
+						"damage86",
+						"damage87",
+						"damage88",
+						"damage89",
+						"damage90",
+						"damage91",
+						"damage92",
+						"damage93",
+						"damage94",
+						"damage95",
+						"damage96",
+						"damage97",
+						"damage98",
+						"damage99",
+						"damage100",
+						"damage101",
+						"damage102",
+						"damage103",
+						"damage104",
+						"damage105",
+						"damage106",
+						"damage107",
+						"damage108",
+						"damage109",
+						"damage110",
+						"damage111",
+						"damage112",
+						"damage113",
+						"damage114",
+						"damage115",
+						"damage116",
+						"damage117",
+						"damage118",
+						"damage119",
+						"damage120",
+						"damage121",
+						"damage122",
+						"damage123",
+						"damage124",
+						"damage125",
+						"damage126",
+						"damage127",
+						"damage128",
+						"damage129",
+						"damage130",
+						"damage131",
+						"damage132",
+						"damage133",
+						"damage134",
+						"damage135",
+						"damage136",
+						"damage137",
+						"damage138",
+						"damage139",
+						"damage140",
+						"damage141",
+						"damage142",
+						"damage143",
+						"damage144",
+						"damage145",
+						"damage146",
+						"damage147",
+						"damage148",
+						"damage149",
+						"damage150"
+					]
+				}
+			},	
+				"power0": {"add": {"component_groups": ["power0"]}},
+				"power1": {"add": {"component_groups": ["power1"]}},
+				"power2": {"add": {"component_groups": ["power2"]}},
+				"power3": {"add": {"component_groups": ["power3"]}},
+				"power4": {"add": {"component_groups": ["power4"]}},
+				"power5": {"add": {"component_groups": ["power5"]}},
+				"power6": {"add": {"component_groups": ["power6"]}},
+				"power7": {"add": {"component_groups": ["power7"]}},
+				"power8": {"add": {"component_groups": ["power8"]}},
+				"power9": {"add": {"component_groups": ["power9"]}},
+				"power10": {"add": {"component_groups": ["power10"]}},
+				"power11": {"add": {"component_groups": ["power11"]}},
+				"power12": {"add": {"component_groups": ["power12"]}},
+				"power13": {"add": {"component_groups": ["power13"]}},
+				"power14": {"add": {"component_groups": ["power14"]}},
+				"power15": {"add": {"component_groups": ["power15"]}},
+				"power16": {"add": {"component_groups": ["power16"]}},
+				"power17": {"add": {"component_groups": ["power17"]}},
+				"power18": {"add": {"component_groups": ["power18"]}},
+				"power19": {"add": {"component_groups": ["power19"]}},
+				"power20": {"add": {"component_groups": ["power20"]}},
+				"power21": {"add": {"component_groups": ["power21"]}},
+				"power22": {"add": {"component_groups": ["power22"]}},
+				"power23": {"add": {"component_groups": ["power23"]}},
+				"power24": {"add": {"component_groups": ["power24"]}},
+				"power25": {"add": {"component_groups": ["power25"]}},
+				"power26": {"add": {"component_groups": ["power26"]}},
+				"power27": {"add": {"component_groups": ["power27"]}},
+				"power28": {"add": {"component_groups": ["power28"]}},
+				"power29": {"add": {"component_groups": ["power29"]}},
+				"power30": {"add": {"component_groups": ["power30"]}},
+				"power31": {"add": {"component_groups": ["power31"]}},
+				"power32": {"add": {"component_groups": ["power32"]}},
+				"power33": {"add": {"component_groups": ["power33"]}},
+				"power34": {"add": {"component_groups": ["power34"]}},
+				"power35": {"add": {"component_groups": ["power35"]}},
+				"power36": {"add": {"component_groups": ["power36"]}},
+				"power37": {"add": {"component_groups": ["power37"]}},
+				"power38": {"add": {"component_groups": ["power38"]}},
+				"power39": {"add": {"component_groups": ["power39"]}},
+				"power40": {"add": {"component_groups": ["power40"]}},
+				"power41": {"add": {"component_groups": ["power41"]}},
+				"power42": {"add": {"component_groups": ["power42"]}},
+				"power43": {"add": {"component_groups": ["power43"]}},
+				"power44": {"add": {"component_groups": ["power44"]}},
+				"power45": {"add": {"component_groups": ["power45"]}},
+				"power46": {"add": {"component_groups": ["power46"]}},
+				"power47": {"add": {"component_groups": ["power47"]}},
+				"power48": {"add": {"component_groups": ["power48"]}},
+				"power49": {"add": {"component_groups": ["power49"]}},
+				"power50": {"add": {"component_groups": ["power50"]}},
+				"power51": {"add": {"component_groups": ["power51"]}},
+				"power52": {"add": {"component_groups": ["power52"]}},
+				"power53": {"add": {"component_groups": ["power53"]}},
+				"power54": {"add": {"component_groups": ["power54"]}},
+				"power55": {"add": {"component_groups": ["power55"]}},
+				"power56": {"add": {"component_groups": ["power56"]}},
+				"power57": {"add": {"component_groups": ["power57"]}},
+				"power58": {"add": {"component_groups": ["power58"]}},
+				"power59": {"add": {"component_groups": ["power59"]}},
+				"power60": {"add": {"component_groups": ["power60"]}},
+				"power61": {"add": {"component_groups": ["power61"]}},
+				"power62": {"add": {"component_groups": ["power62"]}},
+				"power63": {"add": {"component_groups": ["power63"]}},
+				"power64": {"add": {"component_groups": ["power64"]}},
+				"power65": {"add": {"component_groups": ["power65"]}},
+				"power66": {"add": {"component_groups": ["power66"]}},
+				"power67": {"add": {"component_groups": ["power67"]}},
+				"power68": {"add": {"component_groups": ["power68"]}},
+				"power69": {"add": {"component_groups": ["power69"]}},
+				"power70": {"add": {"component_groups": ["power70"]}},
+				"power71": {"add": {"component_groups": ["power71"]}},
+				"power72": {"add": {"component_groups": ["power72"]}},
+				"power73": {"add": {"component_groups": ["power73"]}},
+				"power74": {"add": {"component_groups": ["power74"]}},
+				"power75": {"add": {"component_groups": ["power75"]}},
+				"power76": {"add": {"component_groups": ["power76"]}},
+				"power77": {"add": {"component_groups": ["power77"]}},
+				"power78": {"add": {"component_groups": ["power78"]}},
+				"power79": {"add": {"component_groups": ["power79"]}},
+				"power80": {"add": {"component_groups": ["power80"]}},
+				"power81": {"add": {"component_groups": ["power81"]}},
+				"power82": {"add": {"component_groups": ["power82"]}},
+				"power83": {"add": {"component_groups": ["power83"]}},
+				"power84": {"add": {"component_groups": ["power84"]}},
+				"power85": {"add": {"component_groups": ["power85"]}},
+				"power86": {"add": {"component_groups": ["power86"]}},
+				"power87": {"add": {"component_groups": ["power87"]}},
+				"power88": {"add": {"component_groups": ["power88"]}},
+				"power89": {"add": {"component_groups": ["power89"]}},
+				"power90": {"add": {"component_groups": ["power90"]}},
+				"power91": {"add": {"component_groups": ["power91"]}},
+				"power92": {"add": {"component_groups": ["power92"]}},
+				"power93": {"add": {"component_groups": ["power93"]}},
+				"power94": {"add": {"component_groups": ["power94"]}},
+				"power95": {"add": {"component_groups": ["power95"]}},
+				"power96": {"add": {"component_groups": ["power96"]}},
+				"power97": {"add": {"component_groups": ["power97"]}},
+				"power98": {"add": {"component_groups": ["power98"]}},
+				"power99": {"add": {"component_groups": ["power99"]}},
+				"power100": {"add": {"component_groups": ["power100"]}},
+				"power101": {"add": {"component_groups": ["power101"]}},
+				"power102": {"add": {"component_groups": ["power102"]}},
+				"power103": {"add": {"component_groups": ["power103"]}},
+				"power104": {"add": {"component_groups": ["power104"]}},
+				"power105": {"add": {"component_groups": ["power105"]}},
+				"power106": {"add": {"component_groups": ["power106"]}},
+				"power107": {"add": {"component_groups": ["power107"]}},
+				"power108": {"add": {"component_groups": ["power108"]}},
+				"power109": {"add": {"component_groups": ["power109"]}},
+				"power110": {"add": {"component_groups": ["power110"]}},
+				"power111": {"add": {"component_groups": ["power111"]}},
+				"power112": {"add": {"component_groups": ["power112"]}},
+				"power113": {"add": {"component_groups": ["power113"]}},
+				"power114": {"add": {"component_groups": ["power114"]}},
+				"power115": {"add": {"component_groups": ["power115"]}},
+				"power116": {"add": {"component_groups": ["power116"]}},
+				"power117": {"add": {"component_groups": ["power117"]}},
+				"power118": {"add": {"component_groups": ["power118"]}},
+				"power119": {"add": {"component_groups": ["power119"]}},
+				"power120": {"add": {"component_groups": ["power120"]}},
+				"power121": {"add": {"component_groups": ["power121"]}},
+				"power122": {"add": {"component_groups": ["power122"]}},
+				"power123": {"add": {"component_groups": ["power123"]}},
+				"power124": {"add": {"component_groups": ["power124"]}},
+				"power125": {"add": {"component_groups": ["power125"]}},
+				"power126": {"add": {"component_groups": ["power126"]}},
+				"power127": {"add": {"component_groups": ["power127"]}},
+				"power128": {"add": {"component_groups": ["power128"]}},
+				"power129": {"add": {"component_groups": ["power129"]}},
+				"power130": {"add": {"component_groups": ["power130"]}},
+				"power131": {"add": {"component_groups": ["power131"]}},
+				"power132": {"add": {"component_groups": ["power132"]}},
+				"power133": {"add": {"component_groups": ["power133"]}},
+				"power134": {"add": {"component_groups": ["power134"]}},
+				"power135": {"add": {"component_groups": ["power135"]}},
+				"power136": {"add": {"component_groups": ["power136"]}},
+				"power137": {"add": {"component_groups": ["power137"]}},
+				"power138": {"add": {"component_groups": ["power138"]}},
+				"power139": {"add": {"component_groups": ["power139"]}},
+				"power140": {"add": {"component_groups": ["power140"]}},
+				"power141": {"add": {"component_groups": ["power141"]}},
+				"power142": {"add": {"component_groups": ["power142"]}},
+				"power143": {"add": {"component_groups": ["power143"]}},
+				"power144": {"add": {"component_groups": ["power144"]}},
+				"power145": {"add": {"component_groups": ["power145"]}},
+				"power146": {"add": {"component_groups": ["power146"]}},
+				"power147": {"add": {"component_groups": ["power147"]}},
+				"power148": {"add": {"component_groups": ["power148"]}},
+				"power149": {"add": {"component_groups": ["power149"]}},
+				"power150": {"add": {"component_groups": ["power150"]}},
+
+				"nopower": {
+				"remove": {
+					"component_groups": [
+						"power0",
+						"power1",
+						"power2",
+						"power3",
+						"power4",
+						"power5",
+						"power6",
+						"power7",
+						"power8",
+						"power9",
+						"power10",
+						"power11",
+						"power12",
+						"power13",
+						"power14",
+						"power15",
+						"power16",
+						"power17",
+						"power18",
+						"power19",
+						"power20",
+						"power21",
+						"power22",
+						"power23",
+						"power24",
+						"power25",
+						"power26",
+						"power27",
+						"power28",
+						"power29",
+						"power30",
+						"power31",
+						"power32",
+						"power33",
+						"power34",
+						"power35",
+						"power36",
+						"power37",
+						"power38",
+						"power39",
+						"power40",
+						"power41",
+						"power42",
+						"power43",
+						"power44",
+						"power45",
+						"power46",
+						"power47",
+						"power48",
+						"power49",
+						"power50",
+						"power51",
+						"power52",
+						"power53",
+						"power54",
+						"power55",
+						"power56",
+						"power57",
+						"power58",
+						"power59",
+						"power60",
+						"power61",
+						"power62",
+						"power63",
+						"power64",
+						"power65",
+						"power66",
+						"power67",
+						"power68",
+						"power69",
+						"power70",
+						"power71",
+						"power72",
+						"power73",
+						"power74",
+						"power75",
+						"power76",
+						"power77",
+						"power78",
+						"power79",
+						"power80",
+						"power81",
+						"power82",
+						"power83",
+						"power84",
+						"power85",
+						"power86",
+						"power87",
+						"power88",
+						"power89",
+						"power90",
+						"power91",
+						"power92",
+						"power93",
+						"power94",
+						"power95",
+						"power96",
+						"power97",
+						"power98",
+						"power99",
+						"power100",
+						"power101",
+						"power102",
+						"power103",
+						"power104",
+						"power105",
+						"power106",
+						"power107",
+						"power108",
+						"power109",
+						"power110",
+						"power111",
+						"power112",
+						"power113",
+						"power114",
+						"power115",
+						"power116",
+						"power117",
+						"power118",
+						"power119",
+						"power120",
+						"power121",
+						"power122",
+						"power123",
+						"power124",
+						"power125",
+						"power126",
+						"power127",
+						"power128",
+						"power129",
+						"power130",
+						"power131",
+						"power132",
+						"power133",
+						"power134",
+						"power135",
+						"power136",
+						"power137",
+						"power138",
+						"power139",
+						"power140",
+						"power141",
+						"power142",
+						"power143",
+						"power144",
+						"power145",
+						"power146",
+						"power147",
+						"power148",
+						"power149",
+						"power150"
+					]
+				}
+			},				
+				"damagetimer": {
+				"add": {
+					"component_groups": [
+						"damagetimer"
+					]
+				}
+			},			
+			
+			
+			
+			
+      "minecraft:gain_bad_omen": {
+        "add": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        }
+      },
+      "minecraft:clear_add_bad_omen": {
+        "remove": {
+          "component_groups": [
+            "minecraft:add_bad_omen"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:clear_bad_omen_spell_effect"
+          ]
+        }
+      },
+      "minecraft:trigger_raid": {
+        "add": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      },
+      "minecraft:remove_raid_trigger": {
+        "remove": {
+          "component_groups": [ "minecraft:raid_trigger" ]
+        }
+      }
+    }
+  }
+}
+
+
+
+

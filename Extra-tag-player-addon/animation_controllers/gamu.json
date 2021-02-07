@@ -1,0 +1,3416 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gamu": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"anvil": "variable.attack_time && query.get_equipped_item_name =='anvil'"}
+          ]
+        },
+        "anvil": { "on_entry": [ "/playsound bubble.up @a" ], "transitions": [ { "default": "!variable.attack_time" } ] }
+      }
+    },
+    "controller.animation.sneaking": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"sneaking": "query.is_sneaking"}
+          ]
+        },
+        "sneaking": {
+          "on_entry": [
+			"/tag @s add sneaking"
+          ],
+		  "on_exit": [
+			"/tag @s remove sneaking"
+		  ],
+          "transitions": [
+            { "default": "!query.is_sneaking" }
+          ]
+        }
+      }
+    },
+    "controller.animation.sprinting": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"sprinting": "query.is_sprinting"}
+          ]
+        },
+        "sprinting": {
+          "on_entry": [
+			"/tag @s add sprinting"
+          ],
+		  "on_exit": [
+			"/tag @s remove sprinting"
+		  ],
+          "transitions": [
+            { "default": "!query.is_sprinting" }
+          ]
+        }
+      }
+    },
+    "controller.animation.swimming": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"swimming": "query.is_swimming"}
+          ]
+        },
+        "swimming": {
+          "on_entry": [
+			"/tag @s add swimming"
+          ],
+		  "on_exit": [
+			"/tag @s remove swimming"
+		  ],
+          "transitions": [
+            { "default": "!query.is_swimming" }
+          ]
+        }
+      }
+    },
+    "controller.animation.jumping": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"jumping": "query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "on_entry": [
+			"/tag @s add jumping"
+          ],
+		  "on_exit": [
+			"/tag @s remove jumping"
+		  ],
+          "transitions": [
+            { "default": "!query.is_jumping" }
+          ]
+        }
+      }
+    },
+    "controller.animation.moving": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"moving": "query.is_moving"}
+          ]
+        },
+        "moving": {
+          "on_entry": [
+			"/tag @s add moving"
+          ],
+		  "on_exit": [
+			"/tag @s remove moving"
+		  ],
+          "transitions": [
+            { "default": "!query.is_moving" }
+          ]
+        }
+      }
+    },
+    "controller.animation.last_hit_by_player": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"last_hit_by_player": "query.last_hit_by_player"}
+          ]
+        },
+        "last_hit_by_player": {
+          "on_entry": [
+			"/tag @s add last_hit_by_player"
+          ],
+		  "on_exit": [
+			"/tag @s remove last_hit_by_player"
+		  ],
+          "transitions": [
+            { "default": "!query.last_hit_by_player" }
+          ]
+        }
+      }
+    },
+    "controller.animation.max_health": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"max_health": "0 == query.max_health - query.health"}
+          ]
+        },
+        "max_health": {
+          "on_entry": [
+			"/tag @s add max_health"
+          ],
+		  "on_exit": [
+			"/tag @s remove max_health"
+		  ],
+          "transitions": [
+            { "default": "0 != query.max_health - query.health" }
+          ]
+        }
+      }
+    },
+	    "controller.animation.hp": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"health0": "0 == query.health"},
+            {"health1": "1 == query.health"},
+            {"health2": "2 == query.health"},
+            {"health3": "3 == query.health"},
+            {"health4": "4 == query.health"},
+            {"health5": "5 == query.health"},
+            {"health6": "6 == query.health"},
+            {"health7": "7 == query.health"},
+            {"health8": "8 == query.health"},
+            {"health9": "9 == query.health"},
+            {"health10": "10 == query.health"},
+            {"health11": "11 == query.health"},
+            {"health12": "12 == query.health"},
+            {"health13": "13 == query.health"},
+            {"health14": "14 == query.health"},
+            {"health15": "15 == query.health"},
+            {"health16": "16 == query.health"},
+            {"health17": "17 == query.health"},
+            {"health18": "18 == query.health"},
+            {"health19": "19 == query.health"},
+            {"health20": "20 == query.health"},
+            {"health21": "21 == query.health"},
+            {"health22": "22 == query.health"},
+            {"health23": "23 == query.health"},
+            {"health24": "24 == query.health"},
+            {"health25": "25 == query.health"},
+            {"health26": "26 == query.health"},
+            {"health27": "27 == query.health"},
+            {"health28": "28 == query.health"},
+            {"health29": "29 == query.health"},
+            {"health30": "30 == query.health"},
+            {"health31": "31 == query.health"},
+            {"health32": "32 == query.health"},
+            {"health33": "33 == query.health"},
+            {"health34": "34 == query.health"},
+            {"health35": "35 == query.health"},
+            {"health36": "36 == query.health"},
+            {"health37": "37 == query.health"},
+            {"health38": "38 == query.health"},
+            {"health39": "39 == query.health"},
+            {"health40": "40 == query.health"},
+            {"health41": "41 == query.health"},
+            {"health42": "42 == query.health"},
+            {"health43": "43 == query.health"},
+            {"health44": "44 == query.health"},
+            {"health45": "45 == query.health"},
+            {"health46": "46 == query.health"},
+            {"health47": "47 == query.health"},
+            {"health48": "48 == query.health"},
+            {"health49": "49 == query.health"},
+            {"health50": "50 == query.health"},
+            {"health51": "51 == query.health"},
+            {"health52": "52 == query.health"},
+            {"health53": "53 == query.health"},
+            {"health54": "54 == query.health"},
+            {"health55": "55 == query.health"},
+            {"health56": "56 == query.health"},
+            {"health57": "57 == query.health"},
+            {"health58": "58 == query.health"},
+            {"health59": "59 == query.health"},
+            {"health60": "60 == query.health"},
+            {"health61": "61 == query.health"},
+            {"health62": "62 == query.health"},
+            {"health63": "63 == query.health"},
+            {"health64": "64 == query.health"},
+            {"health65": "65 == query.health"},
+            {"health66": "66 == query.health"},
+            {"health67": "67 == query.health"},
+            {"health68": "68 == query.health"},
+            {"health69": "69 == query.health"},
+            {"health70": "70 == query.health"},
+            {"health71": "71 == query.health"},
+            {"health72": "72 == query.health"},
+            {"health73": "73 == query.health"},
+            {"health74": "74 == query.health"},
+            {"health75": "75 == query.health"},
+            {"health76": "76 == query.health"},
+            {"health77": "77 == query.health"},
+            {"health78": "78 == query.health"},
+            {"health79": "79 == query.health"},
+            {"health80": "80 == query.health"},
+            {"health81": "81 == query.health"},
+            {"health82": "82 == query.health"},
+            {"health83": "83 == query.health"},
+            {"health84": "84 == query.health"},
+            {"health85": "85 == query.health"},
+            {"health86": "86 == query.health"},
+            {"health87": "87 == query.health"},
+            {"health88": "88 == query.health"},
+            {"health89": "89 == query.health"},
+            {"health90": "90 == query.health"},
+            {"health91": "91 == query.health"},
+            {"health92": "92 == query.health"},
+            {"health93": "93 == query.health"},
+            {"health94": "94 == query.health"},
+            {"health95": "95 == query.health"},
+            {"health96": "96 == query.health"},
+            {"health97": "97 == query.health"},
+            {"health98": "98 == query.health"},
+            {"health99": "99 == query.health"},
+            {"health100": "100 == query.health"},
+            {"health101": "101 == query.health"},
+            {"health102": "102 == query.health"},
+            {"health103": "103 == query.health"},
+            {"health104": "104 == query.health"},
+            {"health105": "105 == query.health"},
+            {"health106": "106 == query.health"},
+            {"health107": "107 == query.health"},
+            {"health108": "108 == query.health"},
+            {"health109": "109 == query.health"},
+            {"health110": "110 == query.health"},
+            {"health111": "111 == query.health"},
+            {"health112": "112 == query.health"},
+            {"health113": "113 == query.health"},
+            {"health114": "114 == query.health"},
+            {"health115": "115 == query.health"},
+            {"health116": "116 == query.health"},
+            {"health117": "117 == query.health"},
+            {"health118": "118 == query.health"},
+            {"health119": "119 == query.health"},
+            {"health120": "120 == query.health"},
+            {"health121": "121 == query.health"},
+            {"health122": "122 == query.health"},
+            {"health123": "123 == query.health"},
+            {"health124": "124 == query.health"},
+            {"health125": "125 == query.health"},
+            {"health126": "126 == query.health"},
+            {"health127": "127 == query.health"},
+            {"health128": "128 == query.health"},
+            {"health129": "129 == query.health"},
+            {"health130": "130 == query.health"},
+            {"health131": "131 == query.health"},
+            {"health132": "132 == query.health"},
+            {"health133": "133 == query.health"},
+            {"health134": "134 == query.health"},
+            {"health135": "135 == query.health"},
+            {"health136": "136 == query.health"},
+            {"health137": "137 == query.health"},
+            {"health138": "138 == query.health"},
+            {"health139": "139 == query.health"},
+            {"health140": "140 == query.health"},
+            {"health141": "141 == query.health"},
+            {"health142": "142 == query.health"},
+            {"health143": "143 == query.health"},
+            {"health144": "144 == query.health"},
+            {"health145": "145 == query.health"},
+            {"health146": "146 == query.health"},
+            {"health147": "147 == query.health"},
+            {"health148": "148 == query.health"},
+            {"health149": "149 == query.health"},
+            {"health150": "150 == query.health"},
+            {"health151": "151 == query.health"},
+            {"health152": "152 == query.health"},
+            {"health153": "153 == query.health"},
+            {"health154": "154 == query.health"},
+            {"health155": "155 == query.health"},
+            {"health156": "156 == query.health"},
+            {"health157": "157 == query.health"},
+            {"health158": "158 == query.health"},
+            {"health159": "159 == query.health"},
+            {"health160": "160 == query.health"},
+            {"health161": "161 == query.health"},
+            {"health162": "162 == query.health"},
+            {"health163": "163 == query.health"},
+            {"health164": "164 == query.health"},
+            {"health165": "165 == query.health"},
+            {"health166": "166 == query.health"},
+            {"health167": "167 == query.health"},
+            {"health168": "168 == query.health"},
+            {"health169": "169 == query.health"},
+            {"health170": "170 == query.health"},
+            {"health171": "171 == query.health"},
+            {"health172": "172 == query.health"},
+            {"health173": "173 == query.health"},
+            {"health174": "174 == query.health"},
+            {"health175": "175 == query.health"},
+            {"health176": "176 == query.health"},
+            {"health177": "177 == query.health"},
+            {"health178": "178 == query.health"},
+            {"health179": "179 == query.health"},
+            {"health180": "180 == query.health"},
+            {"health181": "181 == query.health"},
+            {"health182": "182 == query.health"},
+            {"health183": "183 == query.health"},
+            {"health184": "184 == query.health"},
+            {"health185": "185 == query.health"},
+            {"health186": "186 == query.health"},
+            {"health187": "187 == query.health"},
+            {"health188": "188 == query.health"},
+            {"health189": "189 == query.health"},
+            {"health190": "190 == query.health"},
+            {"health191": "191 == query.health"},
+            {"health192": "192 == query.health"},
+            {"health193": "193 == query.health"},
+            {"health194": "194 == query.health"},
+            {"health195": "195 == query.health"},
+            {"health196": "196 == query.health"},
+            {"health197": "197 == query.health"},
+            {"health198": "198 == query.health"},
+            {"health199": "199 == query.health"},
+            {"health200": "200 == query.health"},
+            {"health201": "201 == query.health"},
+            {"health202": "202 == query.health"},
+            {"health203": "203 == query.health"},
+            {"health204": "204 == query.health"},
+            {"health205": "205 == query.health"},
+            {"health206": "206 == query.health"},
+            {"health207": "207 == query.health"},
+            {"health208": "208 == query.health"},
+            {"health209": "209 == query.health"},
+            {"health210": "210 == query.health"},
+            {"health211": "211 == query.health"},
+            {"health212": "212 == query.health"},
+            {"health213": "213 == query.health"},
+            {"health214": "214 == query.health"},
+            {"health215": "215 == query.health"},
+            {"health216": "216 == query.health"},
+            {"health217": "217 == query.health"},
+            {"health218": "218 == query.health"},
+            {"health219": "219 == query.health"},
+            {"health220": "220 == query.health"},
+            {"health221": "221 == query.health"},
+            {"health222": "222 == query.health"},
+            {"health223": "223 == query.health"},
+            {"health224": "224 == query.health"},
+            {"health225": "225 == query.health"},
+            {"health226": "226 == query.health"},
+            {"health227": "227 == query.health"},
+            {"health228": "228 == query.health"},
+            {"health229": "229 == query.health"},
+            {"health230": "230 == query.health"},
+            {"health231": "231 == query.health"},
+            {"health232": "232 == query.health"},
+            {"health233": "233 == query.health"},
+            {"health234": "234 == query.health"},
+            {"health235": "235 == query.health"},
+            {"health236": "236 == query.health"},
+            {"health237": "237 == query.health"},
+            {"health238": "238 == query.health"},
+            {"health239": "239 == query.health"},
+            {"health240": "240 == query.health"},
+            {"health241": "241 == query.health"},
+            {"health242": "242 == query.health"},
+            {"health243": "243 == query.health"},
+            {"health244": "244 == query.health"},
+            {"health245": "245 == query.health"},
+            {"health246": "246 == query.health"},
+            {"health247": "247 == query.health"},
+            {"health248": "248 == query.health"},
+            {"health249": "249 == query.health"},
+            {"health250": "250 == query.health"},
+            {"health251": "251 == query.health"},
+            {"health252": "252 == query.health"},
+            {"health253": "253 == query.health"},
+            {"health254": "254 == query.health"},
+            {"health255": "255 == query.health"},
+            {"health256": "256 == query.health"},
+            {"health257": "257 == query.health"},
+            {"health258": "258 == query.health"},
+            {"health259": "259 == query.health"},
+            {"health260": "260 == query.health"},
+            {"health261": "261 == query.health"},
+            {"health262": "262 == query.health"},
+            {"health263": "263 == query.health"},
+            {"health264": "264 == query.health"},
+            {"health265": "265 == query.health"},
+            {"health266": "266 == query.health"},
+            {"health267": "267 == query.health"},
+            {"health268": "268 == query.health"},
+            {"health269": "269 == query.health"},
+            {"health270": "270 == query.health"},
+            {"health271": "271 == query.health"},
+            {"health272": "272 == query.health"},
+            {"health273": "273 == query.health"},
+            {"health274": "274 == query.health"},
+            {"health275": "275 == query.health"},
+            {"health276": "276 == query.health"},
+            {"health277": "277 == query.health"},
+            {"health278": "278 == query.health"},
+            {"health279": "279 == query.health"},
+            {"health280": "280 == query.health"},
+            {"health281": "281 == query.health"},
+            {"health282": "282 == query.health"},
+            {"health283": "283 == query.health"},
+            {"health284": "284 == query.health"},
+            {"health285": "285 == query.health"},
+            {"health286": "286 == query.health"},
+            {"health287": "287 == query.health"},
+            {"health288": "288 == query.health"},
+            {"health289": "289 == query.health"},
+            {"health290": "290 == query.health"},
+            {"health291": "291 == query.health"},
+            {"health292": "292 == query.health"},
+            {"health293": "293 == query.health"},
+            {"health294": "294 == query.health"},
+            {"health295": "295 == query.health"},
+            {"health296": "296 == query.health"},
+            {"health297": "297 == query.health"},
+            {"health298": "298 == query.health"},
+            {"health299": "299 == query.health"},
+            {"health300": "300 == query.health"}
+
+          ]
+        },
+        "health0": {
+          "on_entry": [
+			"/scoreboard players set @s hp 0"
+          ],
+          "transitions": [
+            { "default": "0 != query.health" }
+          ]
+        },
+        "health1": {
+          "on_entry": [
+			"/scoreboard players set @s hp 1"
+          ],
+          "transitions": [
+            { "default": "1 != query.health" }
+          ]
+        },
+        "health2": {
+          "on_entry": [
+			"/scoreboard players set @s hp 2"
+          ],
+          "transitions": [
+            { "default": "2 != query.health" }
+          ]
+        },
+        "health3": {
+          "on_entry": [
+			"/scoreboard players set @s hp 3"
+          ],
+          "transitions": [
+            { "default": "3 != query.health" }
+          ]
+        },
+        "health4": {
+          "on_entry": [
+			"/scoreboard players set @s hp 4"
+          ],
+          "transitions": [
+            { "default": "4 != query.health" }
+          ]
+        },
+        "health5": {
+          "on_entry": [
+			"/scoreboard players set @s hp 5"
+          ],
+          "transitions": [
+            { "default": "5 != query.health" }
+          ]
+        },
+        "health6": {
+          "on_entry": [
+			"/scoreboard players set @s hp 6"
+          ],
+          "transitions": [
+            { "default": "6 != query.health" }
+          ]
+        },
+        "health7": {
+          "on_entry": [
+			"/scoreboard players set @s hp 7"
+          ],
+          "transitions": [
+            { "default": "7 != query.health" }
+          ]
+        },
+        "health8": {
+          "on_entry": [
+			"/scoreboard players set @s hp 8"
+          ],
+          "transitions": [
+            { "default": "8 != query.health" }
+          ]
+        },
+        "health9": {
+          "on_entry": [
+			"/scoreboard players set @s hp 9"
+          ],
+          "transitions": [
+            { "default": "9 != query.health" }
+          ]
+        },
+        "health10": {
+          "on_entry": [
+			"/scoreboard players set @s hp 10"
+          ],
+          "transitions": [
+            { "default": "10 != query.health" }
+          ]
+        },
+        "health11": {
+          "on_entry": [
+			"/scoreboard players set @s hp 11"
+          ],
+          "transitions": [
+            { "default": "11 != query.health" }
+          ]
+        },
+        "health12": {
+          "on_entry": [
+			"/scoreboard players set @s hp 12"
+          ],
+          "transitions": [
+            { "default": "12 != query.health" }
+          ]
+        },
+        "health13": {
+          "on_entry": [
+			"/scoreboard players set @s hp 13"
+          ],
+          "transitions": [
+            { "default": "13 != query.health" }
+          ]
+        },
+        "health14": {
+          "on_entry": [
+			"/scoreboard players set @s hp 14"
+          ],
+          "transitions": [
+            { "default": "14 != query.health" }
+          ]
+        },
+        "health15": {
+          "on_entry": [
+			"/scoreboard players set @s hp 15"
+          ],
+          "transitions": [
+            { "default": "15 != query.health" }
+          ]
+        },
+        "health16": {
+          "on_entry": [
+			"/scoreboard players set @s hp 16"
+          ],
+          "transitions": [
+            { "default": "16 != query.health" }
+          ]
+        },
+        "health17": {
+          "on_entry": [
+			"/scoreboard players set @s hp 17"
+          ],
+          "transitions": [
+            { "default": "17 != query.health" }
+          ]
+        },
+        "health18": {
+          "on_entry": [
+			"/scoreboard players set @s hp 18"
+          ],
+          "transitions": [
+            { "default": "18 != query.health" }
+          ]
+        },
+        "health19": {
+          "on_entry": [
+			"/scoreboard players set @s hp 19"
+          ],
+          "transitions": [
+            { "default": "19 != query.health" }
+          ]
+        },
+        "health20": {
+          "on_entry": [
+			"/scoreboard players set @s hp 20"
+          ],
+          "transitions": [
+            { "default": "20 != query.health" }
+          ]
+        },
+        "health21": {
+          "on_entry": [
+			"/scoreboard players set @s hp 21"
+          ],
+          "transitions": [
+            { "default": "21 != query.health" }
+          ]
+        },
+        "health22": {
+          "on_entry": [
+			"/scoreboard players set @s hp 22"
+          ],
+          "transitions": [
+            { "default": "22 != query.health" }
+          ]
+        },
+        "health23": {
+          "on_entry": [
+			"/scoreboard players set @s hp 23"
+          ],
+          "transitions": [
+            { "default": "23 != query.health" }
+          ]
+        },
+        "health24": {
+          "on_entry": [
+			"/scoreboard players set @s hp 24"
+          ],
+          "transitions": [
+            { "default": "24 != query.health" }
+          ]
+        },
+        "health25": {
+          "on_entry": [
+			"/scoreboard players set @s hp 25"
+          ],
+          "transitions": [
+            { "default": "25 != query.health" }
+          ]
+        },
+        "health26": {
+          "on_entry": [
+			"/scoreboard players set @s hp 26"
+          ],
+          "transitions": [
+            { "default": "26 != query.health" }
+          ]
+        },
+        "health27": {
+          "on_entry": [
+			"/scoreboard players set @s hp 27"
+          ],
+          "transitions": [
+            { "default": "27 != query.health" }
+          ]
+        },
+        "health28": {
+          "on_entry": [
+			"/scoreboard players set @s hp 28"
+          ],
+          "transitions": [
+            { "default": "28 != query.health" }
+          ]
+        },
+        "health29": {
+          "on_entry": [
+			"/scoreboard players set @s hp 29"
+          ],
+          "transitions": [
+            { "default": "29 != query.health" }
+          ]
+        },
+        "health30": {
+          "on_entry": [
+			"/scoreboard players set @s hp 30"
+          ],
+          "transitions": [
+            { "default": "30 != query.health" }
+          ]
+        },
+        "health31": {
+          "on_entry": [
+			"/scoreboard players set @s hp 31"
+          ],
+          "transitions": [
+            { "default": "31 != query.health" }
+          ]
+        },
+        "health32": {
+          "on_entry": [
+			"/scoreboard players set @s hp 32"
+          ],
+          "transitions": [
+            { "default": "32 != query.health" }
+          ]
+        },
+        "health33": {
+          "on_entry": [
+			"/scoreboard players set @s hp 33"
+          ],
+          "transitions": [
+            { "default": "33 != query.health" }
+          ]
+        },
+        "health34": {
+          "on_entry": [
+			"/scoreboard players set @s hp 34"
+          ],
+          "transitions": [
+            { "default": "34 != query.health" }
+          ]
+        },
+        "health35": {
+          "on_entry": [
+			"/scoreboard players set @s hp 35"
+          ],
+          "transitions": [
+            { "default": "35 != query.health" }
+          ]
+        },
+        "health36": {
+          "on_entry": [
+			"/scoreboard players set @s hp 36"
+          ],
+          "transitions": [
+            { "default": "36 != query.health" }
+          ]
+        },
+        "health37": {
+          "on_entry": [
+			"/scoreboard players set @s hp 37"
+          ],
+          "transitions": [
+            { "default": "37 != query.health" }
+          ]
+        },
+        "health38": {
+          "on_entry": [
+			"/scoreboard players set @s hp 38"
+          ],
+          "transitions": [
+            { "default": "38 != query.health" }
+          ]
+        },
+        "health39": {
+          "on_entry": [
+			"/scoreboard players set @s hp 39"
+          ],
+          "transitions": [
+            { "default": "39 != query.health" }
+          ]
+        },
+        "health40": {
+          "on_entry": [
+			"/scoreboard players set @s hp 40"
+          ],
+          "transitions": [
+            { "default": "40 != query.health" }
+          ]
+        },
+        "health41": {
+          "on_entry": [
+			"/scoreboard players set @s hp 41"
+          ],
+          "transitions": [
+            { "default": "41 != query.health" }
+          ]
+        },
+        "health42": {
+          "on_entry": [
+			"/scoreboard players set @s hp 42"
+          ],
+          "transitions": [
+            { "default": "42 != query.health" }
+          ]
+        },
+        "health43": {
+          "on_entry": [
+			"/scoreboard players set @s hp 43"
+          ],
+          "transitions": [
+            { "default": "43 != query.health" }
+          ]
+        },
+        "health44": {
+          "on_entry": [
+			"/scoreboard players set @s hp 44"
+          ],
+          "transitions": [
+            { "default": "44 != query.health" }
+          ]
+        },
+        "health45": {
+          "on_entry": [
+			"/scoreboard players set @s hp 45"
+          ],
+          "transitions": [
+            { "default": "45 != query.health" }
+          ]
+        },
+        "health46": {
+          "on_entry": [
+			"/scoreboard players set @s hp 46"
+          ],
+          "transitions": [
+            { "default": "46 != query.health" }
+          ]
+        },
+        "health47": {
+          "on_entry": [
+			"/scoreboard players set @s hp 47"
+          ],
+          "transitions": [
+            { "default": "47 != query.health" }
+          ]
+        },
+        "health48": {
+          "on_entry": [
+			"/scoreboard players set @s hp 48"
+          ],
+          "transitions": [
+            { "default": "48 != query.health" }
+          ]
+        },
+        "health49": {
+          "on_entry": [
+			"/scoreboard players set @s hp 49"
+          ],
+          "transitions": [
+            { "default": "49 != query.health" }
+          ]
+        },
+        "health50": {
+          "on_entry": [
+			"/scoreboard players set @s hp 50"
+          ],
+          "transitions": [
+            { "default": "50 != query.health" }
+          ]
+        },
+        "health51": {
+          "on_entry": [
+			"/scoreboard players set @s hp 51"
+          ],
+          "transitions": [
+            { "default": "51 != query.health" }
+          ]
+        },
+        "health52": {
+          "on_entry": [
+			"/scoreboard players set @s hp 52"
+          ],
+          "transitions": [
+            { "default": "52 != query.health" }
+          ]
+        },
+        "health53": {
+          "on_entry": [
+			"/scoreboard players set @s hp 53"
+          ],
+          "transitions": [
+            { "default": "53 != query.health" }
+          ]
+        },
+        "health54": {
+          "on_entry": [
+			"/scoreboard players set @s hp 54"
+          ],
+          "transitions": [
+            { "default": "54 != query.health" }
+          ]
+        },
+        "health55": {
+          "on_entry": [
+			"/scoreboard players set @s hp 55"
+          ],
+          "transitions": [
+            { "default": "55 != query.health" }
+          ]
+        },
+        "health56": {
+          "on_entry": [
+			"/scoreboard players set @s hp 56"
+          ],
+          "transitions": [
+            { "default": "56 != query.health" }
+          ]
+        },
+        "health57": {
+          "on_entry": [
+			"/scoreboard players set @s hp 57"
+          ],
+          "transitions": [
+            { "default": "57 != query.health" }
+          ]
+        },
+        "health58": {
+          "on_entry": [
+			"/scoreboard players set @s hp 58"
+          ],
+          "transitions": [
+            { "default": "58 != query.health" }
+          ]
+        },
+        "health59": {
+          "on_entry": [
+			"/scoreboard players set @s hp 59"
+          ],
+          "transitions": [
+            { "default": "59 != query.health" }
+          ]
+        },
+        "health60": {
+          "on_entry": [
+			"/scoreboard players set @s hp 60"
+          ],
+          "transitions": [
+            { "default": "60 != query.health" }
+          ]
+        },
+        "health61": {
+          "on_entry": [
+			"/scoreboard players set @s hp 61"
+          ],
+          "transitions": [
+            { "default": "61 != query.health" }
+          ]
+        },
+        "health62": {
+          "on_entry": [
+			"/scoreboard players set @s hp 62"
+          ],
+          "transitions": [
+            { "default": "62 != query.health" }
+          ]
+        },
+        "health63": {
+          "on_entry": [
+			"/scoreboard players set @s hp 63"
+          ],
+          "transitions": [
+            { "default": "63 != query.health" }
+          ]
+        },
+        "health64": {
+          "on_entry": [
+			"/scoreboard players set @s hp 64"
+          ],
+          "transitions": [
+            { "default": "64 != query.health" }
+          ]
+        },
+        "health65": {
+          "on_entry": [
+			"/scoreboard players set @s hp 65"
+          ],
+          "transitions": [
+            { "default": "65 != query.health" }
+          ]
+        },
+        "health66": {
+          "on_entry": [
+			"/scoreboard players set @s hp 66"
+          ],
+          "transitions": [
+            { "default": "66 != query.health" }
+          ]
+        },
+        "health67": {
+          "on_entry": [
+			"/scoreboard players set @s hp 67"
+          ],
+          "transitions": [
+            { "default": "67 != query.health" }
+          ]
+        },
+        "health68": {
+          "on_entry": [
+			"/scoreboard players set @s hp 68"
+          ],
+          "transitions": [
+            { "default": "68 != query.health" }
+          ]
+        },
+        "health69": {
+          "on_entry": [
+			"/scoreboard players set @s hp 69"
+          ],
+          "transitions": [
+            { "default": "69 != query.health" }
+          ]
+        },
+        "health70": {
+          "on_entry": [
+			"/scoreboard players set @s hp 70"
+          ],
+          "transitions": [
+            { "default": "70 != query.health" }
+          ]
+        },
+        "health71": {
+          "on_entry": [
+			"/scoreboard players set @s hp 71"
+          ],
+          "transitions": [
+            { "default": "71 != query.health" }
+          ]
+        },
+        "health72": {
+          "on_entry": [
+			"/scoreboard players set @s hp 72"
+          ],
+          "transitions": [
+            { "default": "72 != query.health" }
+          ]
+        },
+        "health73": {
+          "on_entry": [
+			"/scoreboard players set @s hp 73"
+          ],
+          "transitions": [
+            { "default": "73 != query.health" }
+          ]
+        },
+        "health74": {
+          "on_entry": [
+			"/scoreboard players set @s hp 74"
+          ],
+          "transitions": [
+            { "default": "74 != query.health" }
+          ]
+        },
+        "health75": {
+          "on_entry": [
+			"/scoreboard players set @s hp 75"
+          ],
+          "transitions": [
+            { "default": "75 != query.health" }
+          ]
+        },
+        "health76": {
+          "on_entry": [
+			"/scoreboard players set @s hp 76"
+          ],
+          "transitions": [
+            { "default": "76 != query.health" }
+          ]
+        },
+        "health77": {
+          "on_entry": [
+			"/scoreboard players set @s hp 77"
+          ],
+          "transitions": [
+            { "default": "77 != query.health" }
+          ]
+        },
+        "health78": {
+          "on_entry": [
+			"/scoreboard players set @s hp 78"
+          ],
+          "transitions": [
+            { "default": "78 != query.health" }
+          ]
+        },
+        "health79": {
+          "on_entry": [
+			"/scoreboard players set @s hp 79"
+          ],
+          "transitions": [
+            { "default": "79 != query.health" }
+          ]
+        },
+        "health80": {
+          "on_entry": [
+			"/scoreboard players set @s hp 80"
+          ],
+          "transitions": [
+            { "default": "80 != query.health" }
+          ]
+        },
+        "health81": {
+          "on_entry": [
+			"/scoreboard players set @s hp 81"
+          ],
+          "transitions": [
+            { "default": "81 != query.health" }
+          ]
+        },
+        "health82": {
+          "on_entry": [
+			"/scoreboard players set @s hp 82"
+          ],
+          "transitions": [
+            { "default": "82 != query.health" }
+          ]
+        },
+        "health83": {
+          "on_entry": [
+			"/scoreboard players set @s hp 83"
+          ],
+          "transitions": [
+            { "default": "83 != query.health" }
+          ]
+        },
+        "health84": {
+          "on_entry": [
+			"/scoreboard players set @s hp 84"
+          ],
+          "transitions": [
+            { "default": "84 != query.health" }
+          ]
+        },
+        "health85": {
+          "on_entry": [
+			"/scoreboard players set @s hp 85"
+          ],
+          "transitions": [
+            { "default": "85 != query.health" }
+          ]
+        },
+        "health86": {
+          "on_entry": [
+			"/scoreboard players set @s hp 86"
+          ],
+          "transitions": [
+            { "default": "86 != query.health" }
+          ]
+        },
+        "health87": {
+          "on_entry": [
+			"/scoreboard players set @s hp 87"
+          ],
+          "transitions": [
+            { "default": "87 != query.health" }
+          ]
+        },
+        "health88": {
+          "on_entry": [
+			"/scoreboard players set @s hp 88"
+          ],
+          "transitions": [
+            { "default": "88 != query.health" }
+          ]
+        },
+        "health89": {
+          "on_entry": [
+			"/scoreboard players set @s hp 89"
+          ],
+          "transitions": [
+            { "default": "89 != query.health" }
+          ]
+        },
+        "health90": {
+          "on_entry": [
+			"/scoreboard players set @s hp 90"
+          ],
+          "transitions": [
+            { "default": "90 != query.health" }
+          ]
+        },
+        "health91": {
+          "on_entry": [
+			"/scoreboard players set @s hp 91"
+          ],
+          "transitions": [
+            { "default": "91 != query.health" }
+          ]
+        },
+        "health92": {
+          "on_entry": [
+			"/scoreboard players set @s hp 92"
+          ],
+          "transitions": [
+            { "default": "92 != query.health" }
+          ]
+        },
+        "health93": {
+          "on_entry": [
+			"/scoreboard players set @s hp 93"
+          ],
+          "transitions": [
+            { "default": "93 != query.health" }
+          ]
+        },
+        "health94": {
+          "on_entry": [
+			"/scoreboard players set @s hp 94"
+          ],
+          "transitions": [
+            { "default": "94 != query.health" }
+          ]
+        },
+        "health95": {
+          "on_entry": [
+			"/scoreboard players set @s hp 95"
+          ],
+          "transitions": [
+            { "default": "95 != query.health" }
+          ]
+        },
+        "health96": {
+          "on_entry": [
+			"/scoreboard players set @s hp 96"
+          ],
+          "transitions": [
+            { "default": "96 != query.health" }
+          ]
+        },
+        "health97": {
+          "on_entry": [
+			"/scoreboard players set @s hp 97"
+          ],
+          "transitions": [
+            { "default": "97 != query.health" }
+          ]
+        },
+        "health98": {
+          "on_entry": [
+			"/scoreboard players set @s hp 98"
+          ],
+          "transitions": [
+            { "default": "98 != query.health" }
+          ]
+        },
+        "health99": {
+          "on_entry": [
+			"/scoreboard players set @s hp 99"
+          ],
+          "transitions": [
+            { "default": "99 != query.health" }
+          ]
+        },
+        "health100": {
+          "on_entry": [
+			"/scoreboard players set @s hp 100"
+          ],
+          "transitions": [
+            { "default": "100 != query.health" }
+          ]
+        },
+        "health101": {
+          "on_entry": [
+			"/scoreboard players set @s hp 101"
+          ],
+          "transitions": [
+            { "default": "101 != query.health" }
+          ]
+        },
+        "health102": {
+          "on_entry": [
+			"/scoreboard players set @s hp 102"
+          ],
+          "transitions": [
+            { "default": "102 != query.health" }
+          ]
+        },
+        "health103": {
+          "on_entry": [
+			"/scoreboard players set @s hp 103"
+          ],
+          "transitions": [
+            { "default": "103 != query.health" }
+          ]
+        },
+        "health104": {
+          "on_entry": [
+			"/scoreboard players set @s hp 104"
+          ],
+          "transitions": [
+            { "default": "104 != query.health" }
+          ]
+        },
+        "health105": {
+          "on_entry": [
+			"/scoreboard players set @s hp 105"
+          ],
+          "transitions": [
+            { "default": "105 != query.health" }
+          ]
+        },
+        "health106": {
+          "on_entry": [
+			"/scoreboard players set @s hp 106"
+          ],
+          "transitions": [
+            { "default": "106 != query.health" }
+          ]
+        },
+        "health107": {
+          "on_entry": [
+			"/scoreboard players set @s hp 107"
+          ],
+          "transitions": [
+            { "default": "107 != query.health" }
+          ]
+        },
+        "health108": {
+          "on_entry": [
+			"/scoreboard players set @s hp 108"
+          ],
+          "transitions": [
+            { "default": "108 != query.health" }
+          ]
+        },
+        "health109": {
+          "on_entry": [
+			"/scoreboard players set @s hp 109"
+          ],
+          "transitions": [
+            { "default": "109 != query.health" }
+          ]
+        },
+        "health110": {
+          "on_entry": [
+			"/scoreboard players set @s hp 110"
+          ],
+          "transitions": [
+            { "default": "110 != query.health" }
+          ]
+        },
+        "health111": {
+          "on_entry": [
+			"/scoreboard players set @s hp 111"
+          ],
+          "transitions": [
+            { "default": "111 != query.health" }
+          ]
+        },
+        "health112": {
+          "on_entry": [
+			"/scoreboard players set @s hp 112"
+          ],
+          "transitions": [
+            { "default": "112 != query.health" }
+          ]
+        },
+        "health113": {
+          "on_entry": [
+			"/scoreboard players set @s hp 113"
+          ],
+          "transitions": [
+            { "default": "113 != query.health" }
+          ]
+        },
+        "health114": {
+          "on_entry": [
+			"/scoreboard players set @s hp 114"
+          ],
+          "transitions": [
+            { "default": "114 != query.health" }
+          ]
+        },
+        "health115": {
+          "on_entry": [
+			"/scoreboard players set @s hp 115"
+          ],
+          "transitions": [
+            { "default": "115 != query.health" }
+          ]
+        },
+        "health116": {
+          "on_entry": [
+			"/scoreboard players set @s hp 116"
+          ],
+          "transitions": [
+            { "default": "116 != query.health" }
+          ]
+        },
+        "health117": {
+          "on_entry": [
+			"/scoreboard players set @s hp 117"
+          ],
+          "transitions": [
+            { "default": "117 != query.health" }
+          ]
+        },
+        "health118": {
+          "on_entry": [
+			"/scoreboard players set @s hp 118"
+          ],
+          "transitions": [
+            { "default": "118 != query.health" }
+          ]
+        },
+        "health119": {
+          "on_entry": [
+			"/scoreboard players set @s hp 119"
+          ],
+          "transitions": [
+            { "default": "119 != query.health" }
+          ]
+        },
+        "health120": {
+          "on_entry": [
+			"/scoreboard players set @s hp 120"
+          ],
+          "transitions": [
+            { "default": "120 != query.health" }
+          ]
+        },
+        "health121": {
+          "on_entry": [
+			"/scoreboard players set @s hp 121"
+          ],
+          "transitions": [
+            { "default": "121 != query.health" }
+          ]
+        },
+        "health122": {
+          "on_entry": [
+			"/scoreboard players set @s hp 122"
+          ],
+          "transitions": [
+            { "default": "122 != query.health" }
+          ]
+        },
+        "health123": {
+          "on_entry": [
+			"/scoreboard players set @s hp 123"
+          ],
+          "transitions": [
+            { "default": "123 != query.health" }
+          ]
+        },
+        "health124": {
+          "on_entry": [
+			"/scoreboard players set @s hp 124"
+          ],
+          "transitions": [
+            { "default": "124 != query.health" }
+          ]
+        },
+        "health125": {
+          "on_entry": [
+			"/scoreboard players set @s hp 125"
+          ],
+          "transitions": [
+            { "default": "125 != query.health" }
+          ]
+        },
+        "health126": {
+          "on_entry": [
+			"/scoreboard players set @s hp 126"
+          ],
+          "transitions": [
+            { "default": "126 != query.health" }
+          ]
+        },
+        "health127": {
+          "on_entry": [
+			"/scoreboard players set @s hp 127"
+          ],
+          "transitions": [
+            { "default": "127 != query.health" }
+          ]
+        },
+        "health128": {
+          "on_entry": [
+			"/scoreboard players set @s hp 128"
+          ],
+          "transitions": [
+            { "default": "128 != query.health" }
+          ]
+        },
+        "health129": {
+          "on_entry": [
+			"/scoreboard players set @s hp 129"
+          ],
+          "transitions": [
+            { "default": "129 != query.health" }
+          ]
+        },
+        "health130": {
+          "on_entry": [
+			"/scoreboard players set @s hp 130"
+          ],
+          "transitions": [
+            { "default": "130 != query.health" }
+          ]
+        },
+        "health131": {
+          "on_entry": [
+			"/scoreboard players set @s hp 131"
+          ],
+          "transitions": [
+            { "default": "131 != query.health" }
+          ]
+        },
+        "health132": {
+          "on_entry": [
+			"/scoreboard players set @s hp 132"
+          ],
+          "transitions": [
+            { "default": "132 != query.health" }
+          ]
+        },
+        "health133": {
+          "on_entry": [
+			"/scoreboard players set @s hp 133"
+          ],
+          "transitions": [
+            { "default": "133 != query.health" }
+          ]
+        },
+        "health134": {
+          "on_entry": [
+			"/scoreboard players set @s hp 134"
+          ],
+          "transitions": [
+            { "default": "134 != query.health" }
+          ]
+        },
+        "health135": {
+          "on_entry": [
+			"/scoreboard players set @s hp 135"
+          ],
+          "transitions": [
+            { "default": "135 != query.health" }
+          ]
+        },
+        "health136": {
+          "on_entry": [
+			"/scoreboard players set @s hp 136"
+          ],
+          "transitions": [
+            { "default": "136 != query.health" }
+          ]
+        },
+        "health137": {
+          "on_entry": [
+			"/scoreboard players set @s hp 137"
+          ],
+          "transitions": [
+            { "default": "137 != query.health" }
+          ]
+        },
+        "health138": {
+          "on_entry": [
+			"/scoreboard players set @s hp 138"
+          ],
+          "transitions": [
+            { "default": "138 != query.health" }
+          ]
+        },
+        "health139": {
+          "on_entry": [
+			"/scoreboard players set @s hp 139"
+          ],
+          "transitions": [
+            { "default": "139 != query.health" }
+          ]
+        },
+        "health140": {
+          "on_entry": [
+			"/scoreboard players set @s hp 140"
+          ],
+          "transitions": [
+            { "default": "140 != query.health" }
+          ]
+        },
+        "health141": {
+          "on_entry": [
+			"/scoreboard players set @s hp 141"
+          ],
+          "transitions": [
+            { "default": "141 != query.health" }
+          ]
+        },
+        "health142": {
+          "on_entry": [
+			"/scoreboard players set @s hp 142"
+          ],
+          "transitions": [
+            { "default": "142 != query.health" }
+          ]
+        },
+        "health143": {
+          "on_entry": [
+			"/scoreboard players set @s hp 143"
+          ],
+          "transitions": [
+            { "default": "143 != query.health" }
+          ]
+        },
+        "health144": {
+          "on_entry": [
+			"/scoreboard players set @s hp 144"
+          ],
+          "transitions": [
+            { "default": "144 != query.health" }
+          ]
+        },
+        "health145": {
+          "on_entry": [
+			"/scoreboard players set @s hp 145"
+          ],
+          "transitions": [
+            { "default": "145 != query.health" }
+          ]
+        },
+        "health146": {
+          "on_entry": [
+			"/scoreboard players set @s hp 146"
+          ],
+          "transitions": [
+            { "default": "146 != query.health" }
+          ]
+        },
+        "health147": {
+          "on_entry": [
+			"/scoreboard players set @s hp 147"
+          ],
+          "transitions": [
+            { "default": "147 != query.health" }
+          ]
+        },
+        "health148": {
+          "on_entry": [
+			"/scoreboard players set @s hp 148"
+          ],
+          "transitions": [
+            { "default": "148 != query.health" }
+          ]
+        },
+        "health149": {
+          "on_entry": [
+			"/scoreboard players set @s hp 149"
+          ],
+          "transitions": [
+            { "default": "149 != query.health" }
+          ]
+        },
+        "health150": {
+          "on_entry": [
+			"/scoreboard players set @s hp 150"
+          ],
+          "transitions": [
+            { "default": "150 != query.health" }
+          ]
+        },
+        "health151": {
+          "on_entry": [
+			"/scoreboard players set @s hp 151"
+          ],
+          "transitions": [
+            { "default": "151 != query.health" }
+          ]
+        },
+        "health152": {
+          "on_entry": [
+			"/scoreboard players set @s hp 152"
+          ],
+          "transitions": [
+            { "default": "152 != query.health" }
+          ]
+        },
+        "health153": {
+          "on_entry": [
+			"/scoreboard players set @s hp 153"
+          ],
+          "transitions": [
+            { "default": "153 != query.health" }
+          ]
+        },
+        "health154": {
+          "on_entry": [
+			"/scoreboard players set @s hp 154"
+          ],
+          "transitions": [
+            { "default": "154 != query.health" }
+          ]
+        },
+        "health155": {
+          "on_entry": [
+			"/scoreboard players set @s hp 155"
+          ],
+          "transitions": [
+            { "default": "155 != query.health" }
+          ]
+        },
+        "health156": {
+          "on_entry": [
+			"/scoreboard players set @s hp 156"
+          ],
+          "transitions": [
+            { "default": "156 != query.health" }
+          ]
+        },
+        "health157": {
+          "on_entry": [
+			"/scoreboard players set @s hp 157"
+          ],
+          "transitions": [
+            { "default": "157 != query.health" }
+          ]
+        },
+        "health158": {
+          "on_entry": [
+			"/scoreboard players set @s hp 158"
+          ],
+          "transitions": [
+            { "default": "158 != query.health" }
+          ]
+        },
+        "health159": {
+          "on_entry": [
+			"/scoreboard players set @s hp 159"
+          ],
+          "transitions": [
+            { "default": "159 != query.health" }
+          ]
+        },
+        "health160": {
+          "on_entry": [
+			"/scoreboard players set @s hp 160"
+          ],
+          "transitions": [
+            { "default": "160 != query.health" }
+          ]
+        },
+        "health161": {
+          "on_entry": [
+			"/scoreboard players set @s hp 161"
+          ],
+          "transitions": [
+            { "default": "161 != query.health" }
+          ]
+        },
+        "health162": {
+          "on_entry": [
+			"/scoreboard players set @s hp 162"
+          ],
+          "transitions": [
+            { "default": "162 != query.health" }
+          ]
+        },
+        "health163": {
+          "on_entry": [
+			"/scoreboard players set @s hp 163"
+          ],
+          "transitions": [
+            { "default": "163 != query.health" }
+          ]
+        },
+        "health164": {
+          "on_entry": [
+			"/scoreboard players set @s hp 164"
+          ],
+          "transitions": [
+            { "default": "164 != query.health" }
+          ]
+        },
+        "health165": {
+          "on_entry": [
+			"/scoreboard players set @s hp 165"
+          ],
+          "transitions": [
+            { "default": "165 != query.health" }
+          ]
+        },
+        "health166": {
+          "on_entry": [
+			"/scoreboard players set @s hp 166"
+          ],
+          "transitions": [
+            { "default": "166 != query.health" }
+          ]
+        },
+        "health167": {
+          "on_entry": [
+			"/scoreboard players set @s hp 167"
+          ],
+          "transitions": [
+            { "default": "167 != query.health" }
+          ]
+        },
+        "health168": {
+          "on_entry": [
+			"/scoreboard players set @s hp 168"
+          ],
+          "transitions": [
+            { "default": "168 != query.health" }
+          ]
+        },
+        "health169": {
+          "on_entry": [
+			"/scoreboard players set @s hp 169"
+          ],
+          "transitions": [
+            { "default": "169 != query.health" }
+          ]
+        },
+        "health170": {
+          "on_entry": [
+			"/scoreboard players set @s hp 170"
+          ],
+          "transitions": [
+            { "default": "170 != query.health" }
+          ]
+        },
+        "health171": {
+          "on_entry": [
+			"/scoreboard players set @s hp 171"
+          ],
+          "transitions": [
+            { "default": "171 != query.health" }
+          ]
+        },
+        "health172": {
+          "on_entry": [
+			"/scoreboard players set @s hp 172"
+          ],
+          "transitions": [
+            { "default": "172 != query.health" }
+          ]
+        },
+        "health173": {
+          "on_entry": [
+			"/scoreboard players set @s hp 173"
+          ],
+          "transitions": [
+            { "default": "173 != query.health" }
+          ]
+        },
+        "health174": {
+          "on_entry": [
+			"/scoreboard players set @s hp 174"
+          ],
+          "transitions": [
+            { "default": "174 != query.health" }
+          ]
+        },
+        "health175": {
+          "on_entry": [
+			"/scoreboard players set @s hp 175"
+          ],
+          "transitions": [
+            { "default": "175 != query.health" }
+          ]
+        },
+        "health176": {
+          "on_entry": [
+			"/scoreboard players set @s hp 176"
+          ],
+          "transitions": [
+            { "default": "176 != query.health" }
+          ]
+        },
+        "health177": {
+          "on_entry": [
+			"/scoreboard players set @s hp 177"
+          ],
+          "transitions": [
+            { "default": "177 != query.health" }
+          ]
+        },
+        "health178": {
+          "on_entry": [
+			"/scoreboard players set @s hp 178"
+          ],
+          "transitions": [
+            { "default": "178 != query.health" }
+          ]
+        },
+        "health179": {
+          "on_entry": [
+			"/scoreboard players set @s hp 179"
+          ],
+          "transitions": [
+            { "default": "179 != query.health" }
+          ]
+        },
+        "health180": {
+          "on_entry": [
+			"/scoreboard players set @s hp 180"
+          ],
+          "transitions": [
+            { "default": "180 != query.health" }
+          ]
+        },
+        "health181": {
+          "on_entry": [
+			"/scoreboard players set @s hp 181"
+          ],
+          "transitions": [
+            { "default": "181 != query.health" }
+          ]
+        },
+        "health182": {
+          "on_entry": [
+			"/scoreboard players set @s hp 182"
+          ],
+          "transitions": [
+            { "default": "182 != query.health" }
+          ]
+        },
+        "health183": {
+          "on_entry": [
+			"/scoreboard players set @s hp 183"
+          ],
+          "transitions": [
+            { "default": "183 != query.health" }
+          ]
+        },
+        "health184": {
+          "on_entry": [
+			"/scoreboard players set @s hp 184"
+          ],
+          "transitions": [
+            { "default": "184 != query.health" }
+          ]
+        },
+        "health185": {
+          "on_entry": [
+			"/scoreboard players set @s hp 185"
+          ],
+          "transitions": [
+            { "default": "185 != query.health" }
+          ]
+        },
+        "health186": {
+          "on_entry": [
+			"/scoreboard players set @s hp 186"
+          ],
+          "transitions": [
+            { "default": "186 != query.health" }
+          ]
+        },
+        "health187": {
+          "on_entry": [
+			"/scoreboard players set @s hp 187"
+          ],
+          "transitions": [
+            { "default": "187 != query.health" }
+          ]
+        },
+        "health188": {
+          "on_entry": [
+			"/scoreboard players set @s hp 188"
+          ],
+          "transitions": [
+            { "default": "188 != query.health" }
+          ]
+        },
+        "health189": {
+          "on_entry": [
+			"/scoreboard players set @s hp 189"
+          ],
+          "transitions": [
+            { "default": "189 != query.health" }
+          ]
+        },
+        "health190": {
+          "on_entry": [
+			"/scoreboard players set @s hp 190"
+          ],
+          "transitions": [
+            { "default": "190 != query.health" }
+          ]
+        },
+        "health191": {
+          "on_entry": [
+			"/scoreboard players set @s hp 191"
+          ],
+          "transitions": [
+            { "default": "191 != query.health" }
+          ]
+        },
+        "health192": {
+          "on_entry": [
+			"/scoreboard players set @s hp 192"
+          ],
+          "transitions": [
+            { "default": "192 != query.health" }
+          ]
+        },
+        "health193": {
+          "on_entry": [
+			"/scoreboard players set @s hp 193"
+          ],
+          "transitions": [
+            { "default": "193 != query.health" }
+          ]
+        },
+        "health194": {
+          "on_entry": [
+			"/scoreboard players set @s hp 194"
+          ],
+          "transitions": [
+            { "default": "194 != query.health" }
+          ]
+        },
+        "health195": {
+          "on_entry": [
+			"/scoreboard players set @s hp 195"
+          ],
+          "transitions": [
+            { "default": "195 != query.health" }
+          ]
+        },
+        "health196": {
+          "on_entry": [
+			"/scoreboard players set @s hp 196"
+          ],
+          "transitions": [
+            { "default": "196 != query.health" }
+          ]
+        },
+        "health197": {
+          "on_entry": [
+			"/scoreboard players set @s hp 197"
+          ],
+          "transitions": [
+            { "default": "197 != query.health" }
+          ]
+        },
+        "health198": {
+          "on_entry": [
+			"/scoreboard players set @s hp 198"
+          ],
+          "transitions": [
+            { "default": "198 != query.health" }
+          ]
+        },
+        "health199": {
+          "on_entry": [
+			"/scoreboard players set @s hp 199"
+          ],
+          "transitions": [
+            { "default": "199 != query.health" }
+          ]
+        },
+        "health200": {
+          "on_entry": [
+			"/scoreboard players set @s hp 200"
+          ],
+          "transitions": [
+            { "default": "200 != query.health" }
+          ]
+        },
+        "health201": {
+          "on_entry": [
+			"/scoreboard players set @s hp 201"
+          ],
+          "transitions": [
+            { "default": "201 != query.health" }
+          ]
+        },
+        "health202": {
+          "on_entry": [
+			"/scoreboard players set @s hp 202"
+          ],
+          "transitions": [
+            { "default": "202 != query.health" }
+          ]
+        },
+        "health203": {
+          "on_entry": [
+			"/scoreboard players set @s hp 203"
+          ],
+          "transitions": [
+            { "default": "203 != query.health" }
+          ]
+        },
+        "health204": {
+          "on_entry": [
+			"/scoreboard players set @s hp 204"
+          ],
+          "transitions": [
+            { "default": "204 != query.health" }
+          ]
+        },
+        "health205": {
+          "on_entry": [
+			"/scoreboard players set @s hp 205"
+          ],
+          "transitions": [
+            { "default": "205 != query.health" }
+          ]
+        },
+        "health206": {
+          "on_entry": [
+			"/scoreboard players set @s hp 206"
+          ],
+          "transitions": [
+            { "default": "206 != query.health" }
+          ]
+        },
+        "health207": {
+          "on_entry": [
+			"/scoreboard players set @s hp 207"
+          ],
+          "transitions": [
+            { "default": "207 != query.health" }
+          ]
+        },
+        "health208": {
+          "on_entry": [
+			"/scoreboard players set @s hp 208"
+          ],
+          "transitions": [
+            { "default": "208 != query.health" }
+          ]
+        },
+        "health209": {
+          "on_entry": [
+			"/scoreboard players set @s hp 209"
+          ],
+          "transitions": [
+            { "default": "209 != query.health" }
+          ]
+        },
+        "health210": {
+          "on_entry": [
+			"/scoreboard players set @s hp 210"
+          ],
+          "transitions": [
+            { "default": "210 != query.health" }
+          ]
+        },
+        "health211": {
+          "on_entry": [
+			"/scoreboard players set @s hp 211"
+          ],
+          "transitions": [
+            { "default": "211 != query.health" }
+          ]
+        },
+        "health212": {
+          "on_entry": [
+			"/scoreboard players set @s hp 212"
+          ],
+          "transitions": [
+            { "default": "212 != query.health" }
+          ]
+        },
+        "health213": {
+          "on_entry": [
+			"/scoreboard players set @s hp 213"
+          ],
+          "transitions": [
+            { "default": "213 != query.health" }
+          ]
+        },
+        "health214": {
+          "on_entry": [
+			"/scoreboard players set @s hp 214"
+          ],
+          "transitions": [
+            { "default": "214 != query.health" }
+          ]
+        },
+        "health215": {
+          "on_entry": [
+			"/scoreboard players set @s hp 215"
+          ],
+          "transitions": [
+            { "default": "215 != query.health" }
+          ]
+        },
+        "health216": {
+          "on_entry": [
+			"/scoreboard players set @s hp 216"
+          ],
+          "transitions": [
+            { "default": "216 != query.health" }
+          ]
+        },
+        "health217": {
+          "on_entry": [
+			"/scoreboard players set @s hp 217"
+          ],
+          "transitions": [
+            { "default": "217 != query.health" }
+          ]
+        },
+        "health218": {
+          "on_entry": [
+			"/scoreboard players set @s hp 218"
+          ],
+          "transitions": [
+            { "default": "218 != query.health" }
+          ]
+        },
+        "health219": {
+          "on_entry": [
+			"/scoreboard players set @s hp 219"
+          ],
+          "transitions": [
+            { "default": "219 != query.health" }
+          ]
+        },
+        "health220": {
+          "on_entry": [
+			"/scoreboard players set @s hp 220"
+          ],
+          "transitions": [
+            { "default": "220 != query.health" }
+          ]
+        },
+        "health221": {
+          "on_entry": [
+			"/scoreboard players set @s hp 221"
+          ],
+          "transitions": [
+            { "default": "221 != query.health" }
+          ]
+        },
+        "health222": {
+          "on_entry": [
+			"/scoreboard players set @s hp 222"
+          ],
+          "transitions": [
+            { "default": "222 != query.health" }
+          ]
+        },
+        "health223": {
+          "on_entry": [
+			"/scoreboard players set @s hp 223"
+          ],
+          "transitions": [
+            { "default": "223 != query.health" }
+          ]
+        },
+        "health224": {
+          "on_entry": [
+			"/scoreboard players set @s hp 224"
+          ],
+          "transitions": [
+            { "default": "224 != query.health" }
+          ]
+        },
+        "health225": {
+          "on_entry": [
+			"/scoreboard players set @s hp 225"
+          ],
+          "transitions": [
+            { "default": "225 != query.health" }
+          ]
+        },
+        "health226": {
+          "on_entry": [
+			"/scoreboard players set @s hp 226"
+          ],
+          "transitions": [
+            { "default": "226 != query.health" }
+          ]
+        },
+        "health227": {
+          "on_entry": [
+			"/scoreboard players set @s hp 227"
+          ],
+          "transitions": [
+            { "default": "227 != query.health" }
+          ]
+        },
+        "health228": {
+          "on_entry": [
+			"/scoreboard players set @s hp 228"
+          ],
+          "transitions": [
+            { "default": "228 != query.health" }
+          ]
+        },
+        "health229": {
+          "on_entry": [
+			"/scoreboard players set @s hp 229"
+          ],
+          "transitions": [
+            { "default": "229 != query.health" }
+          ]
+        },
+        "health230": {
+          "on_entry": [
+			"/scoreboard players set @s hp 230"
+          ],
+          "transitions": [
+            { "default": "230 != query.health" }
+          ]
+        },
+        "health231": {
+          "on_entry": [
+			"/scoreboard players set @s hp 231"
+          ],
+          "transitions": [
+            { "default": "231 != query.health" }
+          ]
+        },
+        "health232": {
+          "on_entry": [
+			"/scoreboard players set @s hp 232"
+          ],
+          "transitions": [
+            { "default": "232 != query.health" }
+          ]
+        },
+        "health233": {
+          "on_entry": [
+			"/scoreboard players set @s hp 233"
+          ],
+          "transitions": [
+            { "default": "233 != query.health" }
+          ]
+        },
+        "health234": {
+          "on_entry": [
+			"/scoreboard players set @s hp 234"
+          ],
+          "transitions": [
+            { "default": "234 != query.health" }
+          ]
+        },
+        "health235": {
+          "on_entry": [
+			"/scoreboard players set @s hp 235"
+          ],
+          "transitions": [
+            { "default": "235 != query.health" }
+          ]
+        },
+        "health236": {
+          "on_entry": [
+			"/scoreboard players set @s hp 236"
+          ],
+          "transitions": [
+            { "default": "236 != query.health" }
+          ]
+        },
+        "health237": {
+          "on_entry": [
+			"/scoreboard players set @s hp 237"
+          ],
+          "transitions": [
+            { "default": "237 != query.health" }
+          ]
+        },
+        "health238": {
+          "on_entry": [
+			"/scoreboard players set @s hp 238"
+          ],
+          "transitions": [
+            { "default": "238 != query.health" }
+          ]
+        },
+        "health239": {
+          "on_entry": [
+			"/scoreboard players set @s hp 239"
+          ],
+          "transitions": [
+            { "default": "239 != query.health" }
+          ]
+        },
+        "health240": {
+          "on_entry": [
+			"/scoreboard players set @s hp 240"
+          ],
+          "transitions": [
+            { "default": "240 != query.health" }
+          ]
+        },
+        "health241": {
+          "on_entry": [
+			"/scoreboard players set @s hp 241"
+          ],
+          "transitions": [
+            { "default": "241 != query.health" }
+          ]
+        },
+        "health242": {
+          "on_entry": [
+			"/scoreboard players set @s hp 242"
+          ],
+          "transitions": [
+            { "default": "242 != query.health" }
+          ]
+        },
+        "health243": {
+          "on_entry": [
+			"/scoreboard players set @s hp 243"
+          ],
+          "transitions": [
+            { "default": "243 != query.health" }
+          ]
+        },
+        "health244": {
+          "on_entry": [
+			"/scoreboard players set @s hp 244"
+          ],
+          "transitions": [
+            { "default": "244 != query.health" }
+          ]
+        },
+        "health245": {
+          "on_entry": [
+			"/scoreboard players set @s hp 245"
+          ],
+          "transitions": [
+            { "default": "245 != query.health" }
+          ]
+        },
+        "health246": {
+          "on_entry": [
+			"/scoreboard players set @s hp 246"
+          ],
+          "transitions": [
+            { "default": "246 != query.health" }
+          ]
+        },
+        "health247": {
+          "on_entry": [
+			"/scoreboard players set @s hp 247"
+          ],
+          "transitions": [
+            { "default": "247 != query.health" }
+          ]
+        },
+        "health248": {
+          "on_entry": [
+			"/scoreboard players set @s hp 248"
+          ],
+          "transitions": [
+            { "default": "248 != query.health" }
+          ]
+        },
+        "health249": {
+          "on_entry": [
+			"/scoreboard players set @s hp 249"
+          ],
+          "transitions": [
+            { "default": "249 != query.health" }
+          ]
+        },
+        "health250": {
+          "on_entry": [
+			"/scoreboard players set @s hp 250"
+          ],
+          "transitions": [
+            { "default": "250 != query.health" }
+          ]
+        },
+        "health251": {
+          "on_entry": [
+			"/scoreboard players set @s hp 251"
+          ],
+          "transitions": [
+            { "default": "251 != query.health" }
+          ]
+        },
+        "health252": {
+          "on_entry": [
+			"/scoreboard players set @s hp 252"
+          ],
+          "transitions": [
+            { "default": "252 != query.health" }
+          ]
+        },
+        "health253": {
+          "on_entry": [
+			"/scoreboard players set @s hp 253"
+          ],
+          "transitions": [
+            { "default": "253 != query.health" }
+          ]
+        },
+        "health254": {
+          "on_entry": [
+			"/scoreboard players set @s hp 254"
+          ],
+          "transitions": [
+            { "default": "254 != query.health" }
+          ]
+        },
+        "health255": {
+          "on_entry": [
+			"/scoreboard players set @s hp 255"
+          ],
+          "transitions": [
+            { "default": "255 != query.health" }
+          ]
+        },
+        "health256": {
+          "on_entry": [
+			"/scoreboard players set @s hp 256"
+          ],
+          "transitions": [
+            { "default": "256 != query.health" }
+          ]
+        },
+        "health257": {
+          "on_entry": [
+			"/scoreboard players set @s hp 257"
+          ],
+          "transitions": [
+            { "default": "257 != query.health" }
+          ]
+        },
+        "health258": {
+          "on_entry": [
+			"/scoreboard players set @s hp 258"
+          ],
+          "transitions": [
+            { "default": "258 != query.health" }
+          ]
+        },
+        "health259": {
+          "on_entry": [
+			"/scoreboard players set @s hp 259"
+          ],
+          "transitions": [
+            { "default": "259 != query.health" }
+          ]
+        },
+        "health260": {
+          "on_entry": [
+			"/scoreboard players set @s hp 260"
+          ],
+          "transitions": [
+            { "default": "260 != query.health" }
+          ]
+        },
+        "health261": {
+          "on_entry": [
+			"/scoreboard players set @s hp 261"
+          ],
+          "transitions": [
+            { "default": "261 != query.health" }
+          ]
+        },
+        "health262": {
+          "on_entry": [
+			"/scoreboard players set @s hp 262"
+          ],
+          "transitions": [
+            { "default": "262 != query.health" }
+          ]
+        },
+        "health263": {
+          "on_entry": [
+			"/scoreboard players set @s hp 263"
+          ],
+          "transitions": [
+            { "default": "263 != query.health" }
+          ]
+        },
+        "health264": {
+          "on_entry": [
+			"/scoreboard players set @s hp 264"
+          ],
+          "transitions": [
+            { "default": "264 != query.health" }
+          ]
+        },
+        "health265": {
+          "on_entry": [
+			"/scoreboard players set @s hp 265"
+          ],
+          "transitions": [
+            { "default": "265 != query.health" }
+          ]
+        },
+        "health266": {
+          "on_entry": [
+			"/scoreboard players set @s hp 266"
+          ],
+          "transitions": [
+            { "default": "266 != query.health" }
+          ]
+        },
+        "health267": {
+          "on_entry": [
+			"/scoreboard players set @s hp 267"
+          ],
+          "transitions": [
+            { "default": "267 != query.health" }
+          ]
+        },
+        "health268": {
+          "on_entry": [
+			"/scoreboard players set @s hp 268"
+          ],
+          "transitions": [
+            { "default": "268 != query.health" }
+          ]
+        },
+        "health269": {
+          "on_entry": [
+			"/scoreboard players set @s hp 269"
+          ],
+          "transitions": [
+            { "default": "269 != query.health" }
+          ]
+        },
+        "health270": {
+          "on_entry": [
+			"/scoreboard players set @s hp 270"
+          ],
+          "transitions": [
+            { "default": "270 != query.health" }
+          ]
+        },
+        "health271": {
+          "on_entry": [
+			"/scoreboard players set @s hp 271"
+          ],
+          "transitions": [
+            { "default": "271 != query.health" }
+          ]
+        },
+        "health272": {
+          "on_entry": [
+			"/scoreboard players set @s hp 272"
+          ],
+          "transitions": [
+            { "default": "272 != query.health" }
+          ]
+        },
+        "health273": {
+          "on_entry": [
+			"/scoreboard players set @s hp 273"
+          ],
+          "transitions": [
+            { "default": "273 != query.health" }
+          ]
+        },
+        "health274": {
+          "on_entry": [
+			"/scoreboard players set @s hp 274"
+          ],
+          "transitions": [
+            { "default": "274 != query.health" }
+          ]
+        },
+        "health275": {
+          "on_entry": [
+			"/scoreboard players set @s hp 275"
+          ],
+          "transitions": [
+            { "default": "275 != query.health" }
+          ]
+        },
+        "health276": {
+          "on_entry": [
+			"/scoreboard players set @s hp 276"
+          ],
+          "transitions": [
+            { "default": "276 != query.health" }
+          ]
+        },
+        "health277": {
+          "on_entry": [
+			"/scoreboard players set @s hp 277"
+          ],
+          "transitions": [
+            { "default": "277 != query.health" }
+          ]
+        },
+        "health278": {
+          "on_entry": [
+			"/scoreboard players set @s hp 278"
+          ],
+          "transitions": [
+            { "default": "278 != query.health" }
+          ]
+        },
+        "health279": {
+          "on_entry": [
+			"/scoreboard players set @s hp 279"
+          ],
+          "transitions": [
+            { "default": "279 != query.health" }
+          ]
+        },
+        "health280": {
+          "on_entry": [
+			"/scoreboard players set @s hp 280"
+          ],
+          "transitions": [
+            { "default": "280 != query.health" }
+          ]
+        },
+        "health281": {
+          "on_entry": [
+			"/scoreboard players set @s hp 281"
+          ],
+          "transitions": [
+            { "default": "281 != query.health" }
+          ]
+        },
+        "health282": {
+          "on_entry": [
+			"/scoreboard players set @s hp 282"
+          ],
+          "transitions": [
+            { "default": "282 != query.health" }
+          ]
+        },
+        "health283": {
+          "on_entry": [
+			"/scoreboard players set @s hp 283"
+          ],
+          "transitions": [
+            { "default": "283 != query.health" }
+          ]
+        },
+        "health284": {
+          "on_entry": [
+			"/scoreboard players set @s hp 284"
+          ],
+          "transitions": [
+            { "default": "284 != query.health" }
+          ]
+        },
+        "health285": {
+          "on_entry": [
+			"/scoreboard players set @s hp 285"
+          ],
+          "transitions": [
+            { "default": "285 != query.health" }
+          ]
+        },
+        "health286": {
+          "on_entry": [
+			"/scoreboard players set @s hp 286"
+          ],
+          "transitions": [
+            { "default": "286 != query.health" }
+          ]
+        },
+        "health287": {
+          "on_entry": [
+			"/scoreboard players set @s hp 287"
+          ],
+          "transitions": [
+            { "default": "287 != query.health" }
+          ]
+        },
+        "health288": {
+          "on_entry": [
+			"/scoreboard players set @s hp 288"
+          ],
+          "transitions": [
+            { "default": "288 != query.health" }
+          ]
+        },
+        "health289": {
+          "on_entry": [
+			"/scoreboard players set @s hp 289"
+          ],
+          "transitions": [
+            { "default": "289 != query.health" }
+          ]
+        },
+        "health290": {
+          "on_entry": [
+			"/scoreboard players set @s hp 290"
+          ],
+          "transitions": [
+            { "default": "290 != query.health" }
+          ]
+        },
+        "health291": {
+          "on_entry": [
+			"/scoreboard players set @s hp 291"
+          ],
+          "transitions": [
+            { "default": "291 != query.health" }
+          ]
+        },
+        "health292": {
+          "on_entry": [
+			"/scoreboard players set @s hp 292"
+          ],
+          "transitions": [
+            { "default": "292 != query.health" }
+          ]
+        },
+        "health293": {
+          "on_entry": [
+			"/scoreboard players set @s hp 293"
+          ],
+          "transitions": [
+            { "default": "293 != query.health" }
+          ]
+        },
+        "health294": {
+          "on_entry": [
+			"/scoreboard players set @s hp 294"
+          ],
+          "transitions": [
+            { "default": "294 != query.health" }
+          ]
+        },
+        "health295": {
+          "on_entry": [
+			"/scoreboard players set @s hp 295"
+          ],
+          "transitions": [
+            { "default": "295 != query.health" }
+          ]
+        },
+        "health296": {
+          "on_entry": [
+			"/scoreboard players set @s hp 296"
+          ],
+          "transitions": [
+            { "default": "296 != query.health" }
+          ]
+        },
+        "health297": {
+          "on_entry": [
+			"/scoreboard players set @s hp 297"
+          ],
+          "transitions": [
+            { "default": "297 != query.health" }
+          ]
+        },
+        "health298": {
+          "on_entry": [
+			"/scoreboard players set @s hp 298"
+          ],
+          "transitions": [
+            { "default": "298 != query.health" }
+          ]
+        },
+        "health299": {
+          "on_entry": [
+			"/scoreboard players set @s hp 299"
+          ],
+          "transitions": [
+            { "default": "299 != query.health" }
+          ]
+        },
+        "health300": {
+          "on_entry": [
+			"/scoreboard players set @s hp 300"
+          ],
+          "transitions": [
+            { "default": "300 != query.health" }
+          ]
+        }
+      }
+    },
+    "controller.animation.deathplayer": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"deathplayer": "query.last_hit_by_player && query.is_alive == 0"}
+          ]
+        },
+        "deathplayer": {
+          "on_entry": [
+			"/tag @s add deathplayer",
+			"/scoreboard players add @s deathplayer 1"
+          ],
+		  "on_exit": [
+			"/testfor @s"
+		  ],
+          "transitions": [
+            { "default": "query.is_alive" }
+          ]
+        }
+      }
+    },
+    "controller.animation.death": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"death": "query.is_alive == 0"}
+          ]
+        },
+        "death": {
+          "on_entry": [
+			"/tag @s add death",
+			"/scoreboard players add @s death 1"
+          ],
+          "transitions": [
+            { "default": "query.is_alive == 1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.helmet": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"helmet": "query.has_armor_slot(0) == 1"}
+          ]
+        },
+        "helmet": {
+          "on_entry": [
+			"/tag @s add helmet"
+          ],
+		  "on_exit": [
+			"/tag @s remove helmet"
+		  ],
+          "transitions": [
+            { "default": "query.has_armor_slot(0) == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.chestplate": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"chestplate": "query.has_armor_slot(1) == 1"}
+          ]
+        },
+        "chestplate": {
+          "on_entry": [
+			"/tag @s add chestplate"
+          ],
+		  "on_exit": [
+			"/tag @s remove chestplate"
+		  ],
+          "transitions": [
+            { "default": "query.has_armor_slot(1) == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.leggings": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"leggings": "query.has_armor_slot(2) == 1"}
+          ]
+        },
+        "leggings": {
+          "on_entry": [
+			"/tag @s add leggings"
+          ],
+		  "on_exit": [
+			"/tag @s remove leggings"
+		  ],
+          "transitions": [
+            { "default": "query.has_armor_slot(2) == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.boots": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"boots": "query.has_armor_slot(3) == 1"}
+          ]
+        },
+        "boots": {
+          "on_entry": [
+			"/tag @s add boots"
+          ],
+		  "on_exit": [
+			"/tag @s remove boots"
+		  ],
+          "transitions": [
+            { "default": "query.has_armor_slot(3) == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.boots": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"boots": "query.has_armor_slot(3) == 1"}
+          ]
+        },
+        "boots": {
+          "on_entry": [
+			"/tag @s add boots"
+          ],
+		  "on_exit": [
+			"/tag @s remove boots"
+		  ],
+          "transitions": [
+            { "default": "query.has_armor_slot(3) == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.damage": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"damage": "query.mark_variant == 1"}
+          ]
+        },
+        "damage": {
+          "on_entry": [
+			"/tag @s add damage",
+			"/execute @s[tag=stevevoice] ~~~ /playsound random.hurt @a ~~~"
+          ],
+		  "on_exit": [
+			"/testfor @s"
+		  ],
+          "transitions": [
+            { "default": "query.mark_variant == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.sword": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"sword": "query.get_equipped_item_name =='wooden_sword' || query.get_equipped_item_name =='stone_sword' || query.get_equipped_item_name =='iron_sword' || query.get_equipped_item_name =='diamond_sword' || query.get_equipped_item_name =='golden_sword' || query.get_equipped_item_name =='netherite_sword'"}
+          ]
+        },
+        "sword": {
+          "on_entry": [
+			"/tag @s add sword"
+          ],
+		  "on_exit": [
+			"/tag @s remove sword"
+		  ],
+          "transitions": [
+            { "default": "query.get_equipped_item_name !='wooden_sword' && query.get_equipped_item_name !='stone_sword' && query.get_equipped_item_name !='iron_sword' && query.get_equipped_item_name !='diamond_sword' && query.get_equipped_item_name !='golden_sword' && query.get_equipped_item_name !='netherite_sword'" }
+          ]
+        }
+      }
+    },
+    "controller.animation.attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"attack": "variable.attack_time"}
+          ]
+        },
+        "attack": {
+          "on_entry": [
+			"/tag @s add attack"
+          ],
+		  "on_exit": [
+			"/testfor @s"
+		  ],
+          "transitions": [
+            { "default": "!variable.attack_time" }
+          ]
+        }
+      }
+    },
+    "controller.animation.using": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"using": "query.is_using_item"}
+          ]
+        },
+        "using": {
+          "on_entry": [
+			"/tag @s add using"
+          ],
+		  "on_exit": [
+			"/tag @s remove using"
+		  ],
+          "transitions": [
+            { "default": "!query.is_using_item" }
+          ]
+        }
+      }
+    },
+    "controller.animation.onfire": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"onfire": "query.is_on_fire"}
+          ]
+        },
+        "onfire": {
+          "on_entry": [
+			"/tag @s add onfire"
+          ],
+		  "on_exit": [
+			"/tag @s remove onfire"
+		  ],
+          "transitions": [
+            { "default": "!query.is_on_fire" }
+          ]
+        }
+      }
+    },
+    "controller.animation.gliding": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"gliding": "query.is_gliding"}
+          ]
+        },
+        "gliding": {
+          "on_entry": [
+			"/tag @s add gliding"
+          ],
+		  "on_exit": [
+			"/tag @s remove gliding"
+		  ],
+          "transitions": [
+            { "default": "!query.is_gliding" }
+          ]
+        }
+      }
+    },
+    "controller.animation.killplayer": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"killplayer": "query.variant == 1"}
+          ]
+        },
+        "killplayer": {
+          "on_entry": [
+			"/tag @s add killplayer"
+          ],
+		  "on_exit": [
+			"/testfor @s"
+		  ],
+          "transitions": [
+            { "default": "query.variant == 0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.pickaxe": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"pickaxe": "query.get_equipped_item_name =='wooden_pickaxe' || query.get_equipped_item_name =='stone_pickaxe' || query.get_equipped_item_name =='iron_pickaxe' || query.get_equipped_item_name =='diamond_pickaxe' || query.get_equipped_item_name =='golden_pickaxe' || query.get_equipped_item_name =='netherite_pickaxe'"}
+          ]
+        },
+        "pickaxe": {
+          "on_entry": [
+			"/tag @s add pickaxe"
+          ],
+		  "on_exit": [
+			"/tag @s remove pickaxe"
+		  ],
+          "transitions": [
+            { "default": "query.get_equipped_item_name !='wooden_pickaxe' && query.get_equipped_item_name !='stone_pickaxe' && query.get_equipped_item_name !='iron_pickaxe' && query.get_equipped_item_name !='diamond_pickaxe' && query.get_equipped_item_name !='golden_pickaxe' && query.get_equipped_item_name !='netherite_pickaxe'" }
+          ]
+        }
+      }
+    },
+    "controller.animation.axe": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"axe": "query.get_equipped_item_name =='wooden_axe' || query.get_equipped_item_name =='stone_axe' || query.get_equipped_item_name =='iron_axe' || query.get_equipped_item_name =='diamond_axe' || query.get_equipped_item_name =='golden_axe' || query.get_equipped_item_name =='netherite_axe'"}
+          ]
+        },
+        "axe": {
+          "on_entry": [
+			"/tag @s add axe"
+          ],
+		  "on_exit": [
+			"/tag @s remove axe"
+		  ],
+          "transitions": [
+            { "default": "query.get_equipped_item_name !='wooden_axe' && query.get_equipped_item_name !='stone_axe' && query.get_equipped_item_name !='iron_axe' && query.get_equipped_item_name !='diamond_axe' && query.get_equipped_item_name !='golden_axe' && query.get_equipped_item_name !='netherite_axe'" }
+          ]
+        }
+      }
+    },
+    "controller.animation.shovel": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"shovel": "query.get_equipped_item_name =='wooden_shovel' || query.get_equipped_item_name =='stone_shovel' || query.get_equipped_item_name =='iron_shovel' || query.get_equipped_item_name =='diamond_shovel' || query.get_equipped_item_name =='golden_shovel' || query.get_equipped_item_name =='netherite_shovel'"}
+          ]
+        },
+        "shovel": {
+          "on_entry": [
+			"/tag @s add shovel"
+          ],
+		  "on_exit": [
+			"/tag @s remove shovel"
+		  ],
+          "transitions": [
+            { "default": "query.get_equipped_item_name !='wooden_shovel' && query.get_equipped_item_name !='stone_shovel' && query.get_equipped_item_name !='iron_shovel' && query.get_equipped_item_name !='diamond_shovel' && query.get_equipped_item_name !='golden_shovel' && query.get_equipped_item_name !='netherite_shovel'" }
+          ]
+        }
+      }
+    },
+    "controller.animation.hoe": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"hoe": "query.get_equipped_item_name =='wooden_hoe' || query.get_equipped_item_name =='stone_hoe' || query.get_equipped_item_name =='iron_hoe' || query.get_equipped_item_name =='diamond_hoe' || query.get_equipped_item_name =='golden_hoe' || query.get_equipped_item_name =='netherite_hoe'"}
+          ]
+        },
+        "hoe": {
+          "on_entry": [
+			"/tag @s add hoe"
+          ],
+		  "on_exit": [
+			"/tag @s remove hoe"
+		  ],
+          "transitions": [
+            { "default": "query.get_equipped_item_name !='wooden_hoe' && query.get_equipped_item_name !='stone_hoe' && query.get_equipped_item_name !='iron_hoe' && query.get_equipped_item_name !='diamond_hoe' && query.get_equipped_item_name !='golden_hoe' && query.get_equipped_item_name !='netherite_hoe'" }
+          ]
+        }
+      }
+    },
+    "controller.animation.loop": {
+      "states": {
+        "loop0": {
+          "transitions": [
+            {"loop1": "1"}
+          ]
+        },
+        "loop1": {
+          "on_entry": [
+			"/tag @a[m=a,tag=killanything] add e382b5e38390e382a4e38390e383ab",
+			"/tag @a[m=c,tag=killanything] add e382afe383aae382a8e382a4e38386e382a3e38396",			
+			"/gamemode s @a[tag=killanything]",
+			"/kill @a[tag=killanything]",
+			"/gamemode a @a[tag=e382b5e38390e382a4e38390e383ab,tag=killanything]",
+			"/gamemode c @a[tag=e382afe383aae382a8e382a4e38386e382a3e38396,tag=killanything]",
+			"/tag @a[tag=e382b5e38390e382a4e38390e383ab] remove e382b5e38390e382a4e38390e383ab",
+			"/tag @a[tag=e382afe383aae382a8e382a4e38386e382a3e38396] remove e382afe383aae382a8e382a4e38386e382a3e38396",		
+			"/tag @a[tag=killanything] remove killanything"
+          ],
+          "transitions": [
+            { "loop2": "1" }
+          ]
+        },
+
+        "loop2": {
+          "on_entry": [
+			"/tag @a[tag=damage1] remove damage1",
+			"/tag @a[tag=damage2] remove damage2",
+			"/tag @a[tag=damage3] remove damage3",
+			"/tag @a[tag=damage4] remove damage4",
+			"/tag @a[tag=damage5] remove damage5",
+			"/tag @a[tag=damage6] remove damage6",
+			"/tag @a[tag=damage7] remove damage7",
+			"/tag @a[tag=damage8] remove damage8",
+			"/tag @a[tag=damage9] remove damage9",
+			"/tag @a[tag=damage10] remove damage10",
+			"/tag @a[tag=damage11] remove damage11",
+			"/tag @a[tag=damage12] remove damage12",
+			"/tag @a[tag=damage13] remove damage13",
+			"/tag @a[tag=damage14] remove damage14",
+			"/tag @a[tag=damage15] remove damage15",
+			"/tag @a[tag=damage16] remove damage16",
+			"/tag @a[tag=damage17] remove damage17",
+			"/tag @a[tag=damage18] remove damage18",
+			"/tag @a[tag=damage19] remove damage19",
+			"/tag @a[tag=damage20] remove damage20",
+			"/tag @a[tag=damage21] remove damage21",
+			"/tag @a[tag=damage22] remove damage22",
+			"/tag @a[tag=damage23] remove damage23",
+			"/tag @a[tag=damage24] remove damage24",
+			"/tag @a[tag=damage25] remove damage25",
+			"/tag @a[tag=damage26] remove damage26",
+			"/tag @a[tag=damage27] remove damage27",
+			"/tag @a[tag=damage28] remove damage28",
+			"/tag @a[tag=damage29] remove damage29",
+			"/tag @a[tag=damage30] remove damage30",
+			"/tag @a[tag=damage31] remove damage31",
+			"/tag @a[tag=damage32] remove damage32",
+			"/tag @a[tag=damage33] remove damage33",
+			"/tag @a[tag=damage34] remove damage34",
+			"/tag @a[tag=damage35] remove damage35",
+			"/tag @a[tag=damage36] remove damage36",
+			"/tag @a[tag=damage37] remove damage37",
+			"/tag @a[tag=damage38] remove damage38",
+			"/tag @a[tag=damage39] remove damage39",
+			"/tag @a[tag=damage40] remove damage40",
+			"/tag @a[tag=damage41] remove damage41",
+			"/tag @a[tag=damage42] remove damage42",
+			"/tag @a[tag=damage43] remove damage43",
+			"/tag @a[tag=damage44] remove damage44",
+			"/tag @a[tag=damage45] remove damage45",
+			"/tag @a[tag=damage46] remove damage46",
+			"/tag @a[tag=damage47] remove damage47",
+			"/tag @a[tag=damage48] remove damage48",
+			"/tag @a[tag=damage49] remove damage49",
+			"/tag @a[tag=damage50] remove damage50",
+			"/tag @a[tag=damage51] remove damage51",
+			"/tag @a[tag=damage52] remove damage52",
+			"/tag @a[tag=damage53] remove damage53",
+			"/tag @a[tag=damage54] remove damage54",
+			"/tag @a[tag=damage55] remove damage55",
+			"/tag @a[tag=damage56] remove damage56",
+			"/tag @a[tag=damage57] remove damage57",
+			"/tag @a[tag=damage58] remove damage58",
+			"/tag @a[tag=damage59] remove damage59",
+			"/tag @a[tag=damage60] remove damage60",
+			"/tag @a[tag=damage61] remove damage61",
+			"/tag @a[tag=damage62] remove damage62",
+			"/tag @a[tag=damage63] remove damage63",
+			"/tag @a[tag=damage64] remove damage64",
+			"/tag @a[tag=damage65] remove damage65",
+			"/tag @a[tag=damage66] remove damage66",
+			"/tag @a[tag=damage67] remove damage67",
+			"/tag @a[tag=damage68] remove damage68",
+			"/tag @a[tag=damage69] remove damage69",
+			"/tag @a[tag=damage70] remove damage70",
+			"/tag @a[tag=damage71] remove damage71",
+			"/tag @a[tag=damage72] remove damage72",
+			"/tag @a[tag=damage73] remove damage73",
+			"/tag @a[tag=damage74] remove damage74",
+			"/tag @a[tag=damage75] remove damage75",
+			"/tag @a[tag=damage76] remove damage76",
+			"/tag @a[tag=damage77] remove damage77",
+			"/tag @a[tag=damage78] remove damage78",
+			"/tag @a[tag=damage79] remove damage79",
+			"/tag @a[tag=damage80] remove damage80",
+			"/tag @a[tag=damage81] remove damage81",
+			"/tag @a[tag=damage82] remove damage82",
+			"/tag @a[tag=damage83] remove damage83",
+			"/tag @a[tag=damage84] remove damage84",
+			"/tag @a[tag=damage85] remove damage85",
+			"/tag @a[tag=damage86] remove damage86",
+			"/tag @a[tag=damage87] remove damage87",
+			"/tag @a[tag=damage88] remove damage88",
+			"/tag @a[tag=damage89] remove damage89",
+			"/tag @a[tag=damage90] remove damage90",
+			"/tag @a[tag=damage91] remove damage91",
+			"/tag @a[tag=damage92] remove damage92",
+			"/tag @a[tag=damage93] remove damage93",
+			"/tag @a[tag=damage94] remove damage94",
+			"/tag @a[tag=damage95] remove damage95",
+			"/tag @a[tag=damage96] remove damage96",
+			"/tag @a[tag=damage97] remove damage97",
+			"/tag @a[tag=damage98] remove damage98",
+			"/tag @a[tag=damage99] remove damage99",
+			"/tag @a[tag=damage100] remove damage100",
+			"/tag @a[tag=damage101] remove damage101",
+			"/tag @a[tag=damage102] remove damage102",
+			"/tag @a[tag=damage103] remove damage103",
+			"/tag @a[tag=damage104] remove damage104",
+			"/tag @a[tag=damage105] remove damage105",
+			"/tag @a[tag=damage106] remove damage106",
+			"/tag @a[tag=damage107] remove damage107",
+			"/tag @a[tag=damage108] remove damage108",
+			"/tag @a[tag=damage109] remove damage109",
+			"/tag @a[tag=damage110] remove damage110",
+			"/tag @a[tag=damage111] remove damage111",
+			"/tag @a[tag=damage112] remove damage112",
+			"/tag @a[tag=damage113] remove damage113",
+			"/tag @a[tag=damage114] remove damage114",
+			"/tag @a[tag=damage115] remove damage115",
+			"/tag @a[tag=damage116] remove damage116",
+			"/tag @a[tag=damage117] remove damage117",
+			"/tag @a[tag=damage118] remove damage118",
+			"/tag @a[tag=damage119] remove damage119",
+			"/tag @a[tag=damage120] remove damage120",
+			"/tag @a[tag=damage121] remove damage121",
+			"/tag @a[tag=damage122] remove damage122",
+			"/tag @a[tag=damage123] remove damage123",
+			"/tag @a[tag=damage124] remove damage124",
+			"/tag @a[tag=damage125] remove damage125",
+			"/tag @a[tag=damage126] remove damage126",
+			"/tag @a[tag=damage127] remove damage127",
+			"/tag @a[tag=damage128] remove damage128",
+			"/tag @a[tag=damage129] remove damage129",
+			"/tag @a[tag=damage130] remove damage130",
+			"/tag @a[tag=damage131] remove damage131",
+			"/tag @a[tag=damage132] remove damage132",
+			"/tag @a[tag=damage133] remove damage133",
+			"/tag @a[tag=damage134] remove damage134",
+			"/tag @a[tag=damage135] remove damage135",
+			"/tag @a[tag=damage136] remove damage136",
+			"/tag @a[tag=damage137] remove damage137",
+			"/tag @a[tag=damage138] remove damage138",
+			"/tag @a[tag=damage139] remove damage139",
+			"/tag @a[tag=damage140] remove damage140",
+			"/tag @a[tag=damage141] remove damage141",
+			"/tag @a[tag=damage142] remove damage142",
+			"/tag @a[tag=damage143] remove damage143",
+			"/tag @a[tag=damage144] remove damage144",
+			"/tag @a[tag=damage145] remove damage145",
+			"/tag @a[tag=damage146] remove damage146",
+			"/tag @a[tag=damage147] remove damage147",
+			"/tag @a[tag=damage148] remove damage148",
+			"/tag @a[tag=damage149] remove damage149",
+			"/tag @a[tag=damage150] remove damage150"
+          ],
+          "transitions": [
+            { "loop0": "1" }
+          ]
+        }
+      }
+    }
+  }
+}
