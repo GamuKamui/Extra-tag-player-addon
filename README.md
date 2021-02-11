@@ -155,3 +155,11 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 ### 配布ワールドに組み込む場合は http://world-minecraft.com/addon/extra-tag-player-addon かgithubのコメント欄、twitterのDMにてメッセージを一言（使わせていただきます等よろしくおねがいします）
 
 ### ⚠配信などで使用する場合、できればでいいのですがこのアドオンの名前(Extra tag player addon)を説明欄等に表記してください。⚠
+  
+ワールドマインクラフト↓  
+http://world-minecraft.com/addon/extra-tag-player-addon  
+  
+マインアド↓  
+https://mineadd.bubbleapps.io/items/1613048866434x204108623241805820  
+
+
