@@ -1,6 +1,7 @@
 # Extra-tag-player-addon
 tagコマンドによりプレイヤーでいろんなことができるようになるアドオンです。  
 ・・・とかいいつつtagを全く使わない要素も追加する予定です
+## ほぼ完全にワールド製作者向けです
   
 ## ダウンロード [最新版v0.008a](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.008a/Extra-tag-player-addon-v0.008a.mcaddon)
 
