@@ -161,7 +161,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - `attack`攻撃意外での右手を動かすモーション(ボタンを押す、チェストの中を見る時等)でもtagがついている  
    
   
-***このアドオンの紹介動画を@kurisandaさんが作ってくれました！  
+***このアドオンの紹介動画を@kuripasandaさんが作ってくれました！  
 本当にありがとう！  
 紹介動画→https://youtu.be/i4AUK6J7YA4  
 Twitter→https://twitter.com/kuripasanda***  
