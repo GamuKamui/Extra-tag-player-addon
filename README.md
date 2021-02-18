@@ -164,7 +164,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 ***このアドオンの紹介動画を@kurisandaさんが作ってくれました！  
 本当にありがとう！  
 紹介動画→https://youtu.be/i4AUK6J7YA4  
-Twitter→https://twitter.com/kurisanda***  
+Twitter→https://twitter.com/kuripasanda***  
   
 
 重大ミスやリクエスト、質問などtwitterのDMにて　https://twitter.com/masterkamui4649
