@@ -166,13 +166,26 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 紹介動画→https://youtu.be/i4AUK6J7YA4  
 Twitter→https://twitter.com/kuripasanda***  
   
-
+## このアドオンが使用されているワールド↓  
+[ネズミバスターズ！！マルチプレイPVPミニゲーム v1.2](http://world-minecraft.com/pe/43768304)  
+  
+  
+  
 重大ミスやリクエスト、質問などtwitterのDMにて　https://twitter.com/masterkamui4649
 
 ## ⚠二次配布は配布ワールドに組み込む以外では禁止です。
 ### 配布ワールドに組み込む場合は http://world-minecraft.com/addon/extra-tag-player-addon かgithubのコメント欄、twitterのDMにてメッセージを一言（使わせていただきます等よろしくおねがいします）
 
 ### ⚠配信などで使用する場合、できればでいいのですがこのアドオンの名前(Extra tag player addon)を説明欄等に表記してください。⚠
+  
+  
+  
+  
+  
+
+
+
+  
   
 ワールドマインクラフト↓  
 http://world-minecraft.com/addon/extra-tag-player-addon  
