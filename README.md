@@ -171,7 +171,7 @@ Twitter→https://twitter.com/kuripasanda***
   
   
   
-重大ミスやリクエスト、質問などtwitterのDMにて　https://twitter.com/masterkamui4649
+重大ミスやリクエスト、質問などtwitterのDMにて　https://twitter.com/masterkamui4649  
 script apiは不使用なのでWin10版以外でも導入可能です  
   
 ## ⚠二次配布は配布ワールドに組み込む以外では禁止です。
