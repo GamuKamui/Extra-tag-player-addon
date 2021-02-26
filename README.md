@@ -2,7 +2,7 @@
 tagコマンドによりプレイヤーでいろんなことができるようになるアドオンです。  
 ・・・とかいいつつtagを全く使わない要素も追加する予定です
 ## ほぼ完全にワールド製作者向けです
-  
+## 同梱のリソースパックを入れることでnumberタグを使用可能になります
 ## ダウンロード [最新版v0.009](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.009/Extra-tag-player-addon-v0.009.mcaddon)
 
   
@@ -62,6 +62,9 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - ↓v0.009からの機能  
         - `speed(数字)` プレイヤーの移動速度（例えばspeed10で速度10）0～99まであります。(10が規定でそれより下にすると遅くなります)  
         - `noclimd` はしごが登れなくなります  
+        
+   - ↓v0.010からの機能  
+        - `number(数字)` 頭上に数字を表示させます。1～30まであります。
   
   
 ### ２，特定のアクションをするとtagがつく  
@@ -141,6 +144,9 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
           保存場所はオブジェクト名`killcount`です。  
           `/scoreboard objectives add killcount dummy killcount`  
   
+   - ↓v0.010からの機能        
+        - `numberscorebord`  
+        - numberスコアボードの数値を読み取り、numberタグを自動でつけます/function numberscorebord
   
 ### 修正点  
    - v0.003
@@ -154,6 +160,12 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
         - `ry` サーバーに負荷をかける可能性があるためファンクション化しました。/Function tagryを常時発動してください  
         - `hp(数字)` 1～150まで使えるように  
         - `damage(数字)` 1～150まで使えるように  
+  
+   - v0.010  
+        - `killanything`    
+          ↑function化、/function killanythingで実行です  
+        - `removedamage`  
+          ↑damageタグは自動で外れなくなりました。/function removedamageで外せます  
   
 ### 既知のバグ  
    - 修正済み ~~地上でも呼吸ゲージが出ている(その影響か、水中で呼吸ができる)~~  
