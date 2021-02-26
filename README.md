@@ -31,7 +31,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
   
   
 ## tag説明 
-### １，特定のtagをつけるとプレイヤーに影響を与える
+### １，特定のtagをつけるとプレイヤーに影響を与える  
         - `nonametag`           プレイヤーのネームタグを見えなくします。（カーソルを合わせると見えます）  
         - `water`               水に触れると4ダメージ（ハート２つ分のダメージ）を喰らいます。雨でも有効です。  
         - `small`               体が約1メートルほどに小さくなります。  
@@ -54,65 +54,65 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
   
 ### ２，特定のアクションをするとtagがつく  
 #### 全て自動でtagがつけられます。  
-        - `sneaking`            スニークすると付くtag  
-        - `sprinting`           走るとつくtag  
-        - `swimming`            泳ぐと付くtag  
-        - `jumping`             ジャンプすると付くtag  
-        - `moving`              動くと付くtag  
-        - `last_hit_by_player`  プレイヤーからダメージを受けると付くtag（自動では外れません）  
-        - `max_health`          体力が最大のときに付くtag  
-        - `deathplayer` プレイヤーによって殺された場合に付きます。（自動では外れません）  
-          同時にスコアボードにデス数を記録します  
-          `/scoreboard objectives add deathplayer dummy deathplayer`  
-        - `death` 死亡したときに付きます（自動では外れません）  
-        - `damage` 被ダメージしたときに付きます（自動では外れません）  
-        - `helmet`何でもいいのでヘルメットをかぶったときに付きます  
-        - `chestplate`何でもいいのでチェストプレートを付けた時に付きます  
-        - `leggings`何でもいいのでレギンスを履いた時に付きます  
-        - `boots`何でもいいのでブーツを履いた時に付きます        
-        - `sword` どれでもいいので剣を持つと付きます  
-        - `attack` 攻撃モーション時に付きます（自動では外れません）  
-        - `using` 何らかのアイテムを使用したときに付きます（何かを食べる、弓矢をかまえる等）  
-        - `onfire` 体が燃えているときに付きます      
-        - `gliding` エリトラで滑空すると付きます    
-        - `pickaxe` どれでもいいのでピッケルを持つと付きます  
-        - `axe` どれでもいいのでオノを持つと付きます  
-        - `shovel` どれでもいいのでシャベルを持つと付きます  
-        - `hoe` どれでもいいのでクワを持つと付きます  
-        - `killplayer` プレイヤーを倒すと付きます（自動では外れません）  
+   - `sneaking`            スニークすると付くtag  
+   - `sprinting`           走るとつくtag  
+   - `swimming`            泳ぐと付くtag  
+   - `jumping`             ジャンプすると付くtag  
+   - `moving`              動くと付くtag  
+   - `last_hit_by_player`  プレイヤーからダメージを受けると付くtag（自動では外れません）  
+   - `max_health`          体力が最大のときに付くtag  
+   - `deathplayer` プレイヤーによって殺された場合に付きます。（自動では外れません）  
+     同時にスコアボードにデス数を記録します  
+     `/scoreboard objectives add deathplayer dummy deathplayer`  
+   - `death` 死亡したときに付きます（自動では外れません）  
+   - `damage` 被ダメージしたときに付きます（自動では外れません）  
+   - `helmet`何でもいいのでヘルメットをかぶったときに付きます  
+   - `chestplate`何でもいいのでチェストプレートを付けた時に付きます  
+   - `leggings`何でもいいのでレギンスを履いた時に付きます  
+   - `boots`何でもいいのでブーツを履いた時に付きます        
+   - `sword` どれでもいいので剣を持つと付きます  
+   - `attack` 攻撃モーション時に付きます（自動では外れません）  
+   - `using` 何らかのアイテムを使用したときに付きます（何かを食べる、弓矢をかまえる等）  
+   - `onfire` 体が燃えているときに付きます      
+   - `gliding` エリトラで滑空すると付きます    
+   - `pickaxe` どれでもいいのでピッケルを持つと付きます  
+   - `axe` どれでもいいのでオノを持つと付きます  
+   - `shovel` どれでもいいのでシャベルを持つと付きます  
+   - `hoe` どれでもいいのでクワを持つと付きます  
+   - `killplayer` プレイヤーを倒すと付きます（自動では外れません）  
         
     
 ### ３，tagとは無関係  
-        - スコアボードに体力を記録できるようになりました。  
-          保存場所はオブジェクト名`hp`です。  
-          `/scoreboard objectives add hp dummy hp`  
+   - スコアボードに体力を記録できるようになりました。  
+     保存場所はオブジェクト名`hp`です。  
+     `/scoreboard objectives add hp dummy hp`  
         
-        - なんのアイテムを持っているかをスコアボードに保存することができるようになりました  
-          保存場所はオブジェクト名`haveitem`です。  
-          `/scoreboard objectives add haveitem dummy haveitem`  
-          ちなみにビヘイビアのドキュメントにあるアイテムIDで保存してますが  
-          普通ではググっても出てこないので[ItemID](https://github.com/GamuKamui/Extra-tag-player-addon/blob/main/itemID/)で見てください。  
-          （とかいいつつ、このアイテム持ったらこのスコアなんだな、とか自分で見たほうが早いと思います。）  
+   - なんのアイテムを持っているかをスコアボードに保存することができるようになりました  
+     保存場所はオブジェクト名`haveitem`です。  
+     `/scoreboard objectives add haveitem dummy haveitem`  
+     ちなみにビヘイビアのドキュメントにあるアイテムIDで保存してますが  
+     普通ではググっても出てこないので[ItemID](https://github.com/GamuKamui/Extra-tag-player-addon/blob/main/itemID/)で見てください。  
+     （とかいいつつ、このアイテム持ったらこのスコアなんだな、とか自分で見たほうが早いと思います。）  
 
-        - 視点の方角をスコアボードに保存できるようになりました  
-          保存場所はオブジェクト名`rx`です。  /Function tagrxを常時発動してください  
-          `/scoreboard objectives add rx dummy rx`  
-        - 視点の高さをスコアボードに保存できるようになりました  
-          保存場所はオブジェクト名`ry`です。  /Function tagryを常時発動してください  
-          `/scoreboard objectives add ry dummy ry`    
+   - 視点の方角をスコアボードに保存できるようになりました  
+     保存場所はオブジェクト名`rx`です。  /Function tagrxを常時発動してください  
+     `/scoreboard objectives add rx dummy rx`  
+   - 視点の高さをスコアボードに保存できるようになりました  
+     保存場所はオブジェクト名`ry`です。  /Function tagryを常時発動してください  
+     `/scoreboard objectives add ry dummy ry`    
 
-        - リセット系
-          すべてファンクションです。自分以外のプレイヤーで実行させたいときはexecuteコマンドで実行してください  
-          `removeall` このアドオンで使われているすべてのタグを外します  
-          `removehp` すべてのhpタグを外します  
-          `removepower` すべてのpowerタグを外します  
+   - リセット系
+     すべてファンクションです。自分以外のプレイヤーで実行させたいときはexecuteコマンドで実行してください  
+     `removeall` このアドオンで使われているすべてのタグを外します  
+     `removehp` すべてのhpタグを外します  
+     `removepower` すべてのpowerタグを外します  
             
-        - プレイヤーのキル数をスコアボードに保存することができるようになりました  
-          保存場所はオブジェクト名`killcount`です。  
-          `/scoreboard objectives add killcount dummy killcount`  
+   - プレイヤーのキル数をスコアボードに保存することができるようになりました  
+     保存場所はオブジェクト名`killcount`です。  
+     `/scoreboard objectives add killcount dummy killcount`  
 
-        - `numberscorebord`  
-        - numberスコアボードの数値を読み取り、numberタグを自動でつけます/function numberscorebord
+   - `numberscorebord`  
+     numberスコアボードの数値を読み取り、numberタグを自動でつけます/function numberscorebord
   
 ### 修正点  
    - v0.003
