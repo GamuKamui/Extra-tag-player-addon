@@ -132,6 +132,10 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
           ↑function化、/function killanythingで実行です  
         - `removedamage`  
           ↑damageタグは自動で外れなくなりました。/function removedamageで外せます  
+   - v0.010a  
+        - コード一新、tagがついている判定を1秒に1回に変更
+  
+  
   
 ### 既知のバグ  
    - 修正済み ~~地上でも呼吸ゲージが出ている(その影響か、水中で呼吸ができる)~~  
