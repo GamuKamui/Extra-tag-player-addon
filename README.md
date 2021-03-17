@@ -5,7 +5,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 ・・・とかいいつつtagを全く使わない要素も追加する予定です
 ## ほぼ完全にワールド製作者向けです
 ## 同梱のリソースパックを入れることでnumberタグを使用可能になります
-## ダウンロード [最新版v0.010c](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.010c/Extra-tag-player-addon-v0.010c.mcaddon)
+## ダウンロード [最新版v0.010c](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.010c/Extra-tag-player-addon-v0.010c.mcaddon)[改造用リソースパック.zip](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.011/Extra-tag-player-addonR-v0.011.zip)
 
   
 ## ※ゲーム内でもtag一覧を見れるようになりました。`/function taghelp`を実行してください
@@ -51,7 +51,8 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - `power(数字)` プレイヤーの攻撃力（例えばpower10で攻撃力10）0～150まであります。  
    - `speed(数字)` プレイヤーの移動速度（例えばspeed10で速度10）0～99まであります。(10が規定でそれより下にすると遅くなります)  
    - `noclimd` はしごが登れなくなります  
-   - `number(数字)` 頭上に数字を表示させます。1～30まであります。
+   - `number(数字)` 頭上に数字を表示させます。1～30まであります。  
+   - `image(数字)` 頭上に画像を表示させます。1～70まであります。リソースパックを改造して好きな画像を表示できます。  
   
   
 ### ２，特定のアクションをするとtagがつく  
