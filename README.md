@@ -4,7 +4,7 @@
 tagコマンドによりプレイヤーでいろんなことができるようになるアドオンです。  
 ・・・とかいいつつtagを全く使わない要素も追加する予定です
 ## ほぼ完全にワールド製作者向けです
-## 同梱のリソースパックを入れることでnumberタグを使用可能になります
+## 同梱のリソースパックを入れることでnumber、imageタグを使用可能になります
 ## ダウンロード [最新版v0.012](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.012/Extra-tag-player-addon-v0.012.mcaddon).[改造用リソースパック.zip](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.011/Extra-tag-player-addonR-v0.011.zip)
 
   
