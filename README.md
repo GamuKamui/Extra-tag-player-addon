@@ -9,7 +9,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    
 ## 軽量化バージョンも作成しています  
 [軽量バージョンv0.012-lite-1](https://github.com/GamuKamui/Extra-tag-player-addon/releases/tag/v0.012-lite-1)  
-
+[軽量バージョンv0.012-lite-1v2](https://github.com/GamuKamui/Extra-tag-player-addon/releases/tag/v0.012-lite-1v2)  
   
 ## ※ゲーム内でもtag一覧を見れるようになりました。`/function taghelp`を実行してください
 ### ⚠まだ開発段階です
