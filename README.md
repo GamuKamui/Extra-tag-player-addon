@@ -7,6 +7,8 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 #### リソースパックを入れることでnumber、imageタグを使用可能になります
 ## ダウンロード [最新版v0.012a](https://github.com/GamuKamui/Extra-tag-player-addon/releases/tag/v0.012a).[改造用リソースパック.zip](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.011/Extra-tag-player-addonR-v0.011.zip)
    
+# 注　ダウンロードするときSource code(zip)ではなく.mcaddonの方を選んでください
+   
 ## 現在非対応↓
 > ## 軽量化バージョンも作成しています（別ページ）  
 > [軽量バージョンv0.012-lite-1](https://github.com/GamuKamui/Extra-tag-player-addon/releases/tag/v0.012-lite-1)  
