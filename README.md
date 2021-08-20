@@ -153,10 +153,11 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 紹介動画→https://youtu.be/i4AUK6J7YA4  
 Twitter→https://twitter.com/kuripasanda***  
   
-***追記アドオンの紹介動画をドライトのゲーム実況ちゃんねるン.さんが作ってくれました！  
-感謝しかありません！！
+***追記  
+アドオンの紹介動画をドライトのゲーム実況ちゃんねるン.さんが作ってくれました！  
+感謝しかありません！！  
 紹介動画→https://youtu.be/3cfHQyEscQw  
-Twitter→https://twitter.com/dolight_mishiyu***
+Twitter→https://twitter.com/dolight_mishiyu***  
   
 ## このアドオンが使用されているワールド↓  
 [ネズミバスターズ！！マルチプレイPVPミニゲーム v1.2](http://world-minecraft.com/pe/43768304)  
