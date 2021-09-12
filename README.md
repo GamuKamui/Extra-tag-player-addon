@@ -121,29 +121,8 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - `numberscorebord`  
      numberスコアボードの数値を読み取り、numberタグを自動でつけます/function numberscorebord
   
-### 修正点  
-   - v0.003
-        - `invincible`何故かうまく働かなくなったので削除  
-          `small`以前まで使っても何も起きていなかったので修正し、使えるように  
-          全体のコード一新
-   - v0.005  
-        - `notburie` 呼吸系がおかしかったので無効化  
-   - v0.008  
-        - `rx` サーバーに負荷をかける可能性があるためファンクション化しました。/Function tagrxを常時発動してください  
-        - `ry` サーバーに負荷をかける可能性があるためファンクション化しました。/Function tagryを常時発動してください  
-        - `hp(数字)` 1～150まで使えるように  
-        - `damage(数字)` 1～150まで使えるように  
-  
-   - v0.010  
-        - `killanything`    
-          ↑function化、/function killanythingで実行です  
-        - `removedamage`  
-          ↑damageタグは自動で外れなくなりました。/function removedamageで外せます  
-   - v0.010a  
-        - コード一新、tagがついている判定を1秒に1回に変更
-   - v0.010c  
-        - damage(数字)タグ最適化、自動で外れるように
-        - tagがついている判定が前回修正で1秒に2回判定していたらしいので2秒に1回に修正
+### 既知のバグ
+   - `killplayer` 防具着用済みのプレイヤーが致命的ではない攻撃を受けてもtagがついてしまう  
   
 
 ***このアドオンの紹介動画を@kuripasandaさんが作ってくれました！  
