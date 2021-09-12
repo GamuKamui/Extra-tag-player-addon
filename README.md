@@ -121,7 +121,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
    - `numberscorebord`  
      numberスコアボードの数値を読み取り、numberタグを自動でつけます/function numberscorebord
   
-### 既知のバグ
+### ⚠既知のバグ⚠
    - `killplayer` 防具着用済みのプレイヤーが致命的ではない攻撃を受けてもtagがついてしまう  
   
 
