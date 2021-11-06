@@ -8,7 +8,7 @@ tagコマンドによりプレイヤーでいろんなことができるよう�
 ## ダウンロード [最新版v0.012a](https://github.com/GamuKamui/Extra-tag-player-addon/releases/tag/v0.012a).[改造用リソースパック.zip](https://github.com/GamuKamui/Extra-tag-player-addon/releases/download/v0.011/Extra-tag-player-addonR-v0.011.zip)
    
 # 注　ダウンロードするときSource code(zip)ではなく.mcaddonの方を選んでください
-# 更に注　中の人が別のことをやって忙しいので更新めちゃくちゃ遅れます　   
+# 全然関係ないけど、このアドオンを作った人がYoutubeやってます、見てください→https://www.youtube.com/c/GamuKamui　   
   
 ## ※ゲーム内でもtag一覧を見れるようになりました。`/function taghelp`を実行してください
 ### ⚠まだ開発段階です
